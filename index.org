@@ -1,0 +1,230 @@
+#+TITLE: ?
+#+AUTHOR:    Wang, HaiYing
+#+EMAIL:     haiying.wang@uconn.edu
+
+#+BEGIN_EXPORT html
+<script type = "text/javascript">
+/* <![CDATA[ */
+  function displayImage(image) {
+  document.getElementById("img").src = image;
+  }
+  function displayNextImage() {
+  x = (x == images.length - 1) ? 0 : x + 1;
+  displayImage(images[x]);
+  }
+  function displayPreviousImage() {
+      x = (x <= 0) ? images.length - 1 : x - 1;
+      displayImage(images[x]);
+  }
+  function startTimer() {
+  setInterval(displayNextImage, 5000);
+  }
+  var images = [], x = -1;
+    images[0]  = "figures/why.jpg";
+    <!-- images[1]  = "figures/why001.jpg"; -->
+    images[1]  = "figures/why002.jpg";
+    images[2]  = "figures/why003.jpg";
+    <!-- images[4]  = "figures/why004.jpg"; -->
+    <!-- images[5]  = "figures/why005.jpg"; -->
+    <!-- images[6]  = "figures/why006.jpg"; -->
+    <!-- images[7]  = "figures/why007.jpg"; -->
+    images[3]  = "figures/why008.jpg";
+    <!-- images[9]  = "figures/why009.jpg"; -->
+    <!-- images[10] = "figures/why010.jpg"; -->
+    <!-- images[11] = "figures/why011.jpg"; -->
+    images[4] = "figures/why012.jpg";
+    images[5] = "figures/why013.jpg";
+    images[6] = "figures/why014.jpg";
+  window.addEventListener('load', function() {
+  'use strict';
+  startTimer();
+  }, false);
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<table style="width: 100%" border="0" cellpadding="0">
+	<colgroup>
+		<col span="1" style="width: 60%;">
+		<col span="1" style="width: 40;">
+	</colgroup>
+	<tr>
+		<td>
+			<img id="img" src="figures/why.jpg" alt="" height="350"/><br />
+			<button onclick="displayPreviousImage()">Previous</button>
+			<button onclick="displayNextImage()">Next</button>
+		</td>
+		<td>
+			<h2>Wang, HaiYing &nbsp; 王海鹰</h2>
+			<div>
+				<a href="http://www.stat.uconn.edu/">Department of Statistics </a><br />
+				<a href="http://www.uconn.edu/">University of Connecticut</a><br />
+				W319 Philip E. Austin Building<br />
+				215 Glenbrook Rd. U-4120<br />
+				Storrs, CT 06269-4120<br />
+				Phone: (860) 486-6142<br />
+				Email: \(\textrm{W}\)@\(\textrm{H}\).\(\textrm{Y}\), <br />
+				&emsp; where
+				\(\begin{cases} \textrm{W} &= \textrm{haiying.wang}\\ \textrm{H} &= \textrm{uconn}\\ \textrm{Y} &= \textrm{edu} \end{cases}\) <br />
+			</div>
+		</td>
+	</tr>
+</table>
+#+END_EXPORT
+
+* About Me
+:PROPERTIES:
+:CUSTOM_ID: about-me
+:END:
+
+- I am an Associate Professor and was an Assistant Professor in the
+	[[http://stat.uconn.edu/][Department of Statistics]], at the [[http://uconn.edu/][University of Connecticut]].
+- I was an Assistant Professor in the
+	[[http://ceps.unh.edu/mathematics-statistics][Department of Mathematics & Statistics]], at the [[http://www.unh.edu/][University of New Hampshire]].
+- I obtained my PhD from the
+	[[http://www.stat.missouri.edu/][Department of Statistics]], at the [[http://www.missouri.edu/][University of Missouri]], with adviser [[https://www.stat.missouri.edu/people/flournoy][Professor Nancy Flournoy]].
+- I obtained my MS from the Division of Statistical Science, Institute of Systems Science,
+	[[http://english.amss.cas.cn/][Academy of Mathematics and Systems Science]], [[http://english.cas.cn/][Chinese Academy of Sciences]], under the supervision of Professor Guohua Zou.
+- I worked as an engineer in the R & D center of Midea Group.
+- I obtained my BE from the School of Aeronautical Science and Engineering,
+	[[http://ev.buaa.edu.cn/][Beijing University of Aeronautics and Astronautics]].
+- Here is my [[https://www.dropbox.com/s/xhfk8f687jtf8pu/CV.pdf?dl=0][CV]].
+	
+* Research Interests
+:PROPERTIES:
+:CUSTOM_ID: research-interests
+:END:
+
+- Incomplete data analysis
+- Model selection and model averaging
+- Nonparametric and semi-parametric regression
+- Optimum experimental design
+- Sub-sample methods for big data
+
+* Work in progress
+:PROPERTIES:
+:CUSTOM_ID: work-in-progress
+:END:
+
+1. [cite:@LeeSchifanoWang2021mix]
+2. [cite:@WangWangYan2021]
+3. [cite:@WangKim2020] [[https://arxiv.org/abs/2011.05988][pdf]]
+4. [cite:@WangWangXiong2020]
+5. [cite:@ZhuZhangWangLiang2020]
+
+* Publications
+:PROPERTIES:
+:CUSTOM_ID: publications
+:END:
+
+1. [cite:@YuWang2021] [[./pdfs/LinearDiscrimination.pdf][pdf]]
+2. [cite:@WangZhangWang2021] [[https://arxiv.org/pdf/2110.13048.pdf][pdf]] 
+3. [cite:@YaoZouWang2021] [[./pdfs/OSMAC_Softmax_Poi.pdf][pdf]]
+4. [cite:@WangZhangLiangRuppert2021] [[./pdfs/IterativeLikelihood.pdf][pdf]]
+5. [cite:@LeeSchifanoWang2021] [[./pdfs/OSMAC_FASA.pdf][pdf]]
+6. [cite:@pmlr-v130-wang21a] [[http://proceedings.mlr.press/v130/wang21a/wang21a.pdf][pdf]]
+7. [cite:@ZuoZhangWangSun2020]
+8. [cite:@HaimWang2021] [[./pdfs/latexnb-jds.pdf][pdf]]; [[https://github.com/Ossifragus/runcode][code]]
+9. [cite:@YaoWang2021JDS] [[./pdfs/OSMAC_JDS.pdf][pdf]]
+10. [cite:@zuo2021sampling] [[./pdfs/OSMAC_AdditiveHazard.pdf][pdf]]
+11. [cite:@ZHANG2021107072] [[./pdfs/OSMAC_DistLinear.pdf][pdf]]
+12. [cite:@PronzatoWang2020] [[https://arxiv.org/pdf/2004.00792.pdf][pdf]]
+13. [cite:@YaoWang2021] [[./pdfs/SelectiveBig.pdf][pdf]]
+14. [cite:@Wang2020RareICML] [[https://arxiv.org/pdf/2006.00683.pdf][pdf]]; [[https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/RareICML2020/][code]]
+15. [cite:@yu2020quasi] [[https://arxiv.org/pdf/2005.10435.pdf][pdf]]
+16. [cite:@ChengWangYang2020] [[./pdfs/IBOSS_Logistic.pdf][pdf]]
+17. [cite:@lee2020online] [[./pdfs/online_MeasurementError.pdf][pdf]]
+18. [cite:@hu2021most] [[https://arxiv.org/pdf/2005.11461.pdf][pdf]]
+19. [cite:@wang2020optimal] [[https://arxiv.org/pdf/2001.10168.pdf][pdf]]; [[https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_quantile/][code]]
+20. [cite:@zhou2020induction]
+21. [cite:@wang2019more] [[https://arxiv.org/pdf/1802.02698.pdf][pdf]]; [[https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/More_Efficient_Logistic/][code]]
+22. [cite:@xue2020online] [[https://arxiv.org/pdf/1809.01291.pdf][pdf]]
+23. [cite:@wang2019divide] [[https://arxiv.org/pdf/1905.09948.pdf][pdf]]; [[https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS-DC-Linear/][code]]
+24. [cite:@ai2018optimal] [[https://arxiv.org/pdf/1806.06761.pdf][pdf]]
+25. [cite:@zhou2019comparative]
+26. [cite:@yao2019optimal] [[./pdfs/SoftmaxSP.pdf][pdf]]
+27. [cite:@WangYangStufken2019] [[./pdfs/IBOSS_Linear.pdf][pdf]]; [[https://github.com/Ossifragus/IBOSS][R Package]]; [[https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS/][R code]]
+28. [cite:@WangZhuMa2018] [[./pdfs/OSMAC_Logistic.pdf][pdf]]; [[https://github.com/Ossifragus/OSMAC][R Package]]; [[https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_logistic/][R code]]
+29. [cite:@stang2018influences]
+30. [cite:@zhang2017linear] [[./pdfs/LinearErrorJASA.pdf][pdf]]; [[./pdfs/LinearErrorJASASupplementary.pdf][Supplementary]]
+31. [cite:@li2016joint] [[./pdfs/2016JoingAnalysis.pdf][pdf]]
+32. [cite:@lane2016conditional] [[./pdfs/moda11.pdf][pdf]]
+33. [cite:@mo2016understanding]
+34. [cite:@li2016regression] [[./pdfs/CorrCenObs.pdf][pdf]]
+35. [cite:@wang2016focused] [[./pdfs/fmaBothError.pdf][pdf]]
+36. [cite:@li2015semiparametric] [[./pdfs/MultiPC.pdf][pdf]]
+37. [cite:@WangSchaebenKeidel2015]
+38. [cite:@wang2015consistency] [[./pdfs/lognormal.pdf][pdf]]
+39. [cite:@wang2015focused] [[./pdfs/FMAPC.pdf][pdf]]
+40. [cite:@wang2014new] [[./pdfs/BoundedLog-linear.pdf][pdf]]
+41. [cite:@wang2013interval] [[./pdfs/CI.pdf][pdf]]
+42. [cite:@wang2013adaptive] [[./pdfs/Alasso.pdf][pdf]]
+43. [cite:@wang2013optimal] [[./pdfs/moda10.pdf][pdf]]
+44. [cite:@wang2012model] [[./pdfs/FMA_VCPLEM.pdf][pdf]]
+45. [cite:@wang2012objective] [[./pdfs/RefNonreg.pdf][pdf]]
+46. [cite:@WangZou2012] [[./pdfs/LinearFMA.pdf][pdf]]
+47. [cite:@kozak2010stochastic] [[./pdfs/Allocation.pdf][pdf]]
+48. [cite:@wang2009frequentist] [[./pdfs/FrequentistReview.pdf][pdf]]
+49. [cite:@FengWang2008]
+
+* Teaching
+:PROPERTIES:
+:CUSTOM_ID: teaching
+:END:
+
+- *At the University of Missouri*
+
+	- Statistics 1200 - Introductory Statistical Reasoning (3cr.), Fall 2010, Spring 2011, Fall 2011
+	- Statistics 2500 - Introductory to probability and statistics I (3cr.), Spring 2012
+	- Statistics 3500 - Introductory to probability and statistics II (3cr.), Fall 2012, Spring 2013
+
+- *At the University of New Hampshire*
+
+	- Math 539 - Introduction to Statistical Analysis (4cr.), Fall 2014
+	- Math 644 - Statistics for Engineers and Scientists (4cr.), Fall 2013, Spring 2014, Fall 2014
+	- Math 736/836 - Advanced Statistical Methods for Research (4cr.), Spring 2014, Spring 2015, Spring 2016
+	- Math 739/839 - Applied Regression Analysis (4cr.), Fall 2016
+	- Math 755/855 - Probability with Applications (4cr.), Fall 2015, Fall 2016
+	- Math 756/856 - Principles of Statistical Inference (4cr.), Spring 2016, Spring 2017
+	- Math 969 - Topics in Probability and Statistics (3cr.), Spring 2017
+
+- *At the University of Connecticut*
+
+	- STAT 3115Q - Analysis of Experiments (3cr.), Spring, 2018
+	- STAT 5125 - Computing for Statistical Data Science (3cr. in [[https://julialang.org/][julia]]), Fall 2021, Spring 2022
+	- BIST/STAT 5535: Nonparametric Methods (3cr. using [[https://julialang.org/][julia]]) Fall 2018, 2020, 2021
+	- BIST/STAT 5505 - Applied Statistics I (3cr.), Fall 2017, 2018, 2019
+	- BIST/STAT 5605 - Applied Statistics II (3cr.), Spring 2019, 2020
+	- BIST/STAT 6494: Statistical Inference for Big Data (3cr.) Spring 2018
+
+* Membership
+:PROPERTIES:
+:CUSTOM_ID: membership
+:END:
+
+- [[http://www.amstat.org/][American Statistical Association]]
+- [[http://www.imstat.org/][Institute of Mathematical Statistics]]
+- [[http://www.icsa.org/][International Chinese Statistical Association]]
+- [[http://www.isi-web.org/][International Statistical Institute]]
+- [[https://nestat.org][New England Statistical Society]]
+
+
+* Export Configuration                                           :noexport:
+# -*- org-confirm-babel-evaluate: nil -*-
+#+startup: content hideblocks
+#+options: h:4 timestamp:nil date:nil tasks tex:t num:nil toc:nil
+#+options: author:nil creator:nil html-postamble:nil HTML_DOCTYPE:HTML5
+#+HTML_HEAD: <base target="_blank">
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style/myorg.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./style/org.css"/>
+
+# #+INFOJS_OPT: view:t toc:t ltoc:t mouse:underline buttons:0 path:http://thomasf.github.io/solarized-css/org-info.min.js
+# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://thomasf.github.io/solarized-css/solarized-dark.min.css" />
+
+#+bibliography: papers.bib
+#+cite_export: csl APA-CV.csl
+
+# #+bibliography: ~/Dropbox/mydoc/CV/papers.bib
+# #+cite_export: csl ~/Dropbox/mydoc/web/style/APA-CV.csl

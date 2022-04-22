@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Design and Analysis of Experiments 2021</title>
+<meta name="generator" content="Org mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Design and Analysis of Experiments 2021</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#opening-remark">1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Opening Remark</a></li>
+<li><a href="#scientific-sessions">2. Scientific Sessions</a>
+<ul>
+<li><a href="#scientific-01">2.1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Tradeoffs Between Computational Costs and Statistical Efficiency</a></li>
+<li><a href="#scientific-02">2.2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-06 Wed&gt; </span></span> Optimal designs</a></li>
+<li><a href="#scientific-03">2.3. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-12 Tue&gt; </span></span> New Developments in Factorial Designs and Orthogonal Arrays</a></li>
+<li><a href="#scientific-04">2.4. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-13 Wed&gt; </span></span> Online experiments</a></li>
+<li><a href="#scientific-05">2.5. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-19 Tue&gt; </span></span> Bayesian Optimization and Active Learning</a></li>
+<li><a href="#scientific-06">2.6. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-20 Wed&gt; </span></span> Bayesian adaptive clinical trial designs: using uncertainty and information</a></li>
+<li><a href="#scientific-07">2.7. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-26 Tue&gt; </span></span> Analyzing Clinical Trials Disrupted by COVID</a></li>
+<li><a href="#scientific-08">2.8. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-27 Wed&gt; </span></span> Bayesian and model-robust design</a></li>
+</ul>
+</li>
+<li><a href="#roundtables">3. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-07 Thu&gt; </span></span> Roundtable Discussion</a>
+<ul>
+<li>
+<ul>
+<li><a href="#roundtable-01">Career in Academia</a></li>
+<li><a href="#roundtable-02">Career in Industry</a></li>
+<li><a href="#roundtable-03">Publishing Papers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#poster-session">4. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-14 Thu&gt; </span></span> JMP Poster Session</a>
+<ul>
+<li>
+<ul>
+<li><a href="#judges">Judges:</a></li>
+<li><a href="#student-best-poster-competition-winners">Student Best Poster Competition winners:</a></li>
+<li><a href="#posters">Posters</a>
+<ul>
+<li><a href="#poster-MarioBecerra">Mario Becerra, KU Leuven</a></li>
+<li><a href="#poster-AlexandreBohyn">Alexandre Bohyn, KU Leuven</a></li>
+<li><a href="#poster-CarlosdelaCalle-Arroyo">Carlos de la Calle-Arroyo, University of Castilla-La Mancha</a></li>
+<li><a href="#poster-DUHAMEL">DUHAMEL, Université Grenoble Alpes, INRIA, IFPEN</a></li>
+<li><a href="#poster-SubhadraDasgupta">Subhadra Dasgupta, IITB-Monash Research Academy</a></li>
+<li><a href="#poster-NickDoudchenko">Nick Doudchenko, Google</a></li>
+<li><a href="#poster-MohammedSaifIsmailHameed">Mohammed Saif Ismail Hameed, KU Leuven</a></li>
+<li><a href="#poster-ChaofanHuang">Chaofan Huang, Georgia Institute of Technology</a></li>
+<li><a href="#poster-JeevanJankar">Jeevan Jankar, University of Georgia</a></li>
+<li><a href="#poster-NicholasAlfredoLarsen">Nicholas Alfredo Larsen, North Carolina State University, Department of Statistics</a></li>
+<li><a href="#poster-JooChulLee">JooChul Lee, University of Pennsylvania</a></li>
+<li><a href="#poster-AbhyudayMandal">Abhyuday Mandal, University of Georgia</a></li>
+<li><a href="#poster-ParisaParsamaram">Parisa Parsamaram, Otto-von-Guericke University</a></li>
+<li><a href="#poster-SergioPozuelo-Campos">Sergio Pozuelo-Campos, University of Castilla-La Mancha</a></li>
+<li><a href="#poster-TorstenReuter">Torsten Reuter, Otto von Guericke University Magdeburg</a></li>
+<li><a href="#poster-MitchellAaronSchepps">Mitchell Aaron Schepps, UCLA</a></li>
+<li><a href="#poster-YaoShi">Yao Shi, Arizona State University</a></li>
+<li><a href="#poster-GauthamSunder">Gautham Sunder, Carlson School of Management</a></li>
+<li><a href="#poster-HongzhiWang">Hongzhi Wang, University of Georgia</a></li>
+<li><a href="#poster-JingWang">Jing Wang, University of Connecticut</a></li>
+<li><a href="#poster-YaqiongYao">Yaqiong Yao, Department of Biostatistics, Columbia University</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#panel-discussion">5. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-21 Thu&gt; </span></span> Panel Discussion</a></li>
+<li><a href="#individual-sponsors">6. Individual Sponsors</a></li>
+<li><a href="#participants">7. Participants</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-opening-remark" class="outline-2">
+<h2 id="opening-remark"><span class="section-number-2">1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Opening Remark</h2>
+<div class="outline-text-2" id="text-opening-remark">
+<p>
+10:45-11:00 AM Eastern Time
+</p>
+
+<ul class="org-ul">
+<li>Ryan Lekivetz, JMP</li>
+<li>Adam Lane, Cincinnati Children's Hospital</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-scientific-sessions" class="outline-2">
+<h2 id="scientific-sessions"><span class="section-number-2">2</span> Scientific Sessions</h2>
+<div class="outline-text-2" id="text-scientific-sessions">
+</div>
+
+<div id="outline-container-scientific-01" class="outline-3">
+<h3 id="scientific-01"><span class="section-number-3">2.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Tradeoffs Between Computational Costs and Statistical Efficiency</h3>
+<div class="outline-text-3" id="text-scientific-01">
+<p>
+11-12:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="http://homepages.math.uic.edu/~minyang/">Min Yang</a>, University of Illinois-Chicago
+</p>
+
+<ul class="org-ul">
+<li><a href="http://en.saif.sjtu.edu.cn/faculty-research/li-william">William Li</a>, Shanghai Advanced Institute of Finance
+<ul class="org-ul">
+<li>Title: On optimal designs in information-based optimal subdata - A systematic view of a data reduction strategy with application to second-order model</li>
+<li>Abstract: With the urgent need of analyzing extraordinary amount of data, information-based optimal subdata selection (IBOSS) approach has gained considerable attention in the recent literature due to its ability of maintaining rich information within the full datset with limited subdata size. On the other hand, there is still lack of systematically exploring the framework, especially on the characterization of the optimal subset, the key step of developing the associated algorithm. Motivated by a real finance case study concerning the impact of corporate attributes on firm value, we systematically explore the framework consisting of the exact steps one can follow when employing the idea of IBOSS for data reduction. Considering the second-order effect model that contains main effects, quadratic effects, and interaction effects, we develop a novel algorithm of selecting an informative subdata. Empirical studies including a real example demonstrate that the new algorithm adequately addresses the trade-off between the computation complexity and statistical efficiency, one of six core research directions for theoretical data science research proposed by the US National Science Foundation.</li>
+</ul></li>
+
+<li><a href="https://www.linkedin.com/in/yanxliu/">Yanxi Liu</a>, University of Illinois at Chicago
+<ul class="org-ul">
+<li>Title: Information-based Optimal Subdata Selection for Clusterwise Linear Regression</li>
+<li>Abstract: Technological advancements have accelerated in recent years. The amount of data being collected and the size of the data are increasing exponentially. Over time, it becomes more challenging to deal with not just massive amounts of data but also their complexity. The relationship between input and output variables may not be homogeneous anymore. Conventional statistical models such as generalized linear models (GLMs) may not be well-suited to heterogeneous relationships. Using a Mixture of Expert models is a good solution. The mixture of Expert models can combine different models. It can detect heterogeneous patterns while maintaining the benefits of conventional statistical modeling techniques. It does, however, need a considerable amount of computer resources, particularly when working with huge quantities of data. The subdata approach is a technique for resolving this issue.  Inspired by Wang, Yang, and Stufken (2019), the purpose of this project is to develop an algorithm for clusterwise linear regression, a type of Mixture of Experts, to select optimal subdata from the full data set, which preserves the maximum amount of information while requiring minimal computing resources. In this project, the proposed subdata selection is proved to be asymptotically optimal, i.e., no other method is statistically more efficient than the proposed one when the full data size is large.</li>
+</ul></li>
+
+<li><a href="https://www.isye.gatech.edu/users/roshan-joseph">Roshan Joseph</a>, Georgia Institute of Technology
+<ul class="org-ul">
+<li>Title: Supervised compression of big data</li>
+<li>Abstract: The phenomenon of big data has become ubiquitous in nearly all disciplines, from science to engineering. A key challenge is the use of such data for fitting statistical and machine learning models, which can incur high computational and storage costs. One solution is to perform model fitting on a carefully-selected subset of the data. Various data reduction methods have been proposed in the literature, ranging from random subsampling to optimal experimental design-based methods. However, when the goal is to learn the underlying input-output relationship, such reduction methods may not be ideal, since it does not make use of information contained in the output. To this end, we propose a supervised data compression method called supercompress, which integrates output information by sampling data from regions most important for modeling the desired input-output relationship. An advantage of supercompress is that it is nonparametric &#x2013; the compression method does not rely on parametric modeling assumptions between inputs and output. As a result, the proposed method is robust to  a wide range of modeling choices. We demonstrate the usefulness of supercompress over existing data reduction methods, in both simulations and a taxicab predictive modeling application.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scientific-02" class="outline-3">
+<h3 id="scientific-02"><span class="section-number-3">2.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-06 Wed&gt; </span></span> Optimal designs</h3>
+<div class="outline-text-3" id="text-scientific-02">
+<p>
+12-1:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="https://sites.google.com/uncg.edu/johnstufken/home">John Stufken</a>, University of North Carolina Greensboro
+</p>
+
+<ul class="org-ul">
+<li>Jesús López Fidalgo, University of Navarra
+<ul class="org-ul">
+<li>Title: Active Learning considering the marginal distribution of the covariates</li>
+<li>Abstract: The Big Data sample size introduces statistical and computational challenges to extract useful information from data sets. The subsampling procedure is widely used to downsize the data volume and allows computing estimators in regression models. Usually, subsampling is performed defining a weight for each point and selecting a subset according to these weights. The subsample can be chosen at random (Passive Learning), but in order to obtain better estimators, the optimal experimental design theory can be used searching for an “influential” sub-sample (Active Learning). This has been developed in the literature for linear and logistic regression, obtaining algorithms based on D-optimality and A-optimality. To the authors knowledge the distribution of the explanatory variables has never been considered for obtaining a subsample. We study the effect of the explanatory variables distribution on the estimation as well as the optimal design. We first assume normality of the covariates and latter we measure the impact of skewness and kurtosis on the estimation and optimal designs. Then, we propose a novel method to obtain optimal subsampling through D-optimality, taking into account the marginal distribution of the covariates. The D-optimal design is computed by an exchange algorithm to obtain the subsample.</li>
+</ul></li>
+
+<li><a href="https://www.kcl.ac.uk/people/kalliopi-mylona">Kalliopi Mylona</a>, King's College London
+<ul class="org-ul">
+<li>Title: Optimal split-plot designs for precise pure-error estimation of the variance components</li>
+<li>Abstract: In this work, we present a novel approach to design split-plot experiments which ensures that the two variance components can be estimated from pure error and guarantees a precise estimation of the response surface model. Our novel approach involves a new Bayesian compound D-optimal design criterion which pays attention to both the variance components and the fixed treatment effects. One part of the compound criterion (the part concerned with the treatment effects) is based on the response surface model of interest, while the other part (which is concerned with pure-error estimates of the variance components) is based on the full treatment model. We demonstrate that our new criterion yields split-plot designs that outperform existing designs from the literature both in terms of the precision of the pure-error estimates and the precision of the estimates of the factor effects.</li>
+</ul></li>
+</ul>
+<p>
+This is a joint work with Steven G. Gilmour (King’s College London) and Peter Goos (KU Leuven) 
+</p>
+
+<ul class="org-ul">
+<li><a href="https://sites.google.com/view/singhrakhi">Rakhi Singh</a>, UNC Greensboro
+<ul class="org-ul">
+<li>Title: Design selection for 2-level supersaturated designs</li>
+<li>Abstract: The commonly used design optimality criteria are inadequate for selecting supersaturated designs. As a result, there is extensive literature on alternative optimality criteria within this context. Most of these criteria are rather ad hoc and are not directly related to the primary goal of experiments that use supersaturated designs, which is factor screening. Especially, unlike almost any other optimal design problem, the criteria are not directly related to the method of analysis. An assumption needed for the analysis of supersaturated designs is the assumption of effect sparsity. Under this assumption, a popular method of analysis for 2-level supersaturated designs is the Gauss-Dantzig Selector (GDS), which shrinks many estimates to 0. We develop new design selection criteria inspired by the GDS and establish that designs that are better under these criteria tend to perform better as screening designs than designs obtained using existing criteria. This presentation is based on joint work with John Stufken, University of North Carolina at Greensboro.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scientific-03" class="outline-3">
+<h3 id="scientific-03"><span class="section-number-3">2.3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-12 Tue&gt; </span></span> New Developments in Factorial Designs and Orthogonal Arrays</h3>
+<div class="outline-text-3" id="text-scientific-03">
+<p>
+11-12:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="http://www.stat.ucla.edu/~hqxu/">Hongquan Xu</a>, University of California, Los Angeles
+</p>
+
+<ul class="org-ul">
+<li>Jessica Jaynes, California State University
+<ul class="org-ul">
+<li>Title: Orthogonal Array Composite Designs for Drug Combination Experiments with Applications for Tuberculosis</li>
+<li>Abstract: The aim of this research is to provide an overview of the orthogonal array composite design (OACD) methodology, show that they can be robust to missing data under practical scenarios and provide an application for tuberculosis. We compare the 𝐷-efficiencies of OACDs to the commonly used central composite designs (CCD) when there are a few missing observations and demonstrate that OACDs are more robust than the popular CCDs to missing observations for two scenarios. The first scenario assumes one observation is missing either from one factorial point or one additional point. The second scenario assumes two observations are missing either from two factorial points or from two additional points, or from one factorial point and one additional point. Two real-world applications of OACDs pertaining to tuberculosis are provided: a 155-run OACD with nine drugs and a 50-run OACD with six drugs.</li>
+</ul></li>
+
+<li>Robert Mee,  University of Tennessee
+<ul class="org-ul">
+<li>Title: Two-level parallel flats designs</li>
+<li>Abstract: Regular \(2^{n-p}\) designs are also  known as  single flat designs. Parallel flats designs (PFDs) consisting of three parallel flats (3-PFDs) are the most frequently utilized PFDs, due to their simple structure. Generalizing to  \(f\) -PFD with \(f>3\) is more challenging. This talk summarizes recent work on a general theory for the \(f\) -PFD for any \(f\geq 3\). We propose a method for obtaining the confounding frequency vectors for all nonequivalent \(f\) -PFDs, and to find the least \(G\) -aberration (or highest D-efficiency) \(f\) -PFD constructed from any single flat. We also characterize the quaternary code design series as PFDs.  Finally, we show how designs constructed by concatenating regular fractions from different families may also have a parallel flats structure. Examples are given throughout to illustrate the results.</li>
+</ul></li>
+
+<li>Lin Wang, George Washington University
+<ul class="org-ul">
+<li>Title: Orthogonal subsampling for big data linear regression</li>
+<li>Abstract: The dramatic growth of big datasets presents a new challenge to data storage and analysis. Data reduction, or subsampling, that extracts useful information from datasets is a crucial step in big data analysis. We propose an orthogonal subsampling (OSS) approach for big data with a focus on linear regression models. The approach is inspired by the fact that an orthogonal array of two levels provides the best experimental design for linear regression models in the sense that it minimizes the average variance of the estimated parameters and provides the best predictions. The merits of OSS are three-fold: (i) it is easy to implement and fast; (ii) it is suitable for distributed parallel computing and ensures the subsamples selected in different batches have no common data points; and (iii) it outperforms existing methods in minimizing the mean squared errors of the estimated parameters and maximizing the efficiencies of the selected subsamples. Theoretical results and extensive numerical results show that the OSS approach is superior to existing subsampling approaches. It is also more robust to the presence of interactions among covariates and, when they do exist, OSS provides more precise estimates of the interaction effects than existing methods. The advantages of OSS are also illustrated through analysis of real data.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scientific-04" class="outline-3">
+<h3 id="scientific-04"><span class="section-number-3">2.4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-13 Wed&gt; </span></span> Online experiments</h3>
+<div class="outline-text-3" id="text-scientific-04">
+<p>
+12-1:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="http://www.math.tau.ac.il/~dms/">David Steinberg</a>, Tel Aviv University
+</p>
+
+<ul class="org-ul">
+<li><a href="http://people.seas.harvard.edu/~samurphy/">Susan Murphy</a>, Harvard University
+<ul class="org-ul">
+<li>Title: Micro-Randomized Trials &amp; Online Decision-Making Algorithms</li>
+<li>Abstract: A formidable challenge in designing sequential treatments in health is to determine when and in which context it is best to deliver treatments to individuals. Operationally designing the sequential treatments involves the construction of decision rules that input current context of an individual and output a recommended treatment. Micro-randomized experiments, in which each individual is randomized many times can be use to provide data for constructing these decision rules. Further there is much interest in personalization during the experiment, that is, in real time as the individual experiences sequences of treatment. Here we discuss our work in designing online "bandit" learning algorithms for use in personalizing mobile health interventions Reinforcement Learning provides an attractive suite of online learning methods for personalizing interventions in a Digital Health.</li>
+</ul></li>
+
+<li>Julie Beckley, Etsy
+<ul class="org-ul">
+<li>Title: Improving Internet Experiment Validity</li>
+<li>Abstract: Large scale internet experiments are critical for making the best decisions for customers. While randomized controlled experiments are the cleanest way to measure treatment effects, ensuring experiments are behaving as expected is much harder. Based on my experience at Etsy and Netflix, I will go over several case studies of unexpected challenges and the methodological solutions we implemented to resolve them.</li>
+</ul></li>
+
+<li>Weitao Duan, LinkedIn
+<ul class="org-ul">
+<li>Title: Experiment Velocity and Trustworthiness at LinkedIn</li>
+<li>Abstract: Controlled experiments, or A/B tests, have been the gold standard for testing a product feature and making launch decisions. Many technology companies, such as Google, Facebook, LinkedIn, and Microsoft, have built large-scale in-house experimentation platforms and fully adopted A/B testing in their decision-making process. Despite the increasing engagement on the site, many of our experiments at LinkedIn suffer from low sample size and low experiment power. To be able to make inference, we adopted a different randomization unit to greatly increase experiment power. In this talk, we will share our lessons and learnings on this. In the second half of the talk, we will discuss the topic of experimentation within an advertising marketplace. We will show that the typical A/B test could lead to severe bias and introduce the budget split design to remove the cannibalization bias.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scientific-05" class="outline-3">
+<h3 id="scientific-05"><span class="section-number-3">2.5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-19 Tue&gt; </span></span> Bayesian Optimization and Active Learning</h3>
+<div class="outline-text-3" id="text-scientific-05">
+<p>
+11-12:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="https://bobby.gramacy.com/">Robert Gramacy</a>, Virginia Tech
+</p>
+
+<ul class="org-ul">
+<li>Nathan Wycoff, Georgetown University
+<ul class="org-ul">
+<li>Title: Learning And Deploying Active Subspaces On Black Box Simulators</li>
+<li>Abstract: Surrogate modeling of computer experiments via local models, which induce sparsity by only considering short range interactions, can tackle huge analyses of complicated input-output relationships. However, narrowing focus to local scale means that global trends must be relearned over and over again. We first demonstrate how to use Gaussian processes to efficiently perform a global sensitivity analysis on an expensive black box simulator. We next propose a framework for incorporating information from this global sensitivity analysis into the surrogate model as an input rotation and rescaling preprocessing step. We further discuss applications to derivative free optimization via locally defined subspaces. Numerical experiments on observational data and benchmark test functions provide empirical validation.</li>
+</ul></li>
+
+<li>Max Balandat, Facebook
+<ul class="org-ul">
+<li>Title: Multi-Objective Bayesian Optimization over High-Dimensional Search Spaces</li>
+<li>Abstract: The ability to optimize multiple competing objective functions with high sample efficiency is imperative in many applied problems across science and industry. Multi-objective Bayesian optimization (BO) achieves strong empirical performance on such problems, but even with recent methodological advances, it has been restricted to simple, low-dimensional domains. Most existing BO methods exhibit poor performance on search spaces with more than a few dozen parameters. In this work we propose MORBO, a method for multi-objective Bayesian optimization over high-dimensional search spaces. MORBO performs local Bayesian optimization within multiple trust regions simultaneously, allowing it to explore and identify diverse solutions even when the objective functions are difficult to model globally. We show that MORBO significantly advances the state-of-the-art in sample-efficiency for several high-dimensional synthetic and real-world multi-objective problems, including a vehicle design problem with 222 parameters, demonstrating that MORBO is a practical approach for challenging and important problems that were previously out of reach for BO methods.</li>
+</ul></li>
+
+<li>Matthias Poloczek, Amazon
+<ul class="org-ul">
+<li>Title: Scalable High-dimensional Bayesian Optimization</li>
+<li><p>
+Abstract: Bayesian optimization has become a powerful method for the sample-efficient optimization of expensive black-box functions. These functions do not have a closed-form and are evaluated for example by running a complex simulation of a marketplace, by a physical experiment in the lab or in a market, or by a CFD simulation.  Use cases arise in machine learning, e.g., when tuning the configuration of an ML model or when optimizing a reinforcement learning policy.  Many of these applications are high-dimensional, i.e., the number of tunable parameters exceeds 20, and thus difficult for current approaches due to the curses of dimensionality and the heterogeneity of the underlying functions. Of particular interest are constrained settings, where we are looking for a solution that satisfies inequality constraints of the form c(x) &lt;= 0 and is globally optimal for the objective function among all feasible solutions. These constrained problems are particularly challenging because the sets of feasible points are often small and non-convex. Due to the lack of sample efficient methods, practitioners usually fall back to evolutionary strategies or heuristics. 
+</p>
+
+<p>
+In this talk I will start with a brief introduction to Bayesian optimization and then present the trust region Bayesian optimization algorithm (TuRBO) that addresses the above challenges via a local surrogate and a suitable sampling strategy.  Then we will turn our attention to optimization under expensive black-box constraints and introduce the scalable constrained Bayesian optimization algorithm (SCBO).  I will show comprehensive experimental results that demonstrate that TuRBO and SCBO achieve excellent results and outperform the state-of-the-art methods.
+</p>
+
+<p>
+References:
+</p>
+<ul class="org-ul">
+<li>A Tutorial on Bayesian Optimization</li>
+<li>A Framework for Bayesian Optimization in Embedded Subspaces</li>
+<li>Scalable Global Optimization via Local Bayesian Optimization</li>
+<li>Scalable Constrained Bayesian Optimization</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scientific-06" class="outline-3">
+<h3 id="scientific-06"><span class="section-number-3">2.6</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-20 Wed&gt; </span></span> Bayesian adaptive clinical trial designs: using uncertainty and information</h3>
+<div class="outline-text-3" id="text-scientific-06">
+<p>
+12-1:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="https://web.ma.utexas.edu/users/pmueller/">Peter Muller</a>, the University of Texas at Austin
+</p>
+
+<ul class="org-ul">
+<li>Tianjian Zhou, Colorado State University
+<ul class="org-ul">
+<li>Title: Probability-of-Decision Designs to Accelerate Dose-Finding Trials</li>
+<li>Abstract: Cohort-based enrollment can slow down phase I dose-finding trials since the outcomes of the previous cohort must be fully evaluated before the next cohort can be enrolled. This results in frequent suspension of patient enrollment. We propose a class of probability-of-decision (POD) designs to accelerate dose-finding trials, which enable dose assignments in real-time in the presence of pending toxicity outcomes. With uncertain outcomes, the dose assignment decisions are treated as random variables, and we calculate the posterior distribution of the decisions. The posterior distribution reflects the variability in the pending outcomes and allows a direct and intuitive evaluation of the confidence of all possible decisions. Optimal decisions are calculated based on the 0-1 loss, and extra safety rules are constructed to enforce sufficient protection from exposing patients to risky doses. A new and useful feature of POD designs is that they allow investigators and regulators to balance the trade-off between enrollment speed and making risky decisions by tuning a pair of intuitive design parameters. The performances of POD designs are evaluated through numerical studies.</li>
+</ul></li>
+
+<li>Daniel Schwartz, University of Chicago
+<ul class="org-ul">
+<li>Title: Bayesian Uncertainty-Directed Designs with Model Averaging for Faster and More Informative Dose-Ranging Trials</li>
+<li>Abstract: In this paper we make three contributions to the design and analysis of Phase 2b non-oncology dose-ranging trials, which are critical for drug developers to find the optimal dose to carry forward to Phase 3. First, we use a Bayesian "uncertainty-directed" design (Ventz et al. 2018) that adaptively randomizes patients to doses in a way that explicitly maximizes information about which dose is optimal. This typically means assigning new patients to doses that have been previously understudied relative to how strongly the data suggest they could be the optimal dose. Second, we efficiently and robustly incorporate pharmacological knowledge through Bayesian model averaging of parametric dose-response curves. And third, we provide very fast posterior computation for this Bayesian adaptive design using a Sequential Monte Carlo algorithm that makes it easier for trialists to conduct extensive simulation studies to reliably check Frequentist error. These practical designs show promise to accelerate Phase 2b trials and produce higher quality evidence before Phase 3.</li>
+</ul></li>
+
+<li>Meizi Liu, University of Chicago
+<ul class="org-ul">
+<li>Title: PoD-BIN: A Probability of Decision Bayesian Interval De- sign for Time-to-Event Dose-Finding Trials with Multiple Toxicity Grades</li>
+<li>Abstract: We consider a Bayesian framework based on “probability of decision” for dose- finding trial designs. The proposed PoD-BIN design evaluates the posterior predictive probabilities of up-and-down decisions. In PoD-BIN, multiple grades of toxicity, catego- rized as mild toxicity (MT) and dose-limiting toxicity (DLT), are modeled simultaneously, and the primary outcome of interests is time-to-toxicity for both MT and DLT. This allows the possibility of enrolling new patients when previously enrolled patients are still being fol- lowed for toxicity, thus potentially shortening the trial length. The Bayesian decision rules in PoD-BIN utilize the probability of decisions to balance the trade-off between the need to speed up the trial and the risk of exposing patients to overly toxic doses. We demonstrate via numerical examples the resulting trade-off of speed and safety of PoD-BIN and com- pare it to existing designs. PoD-BIN appears to be able to control the frequency of making risky decisions and, at the same time, shorten the trial duration in the simulation.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scientific-07" class="outline-3">
+<h3 id="scientific-07"><span class="section-number-3">2.7</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-26 Tue&gt; </span></span> Analyzing Clinical Trials Disrupted by COVID</h3>
+<div class="outline-text-3" id="text-scientific-07">
+<p>
+11-12:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="https://stat.missouri.edu/people/flournoy">Nancy Flournoy</a>, University of Missouri
+</p>
+
+<ul class="org-ul">
+<li>Richard Emsley, King's College London.
+<ul class="org-ul">
+<li>Title: Frequentist and Bayesian approaches to rescuing disrupted trials</li>
+<li>Abstract: There is a severe threat to the validity of clinical trials that were underway before the COVID-19 pandemic and potentially huge research waste. Many studies were paused and recruitment restarted without due consideration of whether all studies should restart, or to required changes in sample sizes.  There is also a need for solutions to practical and statistical issues (e.g. increased missing data) that have arisen from the virus and its sequelae.  This talk will present some of these challenges, and discuss frequentist and Bayesian approaches to rescuing disrupted trials.  The contents are drawn from a report on this topic from the NISS Ingram Olkin Forum Series on Unplanned Clinical Trial Disruptions.</li>
+</ul></li>
+
+<li>Kelly Van Lancker, Ghent University.
+<ul class="org-ul">
+<li>Title: Potential estimands and estimators for clinical trials impacted by COVID-19</li>
+<li>Abstract: The COVID-19 pandemic continues to affect the conduct of clinical trials of medical products globally. Complications may arise from pandemic-related operational challenges such as site closure, travel limitations and interruptions to the supply chain for the investigational product, or from health-related challenges such as COVID-19 infected trial participants. Some of these complications lead to unforeseen intercurrent events in the sense that they affect either the interpretation or the existence of the measurements associated with the clinical question of interest. The ICH E9(R1) Addendum on estimands provides a rigorous basis to discuss potential pandemic-related trial disruptions and embed them in the context of study objectives and design elements. In this talk, we focus on the use of the hypothetical strategy and to a lesser extent the treatment-policy strategy to frame clinical questions in the presence of the unforeseen intercurrent events due to the COVID-19 pandemic. It should be noted that different hypothetical strategies could be considered and care has to be taken that the envisaged scenario, in which the intercurrent event would not occur, is precisely described. For their estimation, we will consider different causal inference and missing data methods such as multiple imputation and (augmented) inverse probability weighting. To clarify, we describe the features of a stylized trial in neuroscience, and how it may have been impacted by the pandemic. This stylized trial will then be re-visited by discussing the changes to the estimand and the estimator to account for pandemic disruptions.</li>
+</ul></li>
+
+<li>Diane Uschner, George Washington University.
+<ul class="org-ul">
+<li>Title: Randomization tests toaddress disruptions inclinical trials</li>
+<li>Abstract: In early 2020, the World Health Organization declared the novel corona virus disease (COVID-19) a pandemic. On top of prompting various trials to study treatments and vaccines for COVID-19, COVID-19 also had numerous consequences for ongoing clinical trials. People around the globe restricted their daily activities to minimize contagion, which led to missed visits and cancelling or postponing of elective medical treatments. For some clinical indications, COVID-19 may lead to a change in the patient population or treatment effect heterogeneity. We will measure the effect of the disruption on randomization tests and derive a methodological framework for randomization tests that allows for the assessment of clinical trial disruptions. We show that randomization tests are robust against clinical trial disruptions in certain scenarios, namely if the disruption can be considered an ancillary statistic to the treatment effect. As a consequence, randomization tests maintain type I error probability and power at their nominal levels.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scientific-08" class="outline-3">
+<h3 id="scientific-08"><span class="section-number-3">2.8</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-27 Wed&gt; </span></span> Bayesian and model-robust design</h3>
+<div class="outline-text-3" id="text-scientific-08">
+<p>
+12-1:30 PM Eastern Time
+</p>
+
+<p>
+Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">Dave Woods</a>, University of Southampton
+</p>
+
+<ul class="org-ul">
+<li>Tim Waite, University of Manchester, UK
+<ul class="org-ul">
+<li>Title: Minimax efficient random experimental design strategies with application to model-robust design for prediction</li>
+<li>Abstract: Fisher stressed the importance of randomizing an experiment via random permutation of the allocation of treatments to experimental units; in an industrial context this usually amounts to randomizing the run order of the design. In this talk we take the idea of experimental randomization much further by introducing flexible new random design strategies in which the design to be applied is chosen at random from a distribution of possible designs. We discuss the philosophical justification for doing so from a game-theoretic perspective and it is shown that the new strategies give stronger bounds on both the expectation and survivor function of the loss distribution. The consequences of this approach are explored in several problems, including global prediction from a linear model contaminated by a discrepancy function from an L2-class. In this problem the performance improvement is dramatic: the new approach gives bounded expected loss, in contrast to previous designs for which the expected loss was unbounded.</li>
+</ul></li>
+
+<li>Lida Mavrogonatou, University of Cambridge
+<ul class="org-ul">
+<li>Title: Optimal Bayesian experimental design for model selection through minimisation of f-divergences</li>
+<li>Abstract: A systematic understanding of studied phenomena has been embraced in a range of scientific disciplines where a collection of components are studied as parts of a system rather than as isolated processes. As direct observation of the studied system is often not possible, observable information is collected through experiments and subsequently used for inference of unobservable components. Given a predefined budget, Bayesian optimal experimental design methods are often employed  to identify the most useful (in terms of a targeted objective) experimental conditions while accounting for potential sources of uncertainty. Unfortunately, currently adopted methods fail to address challenges arising within a modern scientific framework, due to the increased computational complexity of models that can realistically capture the studied structures. In this talk, I will present an efficient estimation framework that is shown to overcome ongoing challenges through the use of variational approximation methods. The proposed approach is applicable to optimal experimental design problems for model selection. A suitable class of metrics that are used to quantify the benefit from each experimental condition (commonly known as utility functions) is established in which the benefit is expressed as an f-divergence between predictive distributions of the competing models.</li>
+</ul></li>
+
+<li>Lulu Kang, Illinois Institute of Technology
+<ul class="org-ul">
+<li>Title: A Maximin Φp-Efficient Design for Multivariate Generalized Linear Models</li>
+<li>Abstract: Experimental designs for a generalized linear model (GLM) often depend on the specification of the model, including the link function, the predictors, and unknown parameters, such as the regression coefficients. To deal with the uncertainties of these model specifications, it is important to construct optimal designs with high efficiency under such uncertainties. Existing methods such as Bayesian experimental designs often use prior distributions of model specifications to incorporate model uncertainties into the design criterion. Alternatively, one can obtain the design by optimizing the worst-case design efficiency with respect to the uncertainties of model specifications. In this work, we propose a new Maximin \(\Phi_p\) -Efficient (or Mm-\(\Phi_p\) for short) design which aims at maximizing the minimum \(\Phi_p\) -efficiency under model uncertainties. Based on the theoretical properties of the proposed criterion, we develop an efficient algorithm with sound convergence properties to construct the Mm-\(\Phi_p\) design. The performance of the proposed Mm-\(\Phi_p\) design is assessed through several numerical examples.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-roundtables" class="outline-2">
+<h2 id="roundtables"><span class="section-number-2">3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-07 Thu&gt; </span></span> Roundtable Discussion</h2>
+<div class="outline-text-2" id="text-roundtables">
+<p>
+11AM - 12PM Eastern
+</p>
+</div>
+
+<div id="outline-container-roundtable-01" class="outline-4">
+<h4 id="roundtable-01">Career in Academia</h4>
+<div class="outline-text-4" id="text-roundtable-01">
+<ul class="org-ul">
+<li><a href="http://people.stat.sfu.ca/~dbingham/">Derek Bingham</a>, Simon Fraser University</li>
+<li><a href="https://stat.missouri.edu/people/flournoy">Nancy Flournoy</a>, University of Missouri</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-roundtable-02" class="outline-4">
+<h4 id="roundtable-02">Career in Industry</h4>
+<div class="outline-text-4" id="text-roundtable-02">
+<ul class="org-ul">
+<li><a href="https://www.jmp.com/en_us/bios/jones-bradley.html">Bradley Jones</a>, SAS</li>
+<li><a href="https://nestat.org/about/bio/naitee-bio/">Natee Ting</a>, Boehringer-Ingelheim Pharmaceuticals Inc.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-roundtable-03" class="outline-4">
+<h4 id="roundtable-03">Publishing Papers</h4>
+<div class="outline-text-4" id="text-roundtable-03">
+<ul class="org-ul">
+<li><a href="https://sites.google.com/view/ying-hung">Ying Hung</a>, Rutges</li>
+<li><a href="http://homepages.math.uic.edu/~minyang/">Min Yang</a>, University of Illinois Chicago</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-poster-session" class="outline-2">
+<h2 id="poster-session"><span class="section-number-2">4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-14 Thu&gt; </span></span> JMP Poster Session</h2>
+<div class="outline-text-2" id="text-poster-session">
+<p>
+11AM - 12:30PM Eastern
+</p>
+</div>
+
+<div id="outline-container-judges" class="outline-4">
+<h4 id="judges">Judges:</h4>
+<div class="outline-text-4" id="text-judges">
+<ul class="org-ul">
+<li><a href="https://www.asc.ohio-state.edu/dean.9//">Angela Dean</a>, Ohio State University</li>
+<li><a href="https://mscs.uic.edu/profiles/dibyen/">Dibyen Majumdar</a>, University of Illinois-Chicago</li>
+<li><a href="https://www.stat.iastate.edu/people/max-morris">Max Morris</a>, Iowa State University</li>
+<li><a href="https://www.jku.at/en/institute-of-applied-statistics/about/team/univ-prof-mag-dr-werner-g-mueller/">Werner G. Müller</a>, Johannes Kepler University Linz</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-student-best-poster-competition-winners" class="outline-4">
+<h4 id="student-best-poster-competition-winners">Student Best Poster Competition winners:</h4>
+<div class="outline-text-4" id="text-student-best-poster-competition-winners">
+<ol class="org-ol">
+<li>Nicholas Alfredo Larsen, North Carolina State University, Department of Statistics, for the poster: <a href="https://ossifragus.github.io/dae2021/posters/Nicholas%20Alfredo%20Larsen.pdf">HODOR: A two-stage Hold-Out Design for Online Randomized experiments</a></li>
+<li>Torsten Reuter, Otto von Guericke University Magdeburg, for the poster: <a href="https://ossifragus.github.io/dae2021/posters/Torsten%20Reuter.pdf">Optimal Subsampling Design for Big Data Regression</a></li>
+<li>Mohammed Saif Ismail Hameed, KU Leuven, for the poster: <a href="https://ossifragus.github.io/dae2021/posters/Mohammed%20Saif%20Ismail%20Hameed.pdf">A tailored analysis of data from OMARS designs</a></li>
+<li>(Honorable mention) Gautham Sunder, Carlson School of Management, for the poster: <a href="https://ossifragus.github.io/dae2021/posters/Gautham%20Sunder.pdf">Hyperparameter Optimization of Deep Neural Networks with Application to Medical Device Manufacturing</a></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-posters" class="outline-4">
+<h4 id="posters">Posters</h4>
+<div class="outline-text-4" id="text-posters">
+</div>
+
+<div id="outline-container-poster-MarioBecerra" class="outline-5">
+<h5 id="poster-MarioBecerra">Mario Becerra, KU Leuven</h5>
+<div class="outline-text-5" id="text-poster-MarioBecerra">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Mario%20Becerra.pdf">Bayesian D- and I-optimal designs for choice experiments with mixtures using a multinomial logit model</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Mario Becerra.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: Discrete choice experiments are frequently used to quantify consumer preferences by having respondents choose between different alternatives. Choice experiments involving mixtures of ingredients have been largely overlooked in the literature, even though many products and services can be described as mixtures of ingredients. As a consequence, little research has been done on the optimal design of choice experiments involving mixtures. The only existing research has focused on D-optimal designs, which means that an estimation-based approach was adopted. However, in experiments with mixtures, it is crucial to obtain models that yield precise predictions for any combination of ingredient proportions. This is because the goal of mixture experiments generally is to find the mixture that optimizes the respondents' utility. As a result, the I-optimality criterion is more suitable for designing choice experiments with mixtures than the D-optimality criterion because the I-optimality criterion focuses on getting precise predictions with the estimated statistical model. In this talk, I will review Bayesian I-optimal designs, compare them with their Bayesian D-optimal counterparts, and show that the former designs perform substantially better than the latter in terms of the variance of the predicted utility.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-poster-AlexandreBohyn" class="outline-5">
+<h5 id="poster-AlexandreBohyn">Alexandre Bohyn, KU Leuven</h5>
+<div class="outline-text-5" id="text-poster-AlexandreBohyn">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Alexandre%20Bohyn.pdf">Enumeration of large mixed four-and-two-level regular designs</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Alexandre Bohyn.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: A protocol for a bio-assay involves a substantial number of steps that may affect the end
+result. To identify the influential steps, screening experiments can be employed with
+each step corresponding to a factor and different versions of the step corresponding to
+factor levels. The designs for such experiments usually include factors with two levels
+only. Adding a few four-level factors would allow inclusion of multi-level categorical
+factors or quantitative factors that may show quadratic or even higher-order effects.
+However, while a reliable investigation of the vast number of different factors requires
+designs with larger run sizes, catalogs of designs with both two-level factors and four-
+level factors are only available for up to 32 runs. In this presentation, we discuss the
+generation of such designs. We use the principles of extension (adding columns to
+an existing design to form candidate designs) and reduction (removing equivalent
+designs from the set of candidates). More especially, we select three algorithms from
+the current literature for the generation of complete sets of two-level designs, adapt
+them to enumerate designs with both two-level and four-level factors, and compare
+the efficiency of the adapted algorithms for generating complete sets of non-equivalent
+designs. Finally, we use the most efficient method to generate a complete catalog of
+designs with both two-level and four-level factors for run sizes 32, 64, 128 and 256.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-CarlosdelaCalle-Arroyo" class="outline-5">
+<h5 id="poster-CarlosdelaCalle-Arroyo">Carlos de la Calle-Arroyo, University of Castilla-La Mancha</h5>
+<div class="outline-text-5" id="text-poster-CarlosdelaCalle-Arroyo">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Carlos%20de%20la%20Calle-Arroyo.pdf">Homoscedastic and Heteroscedastic response in Antoine’s Equation Optimal Designs</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Carlos de la Calle-Arroyo.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: Vapor pressure is a temperature-dependent characteristic of pure liquids, and also of their mixtures. This thermodynamic property can be characterized through a wide range of models. Antoine's equation stands out among them for its simplicity and precision. Its parameters are estimated via maximum likelihood with experimental data. Once the parameters of the equation have been estimated, vapor pressures between known values of the curve can be interpolated. Other physical properties such as heat of vaporization can be predicted as well.
+The probability distribution of a physical phenomenon is often hard to know in advance, as it depends on the phenomenon itself as well as the procedures to carry on the experiments and the measurements. Hence, assuming a probability distribution for such events has to be done with caution, as it affects the Fisher Information Matrix and consequently the optimal designs. This work presents D-, Ds-, A- and I-optimal designs to estimate the unknown parameters of the Antoine's equation as accurately as possible for homoscedastic and heteroscedastic normal distribution of the response, with the characteristic objectives of the different criteria.
+An online tool to calculate Antoine's optimal designs for the criteria included in this work has been developed.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-DUHAMEL" class="outline-5">
+<h5 id="poster-DUHAMEL">DUHAMEL, Université Grenoble Alpes, INRIA, IFPEN</h5>
+<div class="outline-text-5" id="text-poster-DUHAMEL">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/DUHAMEL.pdf">A SUR version of the Bichon criterion for inversion</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/DUHAMEL.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li><p>
+Abstract: Nowadays, many model (e.g. a calculation code) inversion issues are present in the industry. These problems are defined by finding all sets of parameters such that a certain quantity of interest remains in a certain area, for example below a threshold. In the field of floating wind for instance, a pre-calibration step consists in estimating model parameters that fit with a given accuracy the measured data (e.g. accelerations).
+</p>
+
+<p>
+An effective way to solve this problem is to use Gaussian process meta-modeling (Kriging) with a sequential experiment design and an inversion-adapted enrichment criterion, such as the famous Bichon (also known as Expected Feasibility Function) and deviation number (denoted U) criteria. It is also possible to use a more elaborate class of criteria: the SUR (Stepwise Uncertainty Reduction) criteria, which in addition to taking into account the evaluation points and the available model evaluations, quantify the uncertainty reduction which can be achieved by the addition of the new point.
+</p>
+
+<p>
+We propose here a SUR version of the Bichon criterion, with both theoretical aspects (explicit formulation of the criterion) and numerical aspects (implementation issues and comparisons with other criteria on classical test functions).
+</p>
+
+<p>
+The part on theoretical aspects therefore presents the proposed SUR strategy, defined from a measure of uncertainty related to the Bichon criterion (integral of the Bichon criterion on the design space), as well as an explicit formulation of the SUR Bichon criterion allowing an efficient implementation. The part on numerical aspects presents the first results concerning the performance associated with this new criterion, compared to other classic criteria, and on common test functions.
+</p>
+
+<p>
+The future prospects for this work are adapting this criterion to more complex data like functional uncertain input variables. In this particular framework, the design of experiment will have to be adapted.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-SubhadraDasgupta" class="outline-5">
+<h5 id="poster-SubhadraDasgupta">Subhadra Dasgupta, IITB-Monash Research Academy</h5>
+<div class="outline-text-5" id="text-poster-SubhadraDasgupta">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Subhadra%20Dasgupta.pdf">G-optimal retrospective grid designs</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Subhadra Dasgupta.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li><p>
+Abstract: This work is focused on finding the best possible retrospective designs for kriging models with two-dimensional inputs. Models with separable exponential covariance structures are studied. The retrospective designs are constructed by adding or deleting points from an already existing design. The best possible designs are found by minimizing the supremum of mean squared prediction error. Deterministic algorithms are developed to find the best possible retrospective designs. We develop the notion of evenness of two-dimensional grid designs to compare them with each other, using the concept of majorization. For the case of the addition of points, we develop two methods for finding the best possible design, one is adding one point at a time and the other is adding all the points simultaneously. For the case of deletion of the points, we develop the method for deleting all points simultaneously. The results show, that a more evenly spread design is the best possible design and is close to regularly spaced grid designs in terms of their efficiencies. To address the scenarios where covariance parameters are unknown, a pseudo-Bayesian technique is used to determine the best possible designs.
+</p>
+
+<p>
+Keywords: Kriging, G-optimality, grid designs, retrospective designs, regularly spaced grids, separable covariance, Ornstein-Uhlenbeck process
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-NickDoudchenko" class="outline-5">
+<h5 id="poster-NickDoudchenko">Nick Doudchenko, Google</h5>
+<div class="outline-text-5" id="text-poster-NickDoudchenko">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Nick%20Doudchenko.pdf">Optimal Design of Experiments in Panel-Data Settings</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Nick Doudchenko.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: We investigate the optimal design of experimental studies that have pre-treatment outcome data available.  The average treatment effect is estimated as the difference between the weighted average outcomes of the treated and control units. A number of commonly used approaches fit this formulation, including the difference-in-means estimator and a variety of synthetic-control techniques. We propose several different novel estimators and motivate the choice between them depending on the underlying assumptions the researcher is willing to make. Observing the NP-hardness of the problem, we introduce a mixed-integer programming formulation which selects both the treatment and control sets and unit weightings. We prove that these proposed estimators lead to qualitatively different experimental units being selected for treatment. We use simulations based on publicly available data from the US Bureau of Labor Statistics that show improvements in terms of the mean squared error of the estimates and statistical power when compared to simple and commonly used alternatives such as randomized trials.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-MohammedSaifIsmailHameed" class="outline-5">
+<h5 id="poster-MohammedSaifIsmailHameed">Mohammed Saif Ismail Hameed, KU Leuven</h5>
+<div class="outline-text-5" id="text-poster-MohammedSaifIsmailHameed">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Mohammed%20Saif%20Ismail%20Hameed.pdf">A tailored analysis of data from OMARS designs</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Mohammed Saif Ismail Hameed.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li><p>
+Abstract: Experimental data are often highly structured due to the use of experimental designs. This does not only simplify the analysis, but it allows for tailored methods of analysis that extract more information from the data than generic methods. One group of experimental designs that are suitable for such methods are the orthogonal minimally aliased response surface (OMARS) designs (Núñez Ares and Goos, 2020), where all main effects are orthogonal to each other and to all second order effects. The design based analysis method of Jones and Nachtsheim (2017) has shown significant improvement over existing methods in powers to detect active effects. However, the application of their method is limited to only a small subgroup of OMARS designs that are commonly known as definitive screening designs (DSDs). In our work, we not only improve upon the Jones and Nachtsheim method for DSDs, but we also generalize their analysis framework to the entire family of OMARS designs. Using extensive simulations, we show that our customized method for analyzing data from OMARS designs is highly effective in selecting the true effects when compared to other modern (non-design based) analysis methods, especially in cases where the true model is complex and involves many second order effects.
+</p>
+
+<p>
+References:
+</p>
+
+<p>
+Jones, Bradley, and Christopher J. Nachtsheim. 2017. “Effective Design-Based Model Selection for Definitive Screening Designs.” Technometrics 59(3):319–29.
+</p>
+
+<p>
+Núñez Ares, José, and Peter Goos. 2020. “Enumeration and Multicriteria Selection of Orthogonal Minimally Aliased Response Surface Designs.” Technometrics 62(1):21–36.
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-ChaofanHuang" class="outline-5">
+<h5 id="poster-ChaofanHuang">Chaofan Huang, Georgia Institute of Technology</h5>
+<div class="outline-text-5" id="text-poster-ChaofanHuang">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Chaofan%20Huang.pdf">Constrained Minimum Energy Designs</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Chaofan Huang.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: Space-filling designs are important in computer experiments, which are critical for building a cheap surrogate model that adequately approximates an expensive computer code. Many design construction techniques in the existing literature are only applicable for rectangular bounded space, but in real world applications, the input space can often be non-rectangular because of constraints on the input variables. One solution to generate designs in a constrained space is to first generate uniformly distributed samples in the feasible region, and then use them as the candidate set to construct the designs. Sequentially Constrained Monte Carlo (SCMC) is the state-of-the-art technique for candidate generation, but it still requires large number of constraint evaluations, which is problematic especially when the constraints are expensive to evaluate. Thus, to reduce constraint evaluations and improve efficiency, we propose the Constrained Minimum Energy Design (CoMinED) that utilizes recent advances in deterministic sampling methods. Extensive simulation results on 15 benchmark problems with dimensions ranging from 2 to 13 are provided for demonstrating the improved performance of CoMinED over the existing methods.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-JeevanJankar" class="outline-5">
+<h5 id="poster-JeevanJankar">Jeevan Jankar, University of Georgia</h5>
+<div class="outline-text-5" id="text-poster-JeevanJankar">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Jeevan%20Jankar.pdf">A General Equivalence Theorem for Crossover Designs under Generalized Linear Models</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Jeevan Jankar.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: With the help of Generalized Estimating Equations, we identify locally \(D\) -optimal crossover designs for generalized linear models.  We adopt the variance of parameters of interest as the objective function, which is minimized using constrained optimization to obtain optimal crossover designs. In this case, the traditional general equivalence theorem could not be used directly to check the optimality of obtained designs. In this manuscript we derive a corresponding general equivalence theorem for crossover designs under generalized linear models.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-NicholasAlfredoLarsen" class="outline-5">
+<h5 id="poster-NicholasAlfredoLarsen">Nicholas Alfredo Larsen, North Carolina State University, Department of Statistics</h5>
+<div class="outline-text-5" id="text-poster-NicholasAlfredoLarsen">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Nicholas%20Alfredo%20Larsen.pdf">HODOR: A two-stage Hold-Out Design for Online Randomized experiments</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Nicholas Alfredo Larsen.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: A/B tests are standard tools for estimating the average treatment effect (ATE) in online controlled experiments (OCEs), and are key to how online businesses use data to improve products and services.  The majority of OCE theory makes the Stable Unit Treatment Value Assumption, which presumes the response of individual users depends only on the assigned treatment, not the treatments of others. Violations of this assumption occur when users are subjected to network interference. Standard methods for estimating the ATE typically ignore this, producing heavily biased results that limit statistical analysts’ ability to improve product quality. Additionally, user covariates that are not observed, but influence both user response and network structure, also bias current ATE estimators. This fact has so far been almost completely overlooked in the network A/B testing literature. In this paper, we demonstrate that the network-influential lurking variables can heavily bias popular network clustering-based methods, thereby making them unreliable. To address this problem, we propose a two-stage design and estimation technique called HODOR: Hold-Out Design for Online Randomized experiments. The proposed method not only outperforms existing techniques, it provides reliable estimation even when the underlying network is unknown or uncertain.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-JooChulLee" class="outline-5">
+<h5 id="poster-JooChulLee">JooChul Lee, University of Pennsylvania</h5>
+<div class="outline-text-5" id="text-poster-JooChulLee">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/JooChul%20Lee.pdf">Sampling-based Gaussian Mixture Regression for Big Data</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/JooChul Lee.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: This paper proposes a nonuniform subsampling method for finite mixtures of regression models to reduce large data computational tasks. A general estimator based on a subsample is investi- gated, and its asymptotic normality is established. We assign optimal subsampling probabilities to data points that minimize the asymptotic mean squared errors of the general estimator and linearly transformed estimators. Since the proposed probabilities depend on unknown parameters, an implementable algorithm is developed. We first approximate the optimal subsampling probabil- ities using a pilot sample. After that, we select a subsample using the approximated subsampling probabilities and compute estimates using the subsample. We evaluate the proposed method in a simulation study and present a real data example using appliance energy data.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-AbhyudayMandal" class="outline-5">
+<h5 id="poster-AbhyudayMandal">Abhyuday Mandal, University of Georgia</h5>
+<div class="outline-text-5" id="text-poster-AbhyudayMandal">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Abhyuday%20Mandal.pdf">MaGP: Modeling and Active Learning for Experiments with Quantitative-Sequence Factors</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Abhyuday Mandal.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: A new type of experiment which targets on finding optimal quantities of a sequence of factors is drawing much attention in medical science, bio-engineering and many other disciplines. Such studies require simultaneous optimization for both  quantities and sequence-orders of several components, which is defined as a new type of factors: quantitative-sequence (QS) factors. Due to the large and semi-discrete solution spaces in such experiments, it is non-trivial to efficiently identify the optimal (or near optimal) solutions using only a few experimental trials. To address this challenge, we propose a novel active learning approach, named as QS-learning, to enable effective modeling and efficient optimization for experiments with QS factors. The QS-learning consists of three parts: a novel mapping-based additive Gaussian process (MaGP) model, an efficient global optimization scheme (QS-EGO), and a new class of optimal designs (QS-design) for collecting initial data. Theoretical properties of the proposed method are investigated and techniques on optimization using analytical gradients are developed. The performance of the proposed method is demonstrated via a real drug experiment on lymphoma treatment and several simulation studies.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-ParisaParsamaram" class="outline-5">
+<h5 id="poster-ParisaParsamaram">Parisa Parsamaram, Otto-von-Guericke University</h5>
+<div class="outline-text-5" id="text-poster-ParisaParsamaram">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Parisa%20Parsamaram.pdf">Approximation of the quasi Fisher information matrix for designing experiments in ordinal mixed models</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Parisa Parsamaram.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: In the present work we want to determine optimum designs in the situation of ordinal outcomes with individual subject effects. To describe this situation we use a mixed ordinal regression model where, on the individual level, cumulative ordinal response is assumed based on a logit or probit link. To measure the quality of the design, usually the Fisher information matrix is used. However, in the case of mixed ordinal regression models, there is no closed form of the marginal likelihood and, hence, no closed form of the Fisher information. To avoid this problem, we consider the quasi Fisher information related to the concept of quasi-likelihood estimation. For the quasi Fisher information matrix only the first and second order moments of the model equations are needed which is much simpler than the full likelihood. But even these moments are not readily accessible because of the missing closed form of the corresponding integrals. To solve this, we propose two new concurring approximations for the quasi Fisher information which both show a quite similar performance. Based on these approximations, D-optimum designs are calculated for the specific case of a mixed binary regression model. These results can readily be extended to more complicated model situations.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-SergioPozuelo-Campos" class="outline-5">
+<h5 id="poster-SergioPozuelo-Campos">Sergio Pozuelo-Campos, University of Castilla-La Mancha</h5>
+<div class="outline-text-5" id="text-poster-SergioPozuelo-Campos">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Sergio%20Pozuelo-Campos.pdf">Robust designs for toxicological test</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Sergio Pozuelo-Campos.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: Toxicological tests are widely used to study toxicity in aquatic environments. Reproduction is a possible endpoint of this type of experiments and in this case the response variable are counts. There exits literature about the suitable probability distribution should be considered for analysing these data. In the theory of optimal experimental design, the assumption of this probability distribution is essential and when this assumption is not adequate, there may be a loss of efficiency in the design obtained. The main objective of this work is to propose robust designs when there is uncertainty about the probability distribution of the response variable. The results have been applied to toxicological tests based on Ceriodaphnia Dubia and Lemna Minor, in addition to testing the properties of the designs obtained a simulation study is performed.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-TorstenReuter" class="outline-5">
+<h5 id="poster-TorstenReuter">Torsten Reuter, Otto von Guericke University Magdeburg</h5>
+<div class="outline-text-5" id="text-poster-TorstenReuter">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Torsten%20Reuter.pdf">Optimal Subsampling Design for Big Data Regression</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Torsten Reuter.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: Data reduction is a fundamental challenge of modern technology, where classical statistical methods are not applicable because of computational limitations.  We consider a general linear model for an extraordinarily large amount of observations, but only a few covariates. Subsampling aims at the selection of a given percentage of the existing original data. Under distributional assumptions on the covariates, we derive subsampling designs for various settings of the linear model, which are based on the design criterion of D-optimality and study their theoretical properties.  We make use of fundamental concepts of optimal design theory and an equivalence theorem from convex optimization. The thus obtained subsampling designs provide simple rules on whether to accept or to reject a data point and therefore allow for an easy algorithmic implementation.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-MitchellAaronSchepps" class="outline-5">
+<h5 id="poster-MitchellAaronSchepps">Mitchell Aaron Schepps, UCLA</h5>
+<div class="outline-text-5" id="text-poster-MitchellAaronSchepps">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Mitchell%20Aaron%20Schepps.pdf">Metaheuristics for finding efficient longitudinal designs for bipolar patients with and without a genetic covariate treated with sustained release lithium</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Mitchell Aaron Schepps.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: When there are a few candidate  designs for implementation in pharmacometrics,  a common method to select the design is to adopt a model-based approach and determine the design with the best value of a pre-selected design criterion among the  candidate designs. The design criterion is formulated as a scalar function the Fisher information matrix, which can be challenging to evaluate for non-linear mixed effects models. We propose using nature-inspired metaheuristic algorithms to search for efficient model-based designs with user selected number of time points to optimize the design criterion. We discuss use of metaheuristics as a general purpose optimization tool and apply it to design efficient longitudinal studies for bipolar patients with and without a genetic covariate and treated with lithium.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-YaoShi" class="outline-5">
+<h5 id="poster-YaoShi">Yao Shi, Arizona State University</h5>
+<div class="outline-text-5" id="text-poster-YaoShi">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Yao%20Shi.pdf">Optimal designs under logistic mixed model</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Yao Shi.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: While generalized linear mixed models are useful, optimal design questions for such models are challenging due to complexity of the information matrices. For longitudinal data, after considering three approximations of the information matrices, we propose an approximation based on the penalized quasi-likelihood method. As an illustration, optimal designs are derived for a study on self-reported disability in older women.  We also study the robustness of these optimal designs to misspecification of the covariance matrix for rondom effects.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-GauthamSunder" class="outline-5">
+<h5 id="poster-GauthamSunder">Gautham Sunder, Carlson School of Management</h5>
+<div class="outline-text-5" id="text-poster-GauthamSunder">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Gautham%20Sunder.pdf">Hyperparameter Optimization of Deep Neural Networks with Application to Medical Device Manufacturing</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Gautham Sunder.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: The prediction performance of Deep Neural Networks (DNNs) is highly sensitive to the choice of hyperparameters. Hyperparameter optimization (HPO), the process of identifying the optimal hyperparameter values that maximize the model performance, is a critical step in training DNNs. Typically, Bayesian Optimization (BO), a class of Response Surface Optimization (RSO) methods for optimizing nonlinear functions, is a commonly adopted strategy for HPO. In this study, we empirically illustrate that the validation loss in HPO problems, in some cases, can be well-approximated by a second-order polynomial function. When this is the case, Classical RSO (C-RSO) methods are demonstrably more efficient in estimating the optimal response when compared with BO, especially under constraints on run size. In this study we propose Compound-RSO, a three-staged batch sequential RSO strategy for optimizing continuous experimental factors. The proposed Compound-RSO strategy estimates the complexity of the response function and appropriately chooses between C-RSO and BO. For estimating the complexity of the unknown response surface, we propose a robust design which is supersaturated for the full polynomial model. Additionally, when the second-order approximation is adequate, we propose Adaptive-RSO, an adaptive experimentation strategy for optimizing the second-order response surface. In our simulation studies on test functions of varying complexity and noise levels, we illustrate that the Compound-RSO strategy is more efficient than BO when the true response function is second-order and performs comparably to BO when the true response function is complex. A case study on HPO of DNNs for quality inspection at a medical device manufacturer is used to illustrate the usefulness of the proposed Compound-RSO strategy in a business application.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-HongzhiWang" class="outline-5">
+<h5 id="poster-HongzhiWang">Hongzhi Wang, University of Georgia</h5>
+<div class="outline-text-5" id="text-poster-HongzhiWang">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Hongzhi%20Wang.pdf">Lioness Algorithm for Finding Optimal Design of Experiments</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Hongzhi Wang.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: Design of experiments plays important roles in all fields of modern science and engineering. Efficient designs are to be used in order to extract maximum information from the data. However, identifying optimal designs are not necessarily easy for complex real life applications, which are becoming increasingly common in practice. Theoretical results are not widely available for such applications and those that are available only exist for special cases. Several optimization algorithms are used to identify optimal designs, while each algorithm usually targets on one design type only. Here we propose a new nature-inspired evolutionary optimization algorithm which works efficiently on several different types of design problems. Simulation studies establish its superiority over different competing algorithms, in terms of both precision and CPU times.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-JingWang" class="outline-5">
+<h5 id="poster-JingWang">Jing Wang, University of Connecticut</h5>
+<div class="outline-text-5" id="text-poster-JingWang">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Jing%20Wang.pdf">Unweighted esitmation based on optimal sample under measurement constraints</a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Jing Wang.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: Subsampling is a practical approach to extract information from massive data. However, when responses are expensive to measure, developing subsampling schemes is challenging. The estimating efficiency of the existing method under this scenario can be improved for using reweighted estimator. We proposed an unweighted estimator to obtain a more efficient estimator. Asymptotical results obtained via martingale techniques and numerical experiments verified the better performance of our method.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-poster-YaqiongYao" class="outline-5">
+<h5 id="poster-YaqiongYao">Yaqiong Yao, Department of Biostatistics, Columbia University</h5>
+<div class="outline-text-5" id="text-poster-YaqiongYao">
+<ul class="org-ul">
+<li>Title: <a href="https://ossifragus.github.io/dae2021/posters/Yaqiong%20Yao.pdf">Model Constraints Independent Optimal Subsampling Probabilities for Softmax Regression </a></li>
+</ul>
+<embed src="https://ossifragus.github.io/dae2021/posters/Yaqiong Yao.pdf" width="700px" height="500px" />
+<ul class="org-ul">
+<li>Abstract: A prevailing method to alleviate the computational cost is to perform analysis on a subsample of the full data. Optimal subsampling algorithm utilizes non-uniform subsampling probabilities, derived through minimizing the asymptotic mean squared error of the subsample estimator, to acquire a higher estimation efficiency for a given subsample size. The optimal subsampling probabilities for softmax regression have been studied under the baseline constraint which treats one dimension of the multivariate response differently from other dimensions. Here, we construct optimal subsampling probabilities for summation constraint where all dimensions are handled equally. For parameter estimation, these two model constraints give the same mean responses and only lead to different interpretations of the parameter, so they always produce the same conclusions. For selecting subsamples, however, we show that they lead to different optimal subsampling probabilities and thus produce different results. The summation constraint corresponds to a better subsampling strategy. Furthermore, we derive the asymptotic distribution of the mean squared prediction error, and minimize its asymptotic mean to define the optimal subsampling probabilities that are invariant to model constraints. Simulations and a real data example are provided to show the effectiveness of the proposed optimal subsampling probabilities.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-panel-discussion" class="outline-2">
+<h2 id="panel-discussion"><span class="section-number-2">5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-21 Thu&gt; </span></span> Panel Discussion</h2>
+<div class="outline-text-2" id="text-panel-discussion">
+<p>
+11AM - 12PM Eastern<br />
+</p>
+
+<p>
+<b>Moderator</b>:
+</p>
+<ul class="org-ul">
+<li><a href="https://sites.google.com/view/singhrakhi">Rakhi Singh</a>, UNC Greensboro</li>
+</ul>
+
+<p>
+<b>Panelists</b>:
+</p>
+<ul class="org-ul">
+<li><a href="https://xwdeng80.github.io/">Xinwei Deng</a>, Virginia Tech</li>
+<li><a href="https://www.stat.purdue.edu/~dkjlin/">Dennis Lin</a>, Purdue University</li>
+<li><a href="https://www4.stat.ncsu.edu/~jwstalli/">Jonathan W. Stallrich</a>, North Carolina State University</li>
+<li><a href="https://sites.google.com/uncg.edu/johnstufken">John Stufken</a>, University of North Carolina at Greensboro</li>
+<li><a href="https://ph.ucla.edu/faculty/wong">Weng Kee Wong</a>, University of California, Los Angeles</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-individual-sponsors" class="outline-2">
+<h2 id="individual-sponsors"><span class="section-number-2">6</span> Individual Sponsors</h2>
+<div class="outline-text-2" id="text-individual-sponsors">
+<ul class="org-ul">
+<li>Angela Dean, The Ohio State University</li>
+<li>Xinwei Deng, Department of Statistics, Virginia Tech</li>
+<li>Weitao Duan, LinkedIn Corporation</li>
+<li>Nancy Flournoy, University of Missouri</li>
+<li>Fritjof Freise, University of Veterinary Medicine Hannover</li>
+<li>Robert Gramacy, Virginia Tech</li>
+<li>Jessica Jaynes, California State University Fullerton</li>
+<li>Roshan Joseph, Georgia Institute of Technology</li>
+<li>Lulu Kang, Illinois Institute of Technology</li>
+<li>Adam Lane, Cincinnati Children's Hospital Medical Center</li>
+<li>Ryan Lekivetz, SAS / JMP</li>
+<li>William Li, Shanghai Advanced Institute of Finance, Shanghai Jiao Tong University</li>
+<li>Jesús Lopez-Fidalgo, University of Navarra</li>
+<li>Dibyen Majumdar, University of Illinois at Chicago</li>
+<li>Abhyuday Mandal, University of Georgia</li>
+<li>Caterina May, Università del Piemonte Orientale</li>
+<li>JP Morgan, Virginia Tech</li>
+<li>Max Morris, Iowa State University</li>
+<li>Werner Mueller, JKU Linz</li>
+<li>Kalliopi Mylona, King's College London</li>
+<li>Haojun Ouyang, AVROBIO</li>
+<li>Frederick Kin Hing Phoa, Academia Sinica</li>
+<li>Rainer Schwabe, Otto-von-Guericke University Magdeburg</li>
+<li>Jonathan Stallrich, North Carolina State University</li>
+<li>David Steinberg, Tel Aviv University</li>
+<li>John Stufken, University of North Carolina Greensboro</li>
+<li>HaiYing Wang, University of Connecticut</li>
+<li>Min Yang, University of Illinois at Chicago</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-participants" class="outline-2">
+<h2 id="participants"><span class="section-number-2">7</span> Participants</h2>
+<div class="outline-text-2" id="text-participants">
+<ul class="org-ul">
+<li>ADETOLA ADEDAMOLA ADEDIRAN, UNIVERSITY OF SOUTHAMPTON</li>
+<li>SHROUG ALZAHRANI, University of Southampton</li>
+<li>Gabriel Olusola Adebayo, University of Ilorin, Ilorin, Nigeria</li>
+<li>Sasanka Adikari, Old Dominion University</li>
+<li>Rachael Caelie Aikens, Stanford University</li>
+<li>Yasmeen S. Akhtar, Birla Institute of Technology and Science, Pilani – Goa Campus, India.</li>
+<li>Jose Nunez Ares, KU Leuven</li>
+<li>Oluchukwu C Asogwa, Alex Ekwueme Federal University Ndufu Alike Ikwo</li>
+<li>Alex Atayev, Student  at Georgia Tech</li>
+<li>Kupolusi Joseph Ayodele , federal University of Technology Akure Nigeria</li>
+<li>Max Balandat, Facebook</li>
+<li>Mario Becerra, KU Leuven</li>
+<li>Julie (Novak) Beckley, Etsy</li>
+<li>Derek Bingham, Simon Fraser University</li>
+<li>Alexandre Bohyn, KU Leuven</li>
+<li>Carlos de la Calle-Arroyo, University of Castilla-La Mancha</li>
+<li>Henry Chacon, PhD student</li>
+<li>Ming-Chung Chang, Academia Sinica</li>
+<li>Yu-Wei Chen, National Tsing Hua University</li>
+<li>Alvaro Cia, University of Navarre</li>
+<li>DUHAMEL, Université Grenoble Alpes, INRIA, IFPEN</li>
+<li>Subhadra Dasgupta, IITB-Monash Research Academy</li>
+<li>Angela Dean, The Ohio State University</li>
+<li>Xinwei Deng, Department of Statistics, Virginia Tech</li>
+<li>Chris Dong, UCLA</li>
+<li>Nick Doudchenko, Google</li>
+<li>Weitao Duan, LinkedIn Corporation</li>
+<li>Xinyuan Duan, Uconn</li>
+<li>Olga Egorova, King's College London</li>
+<li>hamel Elhadj, hassiba ben bouali university of chlef algeria</li>
+<li>Richard Emsley, King's College London, UK</li>
+<li>Nancy Flournoy, University of Missouri</li>
+<li>Fritjof Freise, University of Veterinary Medicine Hannover</li>
+<li>Rosamarie Frieri, University of Bologna</li>
+<li>Robert Gramacy, Virginia Tech</li>
+<li>Suman Guha, Assistant Professor, Presidency University</li>
+<li>Irene García-Camacha Gutiérrez, University of Castilla-La Mancha</li>
+<li>Mohammed Saif Ismail Hameed, KU Leuven</li>
+<li>Chao-hui Huang, National Tsing Hua University,  Institute of Statistics</li>
+<li>Chaofan Huang, Georgia Institute of Technology</li>
+<li>Jiangeng Huang, Genentech, Inc.</li>
+<li>Jing-Wen Huang, National Tsing Hua University, Taiwan</li>
+<li>Ying Hung, Rutges</li>
+<li>Samuel Jackson, Durham University</li>
+<li>Omri Jan, TAU</li>
+<li>Jeevan Jankar, University of Georgia</li>
+<li>Jessica Jaynes, California State University Fullerton</li>
+<li>Bradley Jones, SAS Institute</li>
+<li>Roshan Joseph, Georgia Institute of Technology</li>
+<li>Lulu Kang, Illinois Institute of Technology</li>
+<li>Allon Korem, Tel Aviv University</li>
+<li>Vasiliki Koutra, King's College London</li>
+<li>Nilesh Kumar, Department of Statistics, University of Delhi, Delhi</li>
+<li>Kelly Van Lancker, Johns Hopkins University, Bloomberg School of Public Health, US</li>
+<li>Adam Lane, Cincinnati Children's Hospital Medical Center</li>
+<li>Nicholas Alfredo Larsen, North Carolina State University, Department of Statistics</li>
+<li>JooChul Lee, University of Pennsylvania</li>
+<li>Ryan Lekivetz, SAS / JMP</li>
+<li>William Li, Shanghai Advanced Institute of Finance</li>
+<li>Dennis K.J. Lin, Purdue University</li>
+<li>Meizi Liu, University of Chicago</li>
+<li>Yanxi Liu, University of Illinois at Chicago</li>
+<li>Jesús Lopez-Fidalgo, University of Navarra</li>
+<li>Jose Toledo Luna, UCLA</li>
+<li>Dibyen Majumdar, University of Illinois at Chicago</li>
+<li>Abhyuday Mandal, University of Georgia</li>
+<li>Mart Andrew Maravillas, Georgia Institute of Technology</li>
+<li>Lida Mavrogonatou, University of Cambridge</li>
+<li>Caterina May, Università del Piemonte Orientale</li>
+<li>Robert Mee, University of Tennessee</li>
+<li>Hendriico Merila, University of Southampton</li>
+<li>Luca Merlo, Sapienza University of Rome</li>
+<li>Damianos Michaelides, University of Southampton</li>
+<li>Zefang Min, University of Connecticut</li>
+<li>JP Morgan, Virginia Tech</li>
+<li>Max Morris, Iowa State University</li>
+<li>Werner Mueller, JKU Linz</li>
+<li>Susan Murphy, Harvard University</li>
+<li>Kalliopi Mylona, King's College London</li>
+<li>THEODORA NEARCHOU, University of Southampton</li>
+<li>Jordania Furtado de Oliveira , Universidade Federal de Pernambuco</li>
+<li>Winnie Onsongo, University of Ghana</li>
+<li>Haojun Ouyang, AVROBIO</li>
+<li>Soyun Park, University at Buffalo</li>
+<li>Parmod, MDU, Rohtak India</li>
+<li>Parisa Parsamaram, Otto-von-Guericke University</li>
+<li>Dipika Patra, West Bengal State University</li>
+<li>Frederick Kin Hing Phoa, Academia Sinica</li>
+<li>Matthias Poloczek, Amazon</li>
+<li>Jean Pouget-Abadie, Google</li>
+<li>Sergio Pozuelo-Campos, University of Castilla-La Mancha</li>
+<li>Peter Rankel, University of Maryland</li>
+<li>David Refaeli, Tel Aviv University - Master in Statistics</li>
+<li>Joseph Resch, University of California - Los Angeles</li>
+<li>Torsten Reuter, Otto von Guericke University Magdeburg</li>
+<li>Emma Rowlinson, The University of Manchester</li>
+<li>Gokul Satish, Student</li>
+<li>Mitchell Aaron Schepps, UCLA</li>
+<li>Rainer Schwabe, Otto-von-Guericke University Magdeburg</li>
+<li>Daniel Schwartz, University of Chicago</li>
+<li>Rashmi Sharma, University of Delhi, Delhi</li>
+<li>Chenlu Shi, University of California, Los Angeles</li>
+<li>Yao Shi, Arizona State University</li>
+<li>Rakhi Singh, UNC Greensboro</li>
+<li>Difan Song, Georgia Institute of Technology</li>
+<li>Jonathan Stallrich, North Carolina State University</li>
+<li>David Steinberg, Tel Aviv University</li>
+<li>Zack Stokes, UCLA/Amazon</li>
+<li>John Stufken, University of North Carolina Greensboro</li>
+<li>Cheng-Yu Sun, National Tsing Hua Univerisity</li>
+<li>Gautham Sunder, Carlson School of Management</li>
+<li>Mia Tackney, London School of Hygiene and Tropical Medicine</li>
+<li>Yike Tang, University of Illinois at Chicago</li>
+<li>Ye Tian, University of California, Los Angeles</li>
+<li>Natee Ting, Boehringer-Ingelheim Pharmaceuticals Inc.</li>
+<li>Carlos Alejandro Diaz Tufinio, Tecnologico de Monterrey</li>
+<li>Diane Uschner, George Washington University</li>
+<li>Alan Vazquez, UCLA</li>
+<li>Nha Vo-Thanh, University of Hohenheim</li>
+<li>Tim Waite, University of Manchester</li>
+<li>HaiYing Wang, University of Connecticut</li>
+<li>Hongzhi Wang, University of Georgia</li>
+<li>Jing Wang, University of Connecticut</li>
+<li>Lin Wang, George Washington University</li>
+<li>Ziyang Wang, University of Connecticut</li>
+<li>Yanran Wei, Virginia Tech</li>
+<li>Katherine Wellington, UMass Amherst</li>
+<li>Lauren Rose Wilkes, University Of Georgia</li>
+<li>Weng Kee Wong, University of California, Los Angeles</li>
+<li>Nathan Wycoff, Georgetown University</li>
+<li>Qian Xiao, University of Georgia</li>
+<li>Hongquan Xu, University of California, Los Angeles</li>
+<li>LIAO, YI-HUA, Institute of Statistics, National Tsing Hua University, Hsinchu City, Taiwan</li>
+<li>Yuhao YIN, UCLA</li>
+<li>Ching-Chi Yang, University of Memphis</li>
+<li>Min Yang, University of Illinois at Chicago</li>
+<li>Xin Yang, University of Connecticut</li>
+<li>Yaqiong Yao, Department of Biostatistics, Columbia University</li>
+<li>Kade Young, North Carolina State University</li>
+<li>YI ZHANG, George Washington University</li>
+<li>Boya Zhang, Lawrence Livermore National Laboratory</li>
+<li>Xueru  Zhang, University of Tennessee</li>
+<li>Tianjian Zhou, Colorado State University</li>
+<li>Xiner Zhou, UC Davis Statistics</li>
+<li>Yachen Zhu, University of California, Irvine</li>
+<li>zhaihui li, georgia institute of technology</li>
+<li>chunyan wang, Purdue University</li>
+<li>Kelly yuan, University of missouri</li>
+<li>wenlin yuan, uconn</li>
+<li>fan zhang, Arizona State University</li>
+<li>muzi zhang, penn state university</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
