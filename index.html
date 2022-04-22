@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>?</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<base target="_blank">
+<link rel="stylesheet" type="text/css" href="./style/myorg.css"/>
+<link rel="stylesheet" type="text/css" href="./style/org.css"/>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">?</h1>
+<script type = "text/javascript">
+/* <![CDATA[ */
+  function displayImage(image) {
+  document.getElementById("img").src = image;
+  }
+  function displayNextImage() {
+  x = (x == images.length - 1) ? 0 : x + 1;
+  displayImage(images[x]);
+  }
+  function displayPreviousImage() {
+      x = (x <= 0) ? images.length - 1 : x - 1;
+      displayImage(images[x]);
+  }
+  function startTimer() {
+  setInterval(displayNextImage, 5000);
+  }
+  var images = [], x = -1;
+    images[0]  = "figures/why.jpg";
+    <!-- images[1]  = "figures/why001.jpg"; -->
+    images[1]  = "figures/why002.jpg";
+    images[2]  = "figures/why003.jpg";
+    <!-- images[4]  = "figures/why004.jpg"; -->
+    <!-- images[5]  = "figures/why005.jpg"; -->
+    <!-- images[6]  = "figures/why006.jpg"; -->
+    <!-- images[7]  = "figures/why007.jpg"; -->
+    images[3]  = "figures/why008.jpg";
+    <!-- images[9]  = "figures/why009.jpg"; -->
+    <!-- images[10] = "figures/why010.jpg"; -->
+    <!-- images[11] = "figures/why011.jpg"; -->
+    images[4] = "figures/why012.jpg";
+    images[5] = "figures/why013.jpg";
+    images[6] = "figures/why014.jpg";
+  window.addEventListener('load', function() {
+  'use strict';
+  startTimer();
+  }, false);
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<table style="width: 100%" border="0" cellpadding="0">
+	<colgroup>
+		<col span="1" style="width: 60%;">
+		<col span="1" style="width: 40;">
+	</colgroup>
+	<tr>
+		<td>
+			<img id="img" src="figures/why.jpg" alt="" height="350"/><br />
+			<button onclick="displayPreviousImage()">Previous</button>
+			<button onclick="displayNextImage()">Next</button>
+		</td>
+		<td>
+			<h2>Wang, HaiYing &nbsp; 王海鹰</h2>
+			<div>
+				<a href="http://www.stat.uconn.edu/">Department of Statistics </a><br />
+				<a href="http://www.uconn.edu/">University of Connecticut</a><br />
+				W319 Philip E. Austin Building<br />
+				215 Glenbrook Rd. U-4120<br />
+				Storrs, CT 06269-4120<br />
+				Phone: (860) 486-6142<br />
+				Email: \(\textrm{W}\)@\(\textrm{H}\).\(\textrm{Y}\), <br />
+				&emsp; where
+				\(\begin{cases} \textrm{W} &= \textrm{haiying.wang}\\ \textrm{H} &= \textrm{uconn}\\ \textrm{Y} &= \textrm{edu} \end{cases}\) <br />
+			</div>
+		</td>
+	</tr>
+</table>
+
+<div id="outline-container-about-me" class="outline-2">
+<h2 id="about-me">About Me</h2>
+<div class="outline-text-2" id="text-about-me">
+<ul class="org-ul">
+<li>I am an Associate Professor and was an Assistant Professor in the
+<a href="http://stat.uconn.edu/">Department of Statistics</a>, at the <a href="http://uconn.edu/">University of Connecticut</a>.</li>
+<li>I was an Assistant Professor in the
+<a href="http://ceps.unh.edu/mathematics-statistics">Department of Mathematics &amp; Statistics</a>, at the <a href="http://www.unh.edu/">University of New Hampshire</a>.</li>
+<li>I obtained my PhD from the
+<a href="http://www.stat.missouri.edu/">Department of Statistics</a>, at the <a href="http://www.missouri.edu/">University of Missouri</a>, with adviser <a href="https://www.stat.missouri.edu/people/flournoy">Professor Nancy Flournoy</a>.</li>
+<li>I obtained my MS from the Division of Statistical Science, Institute of Systems Science,
+<a href="http://english.amss.cas.cn/">Academy of Mathematics and Systems Science</a>, <a href="http://english.cas.cn/">Chinese Academy of Sciences</a>, under the supervision of Professor Guohua Zou.</li>
+<li>I worked as an engineer in the R &amp; D center of Midea Group.</li>
+<li>I obtained my BE from the School of Aeronautical Science and Engineering,
+<a href="http://ev.buaa.edu.cn/">Beijing University of Aeronautics and Astronautics</a>.</li>
+<li>Here is my <a href="https://www.dropbox.com/s/xhfk8f687jtf8pu/CV.pdf?dl=0">CV</a>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-research-interests" class="outline-2">
+<h2 id="research-interests">Research Interests</h2>
+<div class="outline-text-2" id="text-research-interests">
+<ul class="org-ul">
+<li>Incomplete data analysis</li>
+<li>Model selection and model averaging</li>
+<li>Nonparametric and semi-parametric regression</li>
+<li>Optimum experimental design</li>
+<li>Sub-sample methods for big data</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-work-in-progress" class="outline-2">
+<h2 id="work-in-progress">Work in progress</h2>
+<div class="outline-text-2" id="text-work-in-progress">
+<ol class="org-ol">
+<li>Lee, J., Schifano, E., &#38; <strong>Wang, H.</strong> (2021). Sampling-based gaussian mixture regression for big data.</li>
+<li>Wang, F., <strong>Wang, H.</strong>, &#38; Yan, J. (2021). Can we lose weight? a revisit on diagnostic tests for informative weight in regression with survey data.</li>
+<li><strong>Wang, H.</strong>, &#38; Kim, J. K. (2020). Maximum sampled conditional likelihood for informative subsampling. https://arxiv.org/abs/2011.05988. <a href="https://arxiv.org/abs/2011.05988">pdf</a></li>
+<li>Wang, J., <strong>Wang, H.</strong>, &#38; Xiong, S. (2020). Unweighted estimation based on optimal sample under measurement constraints.</li>
+<li>Zhu, R., Zhang, X., <strong>Wang, H.</strong>, &#38; Liang, H. (2020). A scalable frequentist model averaging method.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-publications" class="outline-2">
+<h2 id="publications">Publications</h2>
+<div class="outline-text-2" id="text-publications">
+<ol class="org-ol">
+<li>Yu, J., &#38; <strong>Wang, H.</strong> (2022). Subdata selection algorithm for linear model selection. <i>Statistical Papers</i>, accepted. <a href="./pdfs/LinearDiscrimination.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Zhang, A., &#38; Wang, C. (2021). Nonuniform negative sampling and log odds correction with rare events data. <i>Proceedings of the 35 Conference on Neural Information Processing Systems (NeurIPS 2021).</i> <a href="https://arxiv.org/pdf/2110.13048.pdf">pdf</a></li>
+<li>Yao, Y., Zou, J., &#38; <strong>Wang, H.</strong> (2021). Optimal Poisson subsampling for softmax regression. <i>Journal of Systems Science and Complexity</i>, accepted. <a href="./pdfs/OSMAC_Softmax_Poi.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Zhang, D., Liang, H., &#38; Ruppert, D. (2021). Iterative likelihood: A unified inference tool. <i>Journal of Computational and Graphical Statistics</i>, <i>30</i>(4), 920–933. <a href="https://doi.org/10.1080/10618600.2021.1904961">https://doi.org/10.1080/10618600.2021.1904961</a> <a href="./pdfs/IterativeLikelihood.pdf">pdf</a></li>
+<li>Lee, J., Schifano, E., &#38; <strong>Wang, H.</strong> (2021). Fast optimal subsampling probability approximation for generalized linear models. <i>Econometrics and Statistics</i>. <a href="https://doi.org/10.1016/j.ecosta.2021.02.007">https://doi.org/10.1016/j.ecosta.2021.02.007</a> <a href="./pdfs/OSMAC_FASA.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, &#38; Zou, J. (2021). A comparative study on sampling with replacement vs poisson sampling in optimal subsampling. In A. Banerjee &#38; K. Fukumizu (Eds.), <i>Proceedings of the 24th international conference on artificial intelligence and statistics</i> (Vol. 130, pp. 289–297). PMLR. <a href="http://proceedings.mlr.press/v130/wang21a.html">http://proceedings.mlr.press/v130/wang21a.html</a> <a href="http://proceedings.mlr.press/v130/wang21a/wang21a.pdf">pdf</a></li>
+<li>Zuo, L., Zhang, H., <strong>Wang, H.</strong>, &#38; Sun, L. (2021). Optimal subsamples selection for massive logistic regression with inherently distributed data. <i>Computational Statistics</i>, <i>.</i>, 10.1007/s00180-021-01089–01080.</li>
+<li>Bar, H., &#38; <strong>Wang, H.</strong> (2021). Reproducible science with LaTeX. <i>Journal of Data Science.</i>, <i>19</i>(1), 111–125. <a href="./pdfs/latexnb-jds.pdf">pdf</a>; <a href="https://github.com/Ossifragus/runcode">code</a></li>
+<li>Yao, Y., &#38; <strong>Wang, H.</strong> (2021). A review on optimal subsampling methods for massive datasets. <i>Journal of Data Science</i>, <i>19</i>(1), 151–172. <a href="./pdfs/OSMAC_JDS.pdf">pdf</a></li>
+<li>Zuo, L., Zhang, H., <strong>Wang, H.</strong>, &#38; Liu, L. (2021). Sampling-based estimation for massive survival data with additive hazards model. <i>Statistics in Medicine</i>, <i>40</i>(2), 441–450. <a href="./pdfs/OSMAC_AdditiveHazard.pdf">pdf</a></li>
+<li>Zhang, H., &#38; <strong>Wang, H.</strong> (2021). Distributed subdata selection for big data via sampling-based approach. <i>Computational Statistics &#38; Data Analysis</i>, <i>153</i>, 107072. <a href="https://doi.org/10.1016/j.csda.2020.107072">https://doi.org/10.1016/j.csda.2020.107072</a> <a href="./pdfs/OSMAC_DistLinear.pdf">pdf</a></li>
+<li>Pronzato, L., &#38; <strong>Wang, H.</strong> (2021). Sequential online subsampling for thinning experimental designs. <i>Journal of Statistical Planning and Inference</i>, <i>212</i>, 169–193. <a href="https://doi.org/10.1016/j.jspi.2020.08.001">https://doi.org/10.1016/j.jspi.2020.08.001</a> <a href="https://arxiv.org/pdf/2004.00792.pdf">pdf</a></li>
+<li>Yao, Y., &#38; <strong>Wang, H.</strong> (2021). A selective review on statistical techniques for big data. <i>Modern Statistical Methods for Health Research</i>, 10.1007/978–973-030–72437-5\;8. <a href="./pdfs/SelectiveBig.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong> (2020). Logistic regression for massive data with rare events. In H. D. III &#38; A. Singh (Eds.), <i>Proceedings of the 37th international conference on machine learning</i> (Vol. 119, pp. 9829–9836). PMLR. <a href=" http://proceedings.mlr.press/v119/wang20a.html ">http://proceedings.mlr.press/v119/wang20a.html </a> <a href="https://arxiv.org/pdf/2006.00683.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/RareICML2020/">code</a></li>
+<li>Yu, J., <strong>Wang, H.</strong>, Ai, M., &#38; Zhang, H. (2022). Optimal distributed subsampling for maximum quasi-likelihood estimators with massive data. <i>Journal of the American Statistical Association</i>, <i>117</i>(537), 265–276. <a href="https://doi.org/10.1080/01621459.2020.1773832">https://doi.org/10.1080/01621459.2020.1773832</a> <a href="https://arxiv.org/pdf/2005.10435.pdf">pdf</a></li>
+<li>Cheng, Q., <strong>Wang, H.</strong>, &#38; Yang, M. (2020). Information-based optimal subdata selection for big data logistic regression. <i>Journal of Statistical Planning and Inference</i>, <i>209</i>, 112–122. <a href="https://doi.org/10.1016/j.jspi.2020.03.004">https://doi.org/10.1016/j.jspi.2020.03.004</a> <a href="./pdfs/IBOSS_Logistic.pdf">pdf</a></li>
+<li>Lee, J., <strong>Wang, H.</strong>, &#38; Schifano, E. D. (2020). Online updating method to correct for measurement error in big data streams. <i>Computational Statistics &#38; Data Analysis</i>, <i>149</i>, 106976. <a href="./pdfs/online_MeasurementError.pdf">pdf</a></li>
+<li>Hu, G., &#38; <strong>Wang, H.</strong> (2021). Most likely optimal subsampled markov chain monte carlo. <i>Journal of Systems Science and Complexity</i>, <i>34</i>(3), 1121–1134. <a href="https://arxiv.org/pdf/2005.11461.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, &#38; Ma, Y. (2021). Optimal subsampling for quantile regression in big data. <i>Biometrika</i>, <i>108</i>(1), 99–112. <a href="https://doi.org/10.1093/biomet/asaa043">https://doi.org/10.1093/biomet/asaa043</a> <a href="https://arxiv.org/pdf/2001.10168.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_quantile/">code</a></li>
+<li>Zhou, Y., Qiu, L., <strong>Wang, H.</strong>, &#38; Chen, X. (2020). Induction of activity synchronization among primed hippocampal neurons out of random dynamics is key for trace memory formation and retrieval. <i>The Faseb Journal</i>, <i>34</i>(3), 3658–3676. <a href="https://doi.org/10.1096/fj.201902274R">https://doi.org/10.1096/fj.201902274R</a></li>
+<li><strong>Wang, H.</strong> (2019). More efficient estimation for logistic regression with optimal subsamples. <i>Journal of Machine Learning Research</i>, <i>20</i>(132), 1–59. <a href="https://arxiv.org/pdf/1802.02698.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/More_Efficient_Logistic/">code</a></li>
+<li>Xue, Y., <strong>Wang, H.</strong>, Yan, J., &#38; Schifano, E. D. (2020). An online updating approach for testing the proportional hazards assumption with streams of survival data. <i>Biometrics</i>, <i>76</i>(1), 171–182. <a href="https://doi.org/10.1111/biom.13137">https://doi.org/10.1111/biom.13137</a> <a href="https://arxiv.org/pdf/1809.01291.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong> (2019). Divide-and-conquer information-based optimal subdata selection algorithm. <i>Journal of Statistical Theory and Practice</i>, <i>13</i>(3), 46. <a href="https://doi.org/10.1007/s42519-019-0048-5">https://doi.org/10.1007/s42519-019-0048-5</a> <a href="https://arxiv.org/pdf/1905.09948.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS-DC-Linear/">code</a></li>
+<li>Ai, M., Yu, J., Zhang, H., &#38; <strong>Wang, H.</strong> (2021). Optimal subsampling algorithms for big data regressions. <i>Statistica Sinica</i>, <i>31</i>(2), 749–772. <a href="https://doi.org/10.5705/ss.202018.0439">https://doi.org/10.5705/ss.202018.0439</a> <a href="https://arxiv.org/pdf/1806.06761.pdf">pdf</a></li>
+<li>Zhou, Y., Qiu, L., Sterpka, A., <strong>Wang, H.</strong>, Chu, F., &#38; Chen, X. (2019). Comparative phosphoproteomic profiling of type III adenylyl cyclase knockout and control, male, and female mice. <i>Frontiers in Cellular Neuroscience</i>, <i>13</i>, 34.</li>
+<li>Yao, Y., &#38; <strong>Wang, H.</strong> (2019). Optimal subsampling for softmax regression. <i>Statistical Papers</i>, <i>60</i>(2), 235–249. <a href="./pdfs/SoftmaxSP.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Yang, M., &#38; Stufken, J. (2019). Information-based optimal subdata selection for big data linear regression. <i>Journal of the American Statistical Association</i>, <i>114</i>(525), 393–405. <a href="./pdfs/IBOSS_Linear.pdf">pdf</a>; <a href="https://github.com/Ossifragus/IBOSS">R Package</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS/">R code</a></li>
+<li><strong>Wang, H.</strong>, Zhu, R., &#38; Ma, P. (2018). Optimal subsampling for large sample logistic regression. <i>Journal of the American Statistical Association</i>, <i>113</i>(522), 829–844. <a href="./pdfs/OSMAC_Logistic.pdf">pdf</a>; <a href="https://github.com/Ossifragus/OSMAC">R Package</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_logistic/">R code</a></li>
+<li>Stang, S., <strong>Wang, H.</strong>, Gardner, K. H., &#38; Mo, W. (2018). Influences of water quality and climate on the water-energy nexus: A spatial comparison of two water systems. <i>Journal of Environmental Management</i>, <i>218</i>, 613–621.</li>
+<li>Zhang, X., <strong>Wang, H.</strong>, Ma, Y., &#38; Carroll, R. J. (2017). Linear model selection when covariates contain errors. <i>Journal of the American Statistical Association</i>, <i>112</i>(520), 1553–1561. <a href="./pdfs/LinearErrorJASA.pdf">pdf</a>; <a href="./pdfs/LinearErrorJASASupplementary.pdf">Supplementary</a></li>
+<li>Li, Y., He, X., <strong>Wang, H.</strong>, &#38; Sun, J. (2016). Joint analysis of longitudinal data and informative observation times with time-dependent random effects. In <i>New developments in statistical modeling, inference and application</i> (pp. 37–51). Springer. <a href="./pdfs/2016JoingAnalysis.pdf">pdf</a></li>
+<li>Lane, A., <strong>Wang, H.</strong>, &#38; Flournoy, N. (2016). Conditional inference in two-stage adaptive experiments via the bootstrap. In <i>mODa 11-advances in model-oriented design and analysis</i> (pp. 173–181). Springer. <a href="./pdfs/moda11.pdf">pdf</a></li>
+<li>Mo, W., <strong>Wang, H.</strong>, &#38; Jacobs, J. M. (2016). Understanding the influence of climate change on the embodied energy of water supply. <i>Water Research</i>, <i>95</i>, 220–229.</li>
+<li>Li, Y., He, X., <strong>Wang, H.</strong>, &#38; Sun, J. (2016). Regression analysis of longitudinal data with correlated censoring and observation times. <i>Lifetime Data Analysis</i>, <i>22</i>(3), 343–362. <a href="./pdfs/CorrCenObs.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Chen, X., &#38; Flournoy, N. (2016). The focused information criterion for varying-coefficient partially linear measurement error models. <i>Statistical Papers</i>, <i>57</i>(1), 99–113. <a href="./pdfs/fmaBothError.pdf">pdf</a></li>
+<li>Li, Y., He, X., <strong>Wang, H.</strong>, Zhang, B., &#38; Sun, J. (2015). Semiparametric regression of multivariate panel count data with informative observation times. <i>Journal of Multivariate Analysis</i>, <i>140</i>, 209–219. <a href="./pdfs/MultiPC.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Schaeben, H., &#38; Keidel, F. (2015). Optimized subsampling for logistic regression with imbalanced large datasets. <i>Proceeding of the 17th Annual Conference of the International Association for Mathematical Geosciences</i>, 1113–1119.</li>
+<li><strong>Wang, H.</strong>, &#38; Flournoy, N. (2015). On the consistency of the maximum likelihood estimator for the three parameter lognormal distribution. <i>Statistics &#38; Probability Letters</i>, <i>105</i>, 57–64. <a href="./pdfs/lognormal.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Li, Y., &#38; Sun, J. (2015). Focused and model average estimation for regression analysis of panel count data. <i>Scandinavian Journal of Statistics</i>, <i>42</i>(3), 732–745. <a href="./pdfs/FMAPC.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Flournoy, N., &#38; Kpamegan, E. (2014). A new bounded log-linear regression model. <i>Metrika</i>, <i>77</i>(5), 695–720. <a href="./pdfs/BoundedLog-linear.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, &#38; Zhou, S. Z. (2013). Interval estimation by frequentist model averaging. <i>Communications in Statistics-Theory and Methods</i>, <i>42</i>(23), 4342–4356. <a href="./pdfs/CI.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Zou, G., &#38; Wan, A. T. (2013). Adaptive lasso for varying-coefficient partially linear measurement error models. <i>Journal of Statistical Planning and Inference</i>, <i>143</i>(1), 40–54. <a href="./pdfs/Alasso.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Pepelyshev, A., &#38; Flournoy, N. (2013). Optimal design for the bounded log-linear regression model. In <i>mODa 10–advances in model-oriented design and analysis</i> (pp. 237–245). Springer. <a href="./pdfs/moda10.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Zou, G., Wan, A. T., &#38; others. (2012). Model averaging for varying-coefficient partially linear measurement error models. <i>Electronic Journal of Statistics</i>, <i>6</i>, 1017–1039. <a href="./pdfs/FMA_VCPLEM.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, &#38; Sun, D. (2012). Objective bayesian analysis for a truncated model. <i>Statistics &#38; Probability Letters</i>, <i>82</i>(12), 2125–2135. <a href="./pdfs/RefNonreg.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, &#38; Zou, G. (2012). Frequentist model averaging estimation for linear errors-in-variables models (in chinese). <i>Journal of Systems Science and Mathematical Science</i>, <i>32</i>(2), 1–14. <a href="./pdfs/LinearFMA.pdf">pdf</a></li>
+<li>Kozak, M., &#38; <strong>Wang, H.</strong> (2010). On stochastic optimization in sample allocation among strata. <i>Metron</i>, <i>68</i>(1), 95–103. <a href="./pdfs/Allocation.pdf">pdf</a></li>
+<li><strong>Wang, H.</strong>, Zhang, X., &#38; Zou, G. (2009). Frequentist model averaging estimation: a review. <i>Journal of Systems Science and Complexity</i>, <i>22</i>(4), 732–748. <a href="./pdfs/FrequentistReview.pdf">pdf</a></li>
+<li>Feng, S., Ding, W., <strong>Wang, H.</strong>, Yu, Z., Chen, Y., Zhang, Y., &#38; Xiao, H. (2008). Sampling procedures for inspection by attributes-part 3: Skip-lot sampling procedures (in chinese). <i>Chinese National Standard, Gb/T2828.3-2008.</i></li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-teaching" class="outline-2">
+<h2 id="teaching">Teaching</h2>
+<div class="outline-text-2" id="text-teaching">
+<ul class="org-ul">
+<li><b>At the University of Missouri</b>
+
+<ul class="org-ul">
+<li>Statistics 1200 - Introductory Statistical Reasoning (3cr.), Fall 2010, Spring 2011, Fall 2011</li>
+<li>Statistics 2500 - Introductory to probability and statistics I (3cr.), Spring 2012</li>
+<li>Statistics 3500 - Introductory to probability and statistics II (3cr.), Fall 2012, Spring 2013</li>
+</ul></li>
+
+<li><b>At the University of New Hampshire</b>
+
+<ul class="org-ul">
+<li>Math 539 - Introduction to Statistical Analysis (4cr.), Fall 2014</li>
+<li>Math 644 - Statistics for Engineers and Scientists (4cr.), Fall 2013, Spring 2014, Fall 2014</li>
+<li>Math 736/836 - Advanced Statistical Methods for Research (4cr.), Spring 2014, Spring 2015, Spring 2016</li>
+<li>Math 739/839 - Applied Regression Analysis (4cr.), Fall 2016</li>
+<li>Math 755/855 - Probability with Applications (4cr.), Fall 2015, Fall 2016</li>
+<li>Math 756/856 - Principles of Statistical Inference (4cr.), Spring 2016, Spring 2017</li>
+<li>Math 969 - Topics in Probability and Statistics (3cr.), Spring 2017</li>
+</ul></li>
+
+<li><b>At the University of Connecticut</b>
+
+<ul class="org-ul">
+<li>STAT 3115Q - Analysis of Experiments (3cr.), Spring, 2018</li>
+<li>STAT 5125 - Computing for Statistical Data Science (3cr. in <a href="https://julialang.org/">julia</a>), Fall 2021, Spring 2022</li>
+<li>BIST/STAT 5535: Nonparametric Methods (3cr. using <a href="https://julialang.org/">julia</a>) Fall 2018, 2020, 2021</li>
+<li>BIST/STAT 5505 - Applied Statistics I (3cr.), Fall 2017, 2018, 2019</li>
+<li>BIST/STAT 5605 - Applied Statistics II (3cr.), Spring 2019, 2020</li>
+<li>BIST/STAT 6494: Statistical Inference for Big Data (3cr.) Spring 2018</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-membership" class="outline-2">
+<h2 id="membership">Membership</h2>
+<div class="outline-text-2" id="text-membership">
+<ul class="org-ul">
+<li><a href="http://www.amstat.org/">American Statistical Association</a></li>
+<li><a href="http://www.imstat.org/">Institute of Mathematical Statistics</a></li>
+<li><a href="http://www.icsa.org/">International Chinese Statistical Association</a></li>
+<li><a href="http://www.isi-web.org/">International Statistical Institute</a></li>
+<li><a href="https://nestat.org">New England Statistical Society</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
