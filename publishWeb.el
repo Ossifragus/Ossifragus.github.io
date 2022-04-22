@@ -42,7 +42,6 @@
 	 ))
 
 (defun OS-publish-all ()
-	"Publish the blog to HTML."
 	(interactive)
 	(let ((make-backup-files nil)
 				(org-publish-project-alist OS--publish-project-alist)

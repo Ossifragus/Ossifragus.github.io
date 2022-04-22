@@ -225,6 +225,3 @@
 
 #+bibliography: papers.bib
 #+cite_export: csl APA-CV.csl
-
-# #+bibliography: ~/Dropbox/mydoc/CV/papers.bib
-# #+cite_export: csl ~/Dropbox/mydoc/web/style/APA-CV.csl
