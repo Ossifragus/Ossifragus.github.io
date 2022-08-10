@@ -108,9 +108,7 @@
 :CUSTOM_ID: work-in-progress
 :END:
 
-1. [cite:@LeeSchifanoWang2021mix]
 3. [cite:@WangKim2020] [[https://arxiv.org/abs/2011.05988][pdf]]
-4. [cite:@WangWangXiong2020]
 5. [cite:@ZhuZhangWangLiang2020]
 
 * Publications
@@ -118,6 +116,9 @@
 :CUSTOM_ID: publications
 :END:
 
+4. [cite:@WangWangXiong2020]
+1. [cite:@LeeSchifanoWang2021mix]
+1. [cite:@EEENG6839]
 1. [cite:@WangWangYan2022]
 1. [cite:@WangZouWang2022] [[https://arxiv.org/pdf/2205.08588.pdf][pdf]]
 1. [cite:@YuWang2021] [[./pdfs/LinearDiscrimination.pdf][pdf]]
