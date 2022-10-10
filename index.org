@@ -103,18 +103,18 @@
 - Optimum experimental design
 - Sub-sample methods for big data
   
-* Work in progress
-:PROPERTIES:
-:CUSTOM_ID: work-in-progress
-:END:
+# * Work in progress
+# :PROPERTIES:
+# :CUSTOM_ID: work-in-progress
+# :END:
 
-3. [cite:@WangKim2020] [[https://arxiv.org/abs/2011.05988][pdf]]
    
 * Publications
 :PROPERTIES:
 :CUSTOM_ID: publications
 :END:
 
+3. [cite:@WangKim2020] [[https://arxiv.org/abs/2011.05988][pdf]]
 1. [cite:@YangWangYan2022]
 1. [cite:@ZhuWangZhangLiang2022]
 4. [cite:@WangWangXiong2020]
