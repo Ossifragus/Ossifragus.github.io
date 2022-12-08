@@ -90,7 +90,7 @@
 - I worked as an engineer in the R & D center of Midea Group.
 - I obtained my BE from the School of Aeronautical Science and Engineering,
 	[[http://ev.buaa.edu.cn/][Beijing University of Aeronautics and Astronautics]].
-- Here is my [[https://u.pcloud.link/publink/show?code=XZUjl2VZItwjd1Cv5EYgkxU0v9NhRFBsXjOX][CV]].
+- Here is my [[https://www.dropbox.com/s/ewang96rpcfyk8x/CV.pdf?dl=0][CV]].
 	
 * Research Interests
 :PROPERTIES:
