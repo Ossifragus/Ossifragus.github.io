@@ -113,7 +113,8 @@
 :PROPERTIES:
 :CUSTOM_ID: publications
 :END:
-
+ 
+3. [cite:@WangStat2022] [[https://arxiv.org/pdf/2210.00111.pdf][pdf]]
 3. [cite:@WangKim2020] [[https://arxiv.org/abs/2011.05988][pdf]]
 1. [cite:@YangWangYan2022]
 1. [cite:@ZhuWangZhangLiang2022]
@@ -202,6 +203,10 @@
 	- BIST/STAT 5605 - Applied Statistics II (3cr.), Spring 2019, 2020
 	- BIST/STAT 6494: Statistical Inference for Big Data (3cr.) Spring 2018
 
+* Professional Service
+- Associate Editor, 2022 - present, [[https://www.springer.com/journal/13571][Sankhya B]], 
+- Associate Editor, 2022 - present, [[https://www.intlpress.com/site/pub/pages/journals/items/sii/_home/_main/index.php][Statistics and Its Interface]]
+- Managing Editor, 2021 - present,  [[https://journal.nestat.org/][New England Journal of Statistics in Data Science]]
 * Membership
 :PROPERTIES:
 :CUSTOM_ID: membership
