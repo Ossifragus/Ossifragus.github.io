@@ -118,7 +118,7 @@
 3. [cite:@WangKim2020] [[https://arxiv.org/abs/2011.05988][pdf]]
 1. [cite:@YangWangYan2022]
 1. [cite:@ZhuWangZhangLiang2022]
-4. [cite:@WangWangXiong2020]
+4. [cite:@WangWangXiong2020] [[https://arxiv.org/pdf/2210.04079.pdf][pdf]]
 1. [cite:@LeeSchifanoWang2021mix]
 1. [cite:@EEENG6839]
 1. [cite:@WangWangYan2022]
