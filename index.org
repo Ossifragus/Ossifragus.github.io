@@ -125,7 +125,7 @@
 8. [cite:@WangWangYan2022] [[file:pdfs/weightstests.pdf][pdf]]
 9. [cite:@WangZouWang2022] [[https://arxiv.org/pdf/2205.08588.pdf][pdf]] [[https://github.com/Ossifragus/Ossifragus.github.io/tree/main/codes/OSMAC_PoissonVsSWR][code]]
 10. [cite:@YuWang2021] [[./pdfs/LinearDiscrimination.pdf][pdf]]
-11. [cite:@WangZhangWang2021] [[https://arxiv.org/pdf/2110.13048.pdf][pdf]] 
+11. [cite:@WangZhangWang2021] [[https://arxiv.org/pdf/2110.13048.pdf][pdf]] [[https://github.com/Ossifragus/Ossifragus.github.io/tree/main/codes/NIPS_logistic][code]]
 12. [cite:@YaoZouWang2021] [[./pdfs/OSMAC_Softmax_Poi.pdf][pdf]]
 13. [cite:@WangZhangLiangRuppert2021] [[./pdfs/IterativeLikelihood.pdf][pdf]]
 14. [cite:@LeeSchifanoWang2021] [[./pdfs/OSMAC_FASA.pdf][pdf]]
