@@ -114,6 +114,7 @@
 :CUSTOM_ID: publications
 :END:
  
+1. [cite:@KimWang2023] [[file:pdfs/noteWeightSmoothing.pdf][pdf]]
 1. [cite:@YaoZouWang2022] [[file:pdfs/OSMAC_softmax_Constraints.pdf][pdf]]
 1. [cite:@WangStat2022] [[https://arxiv.org/pdf/2210.00111.pdf][pdf]]
 2. [cite:@WangKim2020] [[https://arxiv.org/abs/2011.05988][pdf]]
