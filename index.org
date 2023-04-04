@@ -114,8 +114,8 @@
 :CUSTOM_ID: publications
 :END:
  
-1. [cite@YuLiuWang2023] [[file:pdfs/IBOSS_GLM.pdf][pdf]]
-1. [cite@WangWangNRRavishanker2023] [[file:pdfs/OSMAC_MCAP.pdf][pdf]]
+1. [cite:@YuLiuWang2023] [[file:pdfs/IBOSS_GLM.pdf][pdf]]
+1. [cite:@WangWangNRRavishanker2023] [[file:pdfs/OSMAC_MCAP.pdf][pdf]]
 1. [cite:@KimWang2023] [[file:pdfs/noteWeightSmoothing.pdf][pdf]]
 1. [cite:@YaoZouWang2022] [[file:pdfs/OSMAC_softmax_Constraints.pdf][pdf]]
 1. [cite:@WangStat2022] [[https://arxiv.org/pdf/2210.00111.pdf][pdf]]
