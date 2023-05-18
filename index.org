@@ -114,6 +114,8 @@
 :CUSTOM_ID: publications
 :END:
  
+1. [cite:@ZhangZuoWangSun2023] [[https://arxiv.org/pdf/2210.04581.pdf][pdf]]
+1. [cite:@wu_chen_xie_wang_wu_2023] [[https://nejsds.nestat.org/journal/NEJSDS/article/29/file/pdf][pdf]]
 1. [cite:@YuLiuWang2023] [[file:pdfs/IBOSS_GLM.pdf][pdf]]
 1. [cite:@WangWangNRRavishanker2023] [[file:pdfs/OSMAC_MCAP.pdf][pdf]]
 1. [cite:@KimWang2023] [[file:pdfs/noteWeightSmoothing.pdf][pdf]]
