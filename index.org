@@ -114,6 +114,8 @@
 :CUSTOM_ID: publications
 :END:
  
+1. [cite:@dey_chen_xie_wang_wu_2023] [[https://nejsds.nestat.org/journal/NEJSDS/article/55/file/pdf][pdf]]
+1. [cite:@WangWangChen2023] [[file:pdfs/DiscussionOnInferenceStreamedData.pdf][pdf]]
 1. [cite:@ZhangZuoWangSun2023] [[https://arxiv.org/pdf/2210.04581.pdf][pdf]]
 1. [cite:@wu_chen_xie_wang_wu_2023] [[https://nejsds.nestat.org/journal/NEJSDS/article/29/file/pdf][pdf]]
 1. [cite:@YuLiuWang2023] [[file:pdfs/IBOSS_GLM.pdf][pdf]]
@@ -210,6 +212,7 @@
 	- BIST/STAT 6494: Statistical Inference for Big Data (3cr.) Spring 2018
 
 * Professional Service
+- Associate Editor, 2023 - present, [[https://www3.stat.sinica.edu.tw/statistica/][Statistica Sinica]], 
 - Associate Editor, 2022 - present, [[https://www.springer.com/journal/13571][Sankhya B]], 
 - Associate Editor, 2022 - present, [[https://www.intlpress.com/site/pub/pages/journals/items/sii/_home/_main/index.php][Statistics and Its Interface]]
 - Managing Editor, 2021 - present,  [[https://journal.nestat.org/][New England Journal of Statistics in Data Science]]
