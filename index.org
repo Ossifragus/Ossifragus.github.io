@@ -114,6 +114,7 @@
 :CUSTOM_ID: publications
 :END:
  
+1. [cite:@ZhangWangZhangWang2024] [[https://arxiv.org/pdf/2302.13441.pdf][pdf]]
 1. [cite:@yang2024subsampling] [[https://rdcu.be/dyFzJ][pdf]]
 1. [cite:@WangWangChen2023] [[file:pdfs/DiscussionOnInferenceStreamedData.pdf][pdf]]
 2. [cite:@ZhangZuoWangSun2023] [[https://arxiv.org/pdf/2210.04581.pdf][pdf]]
