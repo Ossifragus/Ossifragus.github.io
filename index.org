@@ -172,7 +172,7 @@
 56. [cite:@wang2013adaptive] [[./pdfs/Alasso.pdf][pdf]]
 57. [cite:@wang2013optimal] [[./pdfs/moda10.pdf][pdf]]
 58. [cite:@wang2012model] [[./pdfs/FMA_VCPLEM.pdf][pdf]]
-59. [cite:@wang2012objective] [[./pdfs/RefNonreg.pdf][pdf]]
+59. [cite:@wang2012objective] [[./pdfs/RefNonReg.pdf][pdf]]
 60. [cite:@WangZou2012] [[./pdfs/LinearFMA.pdf][pdf]]
 61. [cite:@kozak2010stochastic] [[./pdfs/Allocation.pdf][pdf]]
 62. [cite:@wang2009frequentist] [[./pdfs/FrequentistReview.pdf][pdf]]
