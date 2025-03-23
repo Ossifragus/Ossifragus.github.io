@@ -90,7 +90,7 @@
 - I worked as an engineer in the R & D center of Midea Group.
 - I obtained my BE from the School of Aeronautical Science and Engineering,
 	[[http://ev.buaa.edu.cn/][Beijing University of Aeronautics and Astronautics]].
-- Here is my [[https://www.dropbox.com/s/ewang96rpcfyk8x/CV.pdf?dl=0][CV]].
+- Here is my [[https://u.pcloud.link/publink/show?code=XZrEq85Z2mBhkzwMiohuMeV08xAJYQmSlYOX][CV]].
 	
 * Research Interests
 :PROPERTIES:
@@ -113,7 +113,8 @@
 :PROPERTIES:
 :CUSTOM_ID: publications
 :END:
- 
+
+ # https://rdcu.be/d52LO
 1. [cite:@YuWangAi2024] [[file:pdfs/OSMAC_FMA.pdf][pdf]]
 2. [cite:@YangWangYan2024] [[file:pdfs/OSMAC_SemiParametricAFTrank.pdf][pdf]]
 3. [cite:@ZhangWangZhangWang2024] [[https://arxiv.org/pdf/2302.13441.pdf][pdf]]
