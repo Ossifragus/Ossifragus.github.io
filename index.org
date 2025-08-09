@@ -114,7 +114,11 @@
 :CUSTOM_ID: publications
 :END:
 
- # https://rdcu.be/d52LO
+1. [cite:@DataJamboree2025] [[https://nejsds.nestat.org/journal/NEJSDS/article/90/file/pdf][pdf]]
+1. [cite:@GaoWangWang2025] [[https://rdcu.be/d52LO][pdf]]
+1. [cite:@NEURIPS2024_b225f5c7] [[https://proceedings.neurips.cc/paper_files/paper/2024/file/b225f5c7cd13615e9558c3931fa4e66f-Paper-Conference.pdf][pdf]]
+1. [cite:@ZhangLiWang2024] [[https://arxiv.org/pdf/2310.08208][pdf]]
+1. [cite:@a17110524] [[https://www.mdpi.com/1999-4893/17/11/524/pdf?version=1731656838][pdf]]
 1. [cite:@YuWangAi2024] [[file:pdfs/OSMAC_FMA.pdf][pdf]]
 2. [cite:@YangWangYan2024] [[file:pdfs/OSMAC_SemiParametricAFTrank.pdf][pdf]]
 3. [cite:@ZhangWangZhangWang2024] [[https://arxiv.org/pdf/2302.13441.pdf][pdf]]
