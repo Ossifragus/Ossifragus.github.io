@@ -97,6 +97,7 @@
 :CUSTOM_ID: research-interests
 :END:
 
+- Imbalanced and Rare Events data
 - Incomplete data analysis
 - Model selection and model averaging
 - Nonparametric and semi-parametric regression
