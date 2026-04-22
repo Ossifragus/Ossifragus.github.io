@@ -115,7 +115,9 @@
 :CUSTOM_ID: publications
 :END:
 
-1. [cite:@ZhangWang2025]
+1. [cite:@ShanWangWang2026Optimal]
+1. [cite:@ZhangWang2026distributedPLAM]
+1. [cite:@ZhangWang2026refitted]
 1. [cite:@ShaoWangLiangWang2025] [[https://www.dropbox.com/scl/fi/bd3926gqzfhcnmc16wydc/draft.pdf?rlkey=y7368aj61ycobtop875ssgqw9&st=24w35di9&dl=0][pdf]]
 1. [cite:@DataJamboree2025] [[https://nejsds.nestat.org/journal/NEJSDS/article/90/file/pdf][pdf]]
 1. [cite:@GaoWangWang2025] [[https://rdcu.be/d52LO][pdf]]
