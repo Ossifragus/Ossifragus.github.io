@@ -6,248 +6,56 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Design and Analysis of Experiments 2021</title>
-<meta name="generator" content="Org mode" />
-<style type="text/css">
- <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #ccc;
-    box-shadow: 3px 3px 3px #eee;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-    padding-top: 1.2em;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    background-color: white;
-    top: -10px;
-    right: 10px;
-    padding: 3px;
-    border: 1px solid black;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-  /*]]>*/-->
-</style>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg/css/readtheorg.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg/css/code-copy.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg/css/search.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
-<script type="text/javascript">
-// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
-<!--/*--><![CDATA[/*><!--*/
-     function CodeHighlightOn(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.add("code-highlighted");
-         target.classList.add("code-highlighted");
-       }
-     }
-     function CodeHighlightOff(elem, id)
-     {
-       var target = document.getElementById(id);
-       if(null != target) {
-         elem.classList.remove("code-highlighted");
-         target.classList.remove("code-highlighted");
-       }
-     }
-    /*]]>*///-->
-// @license-end
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/vendor/stickytableheaders/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg/js/search.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg/js/readtheorg.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg/js/code-copy.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
 
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content">
+<div id="content" class="content">
 <h1 class="title">Design and Analysis of Experiments 2021</h1>
-<div id="table-of-contents">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#opening-remark">1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Opening Remark</a></li>
 <li><a href="#scientific-sessions">2. Scientific Sessions</a>
@@ -315,7 +123,7 @@
 </div>
 </div>
 <div id="outline-container-opening-remark" class="outline-2">
-<h2 id="opening-remark"><span class="section-number-2">1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Opening Remark</h2>
+<h2 id="opening-remark"><span class="section-number-2">1.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Opening Remark</h2>
 <div class="outline-text-2" id="text-opening-remark">
 <p>
 10:45-11:00 AM Eastern Time
@@ -327,15 +135,12 @@
 </ul>
 </div>
 </div>
-
-
 <div id="outline-container-scientific-sessions" class="outline-2">
-<h2 id="scientific-sessions"><span class="section-number-2">2</span> Scientific Sessions</h2>
+<h2 id="scientific-sessions"><span class="section-number-2">2.</span> Scientific Sessions</h2>
 <div class="outline-text-2" id="text-scientific-sessions">
 </div>
-
 <div id="outline-container-scientific-01" class="outline-3">
-<h3 id="scientific-01"><span class="section-number-3">2.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Tradeoffs Between Computational Costs and Statistical Efficiency</h3>
+<h3 id="scientific-01"><span class="section-number-3">2.1.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-05 Tue&gt; </span></span> Tradeoffs Between Computational Costs and Statistical Efficiency</h3>
 <div class="outline-text-3" id="text-scientific-01">
 <p>
 11-12:30 PM Eastern Time
@@ -366,9 +171,8 @@ Organizer: <a href="http://homepages.math.uic.edu/~minyang/">Min Yang</a>, Unive
 </ul>
 </div>
 </div>
-
 <div id="outline-container-scientific-02" class="outline-3">
-<h3 id="scientific-02"><span class="section-number-3">2.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-06 Wed&gt; </span></span> Optimal designs</h3>
+<h3 id="scientific-02"><span class="section-number-3">2.2.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-06 Wed&gt; </span></span> Optimal designs</h3>
 <div class="outline-text-3" id="text-scientific-02">
 <p>
 12-1:30 PM Eastern Time
@@ -404,9 +208,8 @@ This is a joint work with Steven G. Gilmour (King’s College London) and Peter 
 </ul>
 </div>
 </div>
-
 <div id="outline-container-scientific-03" class="outline-3">
-<h3 id="scientific-03"><span class="section-number-3">2.3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-12 Tue&gt; </span></span> New Developments in Factorial Designs and Orthogonal Arrays</h3>
+<h3 id="scientific-03"><span class="section-number-3">2.3.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-12 Tue&gt; </span></span> New Developments in Factorial Designs and Orthogonal Arrays</h3>
 <div class="outline-text-3" id="text-scientific-03">
 <p>
 11-12:30 PM Eastern Time
@@ -419,27 +222,32 @@ Organizer: <a href="http://www.stat.ucla.edu/~hqxu/">Hongquan Xu</a>, University
 <ul class="org-ul">
 <li>Jessica Jaynes, California State University
 <ul class="org-ul">
-<li>Title: Orthogonal Array Composite Designs for Drug Combination Experiments with Applications for Tuberculosis</li>
+<li>Title: Orthogonal Array Composite Designs for Drug Combination Experiments with Applications for Tuberculosis
+<ul class="org-ul">
 <li>Abstract: The aim of this research is to provide an overview of the orthogonal array composite design (OACD) methodology, show that they can be robust to missing data under practical scenarios and provide an application for tuberculosis. We compare the 𝐷-efficiencies of OACDs to the commonly used central composite designs (CCD) when there are a few missing observations and demonstrate that OACDs are more robust than the popular CCDs to missing observations for two scenarios. The first scenario assumes one observation is missing either from one factorial point or one additional point. The second scenario assumes two observations are missing either from two factorial points or from two additional points, or from one factorial point and one additional point. Two real-world applications of OACDs pertaining to tuberculosis are provided: a 155-run OACD with nine drugs and a 50-run OACD with six drugs.</li>
+</ul></li>
 </ul></li>
 
 <li>Robert Mee,  University of Tennessee
 <ul class="org-ul">
-<li>Title: Two-level parallel flats designs</li>
+<li>Title: Two-level parallel flats designs
+<ul class="org-ul">
 <li>Abstract: Regular \(2^{n-p}\) designs are also  known as  single flat designs. Parallel flats designs (PFDs) consisting of three parallel flats (3-PFDs) are the most frequently utilized PFDs, due to their simple structure. Generalizing to  \(f\) -PFD with \(f>3\) is more challenging. This talk summarizes recent work on a general theory for the \(f\) -PFD for any \(f\geq 3\). We propose a method for obtaining the confounding frequency vectors for all nonequivalent \(f\) -PFDs, and to find the least \(G\) -aberration (or highest D-efficiency) \(f\) -PFD constructed from any single flat. We also characterize the quaternary code design series as PFDs.  Finally, we show how designs constructed by concatenating regular fractions from different families may also have a parallel flats structure. Examples are given throughout to illustrate the results.</li>
+</ul></li>
 </ul></li>
 
 <li>Lin Wang, George Washington University
 <ul class="org-ul">
-<li>Title: Orthogonal subsampling for big data linear regression</li>
+<li>Title: Orthogonal subsampling for big data linear regression
+<ul class="org-ul">
 <li>Abstract: The dramatic growth of big datasets presents a new challenge to data storage and analysis. Data reduction, or subsampling, that extracts useful information from datasets is a crucial step in big data analysis. We propose an orthogonal subsampling (OSS) approach for big data with a focus on linear regression models. The approach is inspired by the fact that an orthogonal array of two levels provides the best experimental design for linear regression models in the sense that it minimizes the average variance of the estimated parameters and provides the best predictions. The merits of OSS are three-fold: (i) it is easy to implement and fast; (ii) it is suitable for distributed parallel computing and ensures the subsamples selected in different batches have no common data points; and (iii) it outperforms existing methods in minimizing the mean squared errors of the estimated parameters and maximizing the efficiencies of the selected subsamples. Theoretical results and extensive numerical results show that the OSS approach is superior to existing subsampling approaches. It is also more robust to the presence of interactions among covariates and, when they do exist, OSS provides more precise estimates of the interaction effects than existing methods. The advantages of OSS are also illustrated through analysis of real data.</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-scientific-04" class="outline-3">
-<h3 id="scientific-04"><span class="section-number-3">2.4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-13 Wed&gt; </span></span> Online experiments</h3>
+<h3 id="scientific-04"><span class="section-number-3">2.4.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-13 Wed&gt; </span></span> Online experiments</h3>
 <div class="outline-text-3" id="text-scientific-04">
 <p>
 12-1:30 PM Eastern Time
@@ -470,9 +278,8 @@ Organizer: <a href="http://www.math.tau.ac.il/~dms/">David Steinberg</a>, Tel Av
 </ul>
 </div>
 </div>
-
 <div id="outline-container-scientific-05" class="outline-3">
-<h3 id="scientific-05"><span class="section-number-3">2.5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-19 Tue&gt; </span></span> Bayesian Optimization and Active Learning</h3>
+<h3 id="scientific-05"><span class="section-number-3">2.5.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-19 Tue&gt; </span></span> Bayesian Optimization and Active Learning</h3>
 <div class="outline-text-3" id="text-scientific-05">
 <p>
 11-12:30 PM Eastern Time
@@ -485,22 +292,29 @@ Organizer: <a href="https://bobby.gramacy.com/">Robert Gramacy</a>, Virginia Tec
 <ul class="org-ul">
 <li>Nathan Wycoff, Georgetown University
 <ul class="org-ul">
-<li>Title: Learning And Deploying Active Subspaces On Black Box Simulators</li>
+<li>Title: Learning And Deploying Active Subspaces On Black Box Simulators
+<ul class="org-ul">
 <li>Abstract: Surrogate modeling of computer experiments via local models, which induce sparsity by only considering short range interactions, can tackle huge analyses of complicated input-output relationships. However, narrowing focus to local scale means that global trends must be relearned over and over again. We first demonstrate how to use Gaussian processes to efficiently perform a global sensitivity analysis on an expensive black box simulator. We next propose a framework for incorporating information from this global sensitivity analysis into the surrogate model as an input rotation and rescaling preprocessing step. We further discuss applications to derivative free optimization via locally defined subspaces. Numerical experiments on observational data and benchmark test functions provide empirical validation.</li>
+</ul></li>
 </ul></li>
 
 <li>Max Balandat, Facebook
 <ul class="org-ul">
-<li>Title: Multi-Objective Bayesian Optimization over High-Dimensional Search Spaces</li>
+<li>Title: Multi-Objective Bayesian Optimization over High-Dimensional Search Spaces
+<ul class="org-ul">
 <li>Abstract: The ability to optimize multiple competing objective functions with high sample efficiency is imperative in many applied problems across science and industry. Multi-objective Bayesian optimization (BO) achieves strong empirical performance on such problems, but even with recent methodological advances, it has been restricted to simple, low-dimensional domains. Most existing BO methods exhibit poor performance on search spaces with more than a few dozen parameters. In this work we propose MORBO, a method for multi-objective Bayesian optimization over high-dimensional search spaces. MORBO performs local Bayesian optimization within multiple trust regions simultaneously, allowing it to explore and identify diverse solutions even when the objective functions are difficult to model globally. We show that MORBO significantly advances the state-of-the-art in sample-efficiency for several high-dimensional synthetic and real-world multi-objective problems, including a vehicle design problem with 222 parameters, demonstrating that MORBO is a practical approach for challenging and important problems that were previously out of reach for BO methods.</li>
 </ul></li>
+</ul></li>
 
-<li>Matthias Poloczek, Amazon
-<ul class="org-ul">
-<li>Title: Scalable High-dimensional Bayesian Optimization</li>
 <li><p>
-Abstract: Bayesian optimization has become a powerful method for the sample-efficient optimization of expensive black-box functions. These functions do not have a closed-form and are evaluated for example by running a complex simulation of a marketplace, by a physical experiment in the lab or in a market, or by a CFD simulation.  Use cases arise in machine learning, e.g., when tuning the configuration of an ML model or when optimizing a reinforcement learning policy.  Many of these applications are high-dimensional, i.e., the number of tunable parameters exceeds 20, and thus difficult for current approaches due to the curses of dimensionality and the heterogeneity of the underlying functions. Of particular interest are constrained settings, where we are looking for a solution that satisfies inequality constraints of the form c(x) &lt;= 0 and is globally optimal for the objective function among all feasible solutions. These constrained problems are particularly challenging because the sets of feasible points are often small and non-convex. Due to the lack of sample efficient methods, practitioners usually fall back to evolutionary strategies or heuristics. 
+Matthias Poloczek, Amazon
 </p>
+<ul class="org-ul">
+<li>Title: Scalable High-dimensional Bayesian Optimization
+<ul class="org-ul">
+<li>Abstract: Bayesian optimization has become a powerful method for the sample-efficient optimization of expensive black-box functions. These functions do not have a closed-form and are evaluated for example by running a complex simulation of a marketplace, by a physical experiment in the lab or in a market, or by a CFD simulation.  Use cases arise in machine learning, e.g., when tuning the configuration of an ML model or when optimizing a reinforcement learning policy.  Many of these applications are high-dimensional, i.e., the number of tunable parameters exceeds 20, and thus difficult for current approaches due to the curses of dimensionality and the heterogeneity of the underlying functions. Of particular interest are constrained settings, where we are looking for a solution that satisfies inequality constraints of the form c(x) &lt;= 0 and is globally optimal for the objective function among all feasible solutions. These constrained problems are particularly challenging because the sets of feasible points are often small and non-convex. Due to the lack of sample efficient methods, practitioners usually fall back to evolutionary strategies or heuristics.</li>
+</ul></li>
+</ul>
 
 <p>
 In this talk I will start with a brief introduction to Bayesian optimization and then present the trust region Bayesian optimization algorithm (TuRBO) that addresses the above challenges via a local surrogate and a suitable sampling strategy.  Then we will turn our attention to optimization under expensive black-box constraints and introduce the scalable constrained Bayesian optimization algorithm (SCBO).  I will show comprehensive experimental results that demonstrate that TuRBO and SCBO achieve excellent results and outperform the state-of-the-art methods.
@@ -515,13 +329,11 @@ References:
 <li>Scalable Global Optimization via Local Bayesian Optimization</li>
 <li>Scalable Constrained Bayesian Optimization</li>
 </ul></li>
-</ul></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-scientific-06" class="outline-3">
-<h3 id="scientific-06"><span class="section-number-3">2.6</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-20 Wed&gt; </span></span> Bayesian adaptive clinical trial designs: using uncertainty and information</h3>
+<h3 id="scientific-06"><span class="section-number-3">2.6.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-20 Wed&gt; </span></span> Bayesian adaptive clinical trial designs: using uncertainty and information</h3>
 <div class="outline-text-3" id="text-scientific-06">
 <p>
 12-1:30 PM Eastern Time
@@ -534,27 +346,32 @@ Organizer: <a href="https://web.ma.utexas.edu/users/pmueller/">Peter Muller</a>,
 <ul class="org-ul">
 <li>Tianjian Zhou, Colorado State University
 <ul class="org-ul">
-<li>Title: Probability-of-Decision Designs to Accelerate Dose-Finding Trials</li>
+<li>Title: Probability-of-Decision Designs to Accelerate Dose-Finding Trials
+<ul class="org-ul">
 <li>Abstract: Cohort-based enrollment can slow down phase I dose-finding trials since the outcomes of the previous cohort must be fully evaluated before the next cohort can be enrolled. This results in frequent suspension of patient enrollment. We propose a class of probability-of-decision (POD) designs to accelerate dose-finding trials, which enable dose assignments in real-time in the presence of pending toxicity outcomes. With uncertain outcomes, the dose assignment decisions are treated as random variables, and we calculate the posterior distribution of the decisions. The posterior distribution reflects the variability in the pending outcomes and allows a direct and intuitive evaluation of the confidence of all possible decisions. Optimal decisions are calculated based on the 0-1 loss, and extra safety rules are constructed to enforce sufficient protection from exposing patients to risky doses. A new and useful feature of POD designs is that they allow investigators and regulators to balance the trade-off between enrollment speed and making risky decisions by tuning a pair of intuitive design parameters. The performances of POD designs are evaluated through numerical studies.</li>
+</ul></li>
 </ul></li>
 
 <li>Daniel Schwartz, University of Chicago
 <ul class="org-ul">
-<li>Title: Bayesian Uncertainty-Directed Designs with Model Averaging for Faster and More Informative Dose-Ranging Trials</li>
+<li>Title: Bayesian Uncertainty-Directed Designs with Model Averaging for Faster and More Informative Dose-Ranging Trials
+<ul class="org-ul">
 <li>Abstract: In this paper we make three contributions to the design and analysis of Phase 2b non-oncology dose-ranging trials, which are critical for drug developers to find the optimal dose to carry forward to Phase 3. First, we use a Bayesian "uncertainty-directed" design (Ventz et al. 2018) that adaptively randomizes patients to doses in a way that explicitly maximizes information about which dose is optimal. This typically means assigning new patients to doses that have been previously understudied relative to how strongly the data suggest they could be the optimal dose. Second, we efficiently and robustly incorporate pharmacological knowledge through Bayesian model averaging of parametric dose-response curves. And third, we provide very fast posterior computation for this Bayesian adaptive design using a Sequential Monte Carlo algorithm that makes it easier for trialists to conduct extensive simulation studies to reliably check Frequentist error. These practical designs show promise to accelerate Phase 2b trials and produce higher quality evidence before Phase 3.</li>
+</ul></li>
 </ul></li>
 
 <li>Meizi Liu, University of Chicago
 <ul class="org-ul">
-<li>Title: PoD-BIN: A Probability of Decision Bayesian Interval De- sign for Time-to-Event Dose-Finding Trials with Multiple Toxicity Grades</li>
+<li>Title: PoD-BIN: A Probability of Decision Bayesian Interval De- sign for Time-to-Event Dose-Finding Trials with Multiple Toxicity Grades
+<ul class="org-ul">
 <li>Abstract: We consider a Bayesian framework based on “probability of decision” for dose- finding trial designs. The proposed PoD-BIN design evaluates the posterior predictive probabilities of up-and-down decisions. In PoD-BIN, multiple grades of toxicity, catego- rized as mild toxicity (MT) and dose-limiting toxicity (DLT), are modeled simultaneously, and the primary outcome of interests is time-to-toxicity for both MT and DLT. This allows the possibility of enrolling new patients when previously enrolled patients are still being fol- lowed for toxicity, thus potentially shortening the trial length. The Bayesian decision rules in PoD-BIN utilize the probability of decisions to balance the trade-off between the need to speed up the trial and the risk of exposing patients to overly toxic doses. We demonstrate via numerical examples the resulting trade-off of speed and safety of PoD-BIN and com- pare it to existing designs. PoD-BIN appears to be able to control the frequency of making risky decisions and, at the same time, shorten the trial duration in the simulation.</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-scientific-07" class="outline-3">
-<h3 id="scientific-07"><span class="section-number-3">2.7</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-26 Tue&gt; </span></span> Analyzing Clinical Trials Disrupted by COVID</h3>
+<h3 id="scientific-07"><span class="section-number-3">2.7.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-26 Tue&gt; </span></span> Analyzing Clinical Trials Disrupted by COVID</h3>
 <div class="outline-text-3" id="text-scientific-07">
 <p>
 11-12:30 PM Eastern Time
@@ -567,27 +384,32 @@ Organizer: <a href="https://stat.missouri.edu/people/flournoy">Nancy Flournoy</a
 <ul class="org-ul">
 <li>Richard Emsley, King's College London.
 <ul class="org-ul">
-<li>Title: Frequentist and Bayesian approaches to rescuing disrupted trials</li>
+<li>Title: Frequentist and Bayesian approaches to rescuing disrupted trials
+<ul class="org-ul">
 <li>Abstract: There is a severe threat to the validity of clinical trials that were underway before the COVID-19 pandemic and potentially huge research waste. Many studies were paused and recruitment restarted without due consideration of whether all studies should restart, or to required changes in sample sizes.  There is also a need for solutions to practical and statistical issues (e.g. increased missing data) that have arisen from the virus and its sequelae.  This talk will present some of these challenges, and discuss frequentist and Bayesian approaches to rescuing disrupted trials.  The contents are drawn from a report on this topic from the NISS Ingram Olkin Forum Series on Unplanned Clinical Trial Disruptions.</li>
+</ul></li>
 </ul></li>
 
 <li>Kelly Van Lancker, Ghent University.
 <ul class="org-ul">
-<li>Title: Potential estimands and estimators for clinical trials impacted by COVID-19</li>
+<li>Title: Potential estimands and estimators for clinical trials impacted by COVID-19
+<ul class="org-ul">
 <li>Abstract: The COVID-19 pandemic continues to affect the conduct of clinical trials of medical products globally. Complications may arise from pandemic-related operational challenges such as site closure, travel limitations and interruptions to the supply chain for the investigational product, or from health-related challenges such as COVID-19 infected trial participants. Some of these complications lead to unforeseen intercurrent events in the sense that they affect either the interpretation or the existence of the measurements associated with the clinical question of interest. The ICH E9(R1) Addendum on estimands provides a rigorous basis to discuss potential pandemic-related trial disruptions and embed them in the context of study objectives and design elements. In this talk, we focus on the use of the hypothetical strategy and to a lesser extent the treatment-policy strategy to frame clinical questions in the presence of the unforeseen intercurrent events due to the COVID-19 pandemic. It should be noted that different hypothetical strategies could be considered and care has to be taken that the envisaged scenario, in which the intercurrent event would not occur, is precisely described. For their estimation, we will consider different causal inference and missing data methods such as multiple imputation and (augmented) inverse probability weighting. To clarify, we describe the features of a stylized trial in neuroscience, and how it may have been impacted by the pandemic. This stylized trial will then be re-visited by discussing the changes to the estimand and the estimator to account for pandemic disruptions.</li>
+</ul></li>
 </ul></li>
 
 <li>Diane Uschner, George Washington University.
 <ul class="org-ul">
-<li>Title: Randomization tests toaddress disruptions inclinical trials</li>
+<li>Title: Randomization tests toaddress disruptions inclinical trials
+<ul class="org-ul">
 <li>Abstract: In early 2020, the World Health Organization declared the novel corona virus disease (COVID-19) a pandemic. On top of prompting various trials to study treatments and vaccines for COVID-19, COVID-19 also had numerous consequences for ongoing clinical trials. People around the globe restricted their daily activities to minimize contagion, which led to missed visits and cancelling or postponing of elective medical treatments. For some clinical indications, COVID-19 may lead to a change in the patient population or treatment effect heterogeneity. We will measure the effect of the disruption on randomization tests and derive a methodological framework for randomization tests that allows for the assessment of clinical trial disruptions. We show that randomization tests are robust against clinical trial disruptions in certain scenarios, namely if the disruption can be considered an ancillary statistic to the treatment effect. As a consequence, randomization tests maintain type I error probability and power at their nominal levels.</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
-
 <div id="outline-container-scientific-08" class="outline-3">
-<h3 id="scientific-08"><span class="section-number-3">2.8</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-27 Wed&gt; </span></span> Bayesian and model-robust design</h3>
+<h3 id="scientific-08"><span class="section-number-3">2.8.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-27 Wed&gt; </span></span> Bayesian and model-robust design</h3>
 <div class="outline-text-3" id="text-scientific-08">
 <p>
 12-1:30 PM Eastern Time
@@ -600,35 +422,38 @@ Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">
 <ul class="org-ul">
 <li>Tim Waite, University of Manchester, UK
 <ul class="org-ul">
-<li>Title: Minimax efficient random experimental design strategies with application to model-robust design for prediction</li>
+<li>Title: Minimax efficient random experimental design strategies with application to model-robust design for prediction
+<ul class="org-ul">
 <li>Abstract: Fisher stressed the importance of randomizing an experiment via random permutation of the allocation of treatments to experimental units; in an industrial context this usually amounts to randomizing the run order of the design. In this talk we take the idea of experimental randomization much further by introducing flexible new random design strategies in which the design to be applied is chosen at random from a distribution of possible designs. We discuss the philosophical justification for doing so from a game-theoretic perspective and it is shown that the new strategies give stronger bounds on both the expectation and survivor function of the loss distribution. The consequences of this approach are explored in several problems, including global prediction from a linear model contaminated by a discrepancy function from an L2-class. In this problem the performance improvement is dramatic: the new approach gives bounded expected loss, in contrast to previous designs for which the expected loss was unbounded.</li>
+</ul></li>
 </ul></li>
 
 <li>Lida Mavrogonatou, University of Cambridge
 <ul class="org-ul">
-<li>Title: Optimal Bayesian experimental design for model selection through minimisation of f-divergences</li>
+<li>Title: Optimal Bayesian experimental design for model selection through minimisation of f-divergences 
+<ul class="org-ul">
 <li>Abstract: A systematic understanding of studied phenomena has been embraced in a range of scientific disciplines where a collection of components are studied as parts of a system rather than as isolated processes. As direct observation of the studied system is often not possible, observable information is collected through experiments and subsequently used for inference of unobservable components. Given a predefined budget, Bayesian optimal experimental design methods are often employed  to identify the most useful (in terms of a targeted objective) experimental conditions while accounting for potential sources of uncertainty. Unfortunately, currently adopted methods fail to address challenges arising within a modern scientific framework, due to the increased computational complexity of models that can realistically capture the studied structures. In this talk, I will present an efficient estimation framework that is shown to overcome ongoing challenges through the use of variational approximation methods. The proposed approach is applicable to optimal experimental design problems for model selection. A suitable class of metrics that are used to quantify the benefit from each experimental condition (commonly known as utility functions) is established in which the benefit is expressed as an f-divergence between predictive distributions of the competing models.</li>
+</ul></li>
 </ul></li>
 
 <li>Lulu Kang, Illinois Institute of Technology
 <ul class="org-ul">
-<li>Title: A Maximin Φp-Efficient Design for Multivariate Generalized Linear Models</li>
+<li>Title: A Maximin Φp-Efficient Design for Multivariate Generalized Linear Models
+<ul class="org-ul">
 <li>Abstract: Experimental designs for a generalized linear model (GLM) often depend on the specification of the model, including the link function, the predictors, and unknown parameters, such as the regression coefficients. To deal with the uncertainties of these model specifications, it is important to construct optimal designs with high efficiency under such uncertainties. Existing methods such as Bayesian experimental designs often use prior distributions of model specifications to incorporate model uncertainties into the design criterion. Alternatively, one can obtain the design by optimizing the worst-case design efficiency with respect to the uncertainties of model specifications. In this work, we propose a new Maximin \(\Phi_p\) -Efficient (or Mm-\(\Phi_p\) for short) design which aims at maximizing the minimum \(\Phi_p\) -efficiency under model uncertainties. Based on the theoretical properties of the proposed criterion, we develop an efficient algorithm with sound convergence properties to construct the Mm-\(\Phi_p\) design. The performance of the proposed Mm-\(\Phi_p\) design is assessed through several numerical examples.</li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 </div>
 </div>
-
-
 <div id="outline-container-roundtables" class="outline-2">
-<h2 id="roundtables"><span class="section-number-2">3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-07 Thu&gt; </span></span> Roundtable Discussion</h2>
+<h2 id="roundtables"><span class="section-number-2">3.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-07 Thu&gt; </span></span> Roundtable Discussion</h2>
 <div class="outline-text-2" id="text-roundtables">
 <p>
 11AM - 12PM Eastern
 </p>
 </div>
-
 <div id="outline-container-roundtable-01" class="outline-4">
 <h4 id="roundtable-01">Career in Academia</h4>
 <div class="outline-text-4" id="text-roundtable-01">
@@ -638,7 +463,6 @@ Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">
 </ul>
 </div>
 </div>
-
 <div id="outline-container-roundtable-02" class="outline-4">
 <h4 id="roundtable-02">Career in Industry</h4>
 <div class="outline-text-4" id="text-roundtable-02">
@@ -648,7 +472,6 @@ Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">
 </ul>
 </div>
 </div>
-
 <div id="outline-container-roundtable-03" class="outline-4">
 <h4 id="roundtable-03">Publishing Papers</h4>
 <div class="outline-text-4" id="text-roundtable-03">
@@ -659,16 +482,13 @@ Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">
 </div>
 </div>
 </div>
-
-
 <div id="outline-container-poster-session" class="outline-2">
-<h2 id="poster-session"><span class="section-number-2">4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-14 Thu&gt; </span></span> JMP Poster Session</h2>
+<h2 id="poster-session"><span class="section-number-2">4.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-14 Thu&gt; </span></span> JMP Poster Session</h2>
 <div class="outline-text-2" id="text-poster-session">
 <p>
 11AM - 12:30PM Eastern
 </p>
 </div>
-
 <div id="outline-container-judges" class="outline-4">
 <h4 id="judges">Judges:</h4>
 <div class="outline-text-4" id="text-judges">
@@ -680,8 +500,6 @@ Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">
 </ul>
 </div>
 </div>
-
-
 <div id="outline-container-student-best-poster-competition-winners" class="outline-4">
 <h4 id="student-best-poster-competition-winners">Student Best Poster Competition winners:</h4>
 <div class="outline-text-4" id="text-student-best-poster-competition-winners">
@@ -693,12 +511,10 @@ Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">
 </ol>
 </div>
 </div>
-
 <div id="outline-container-posters" class="outline-4">
 <h4 id="posters">Posters</h4>
 <div class="outline-text-4" id="text-posters">
 </div>
-
 <div id="outline-container-poster-MarioBecerra" class="outline-5">
 <h5 id="poster-MarioBecerra">Mario Becerra, KU Leuven</h5>
 <div class="outline-text-5" id="text-poster-MarioBecerra">
@@ -711,7 +527,6 @@ Organizer: <a href="https://www.southampton.ac.uk/maths/about/staff/davew.page">
 </ul>
 </div>
 </div>
-
 <div id="outline-container-poster-AlexandreBohyn" class="outline-5">
 <h5 id="poster-AlexandreBohyn">Alexandre Bohyn, KU Leuven</h5>
 <div class="outline-text-5" id="text-poster-AlexandreBohyn">
@@ -1010,10 +825,8 @@ Núñez Ares, José, and Peter Goos. 2020. “Enumeration and Multicriteria Sele
 </div>
 </div>
 </div>
-
-
 <div id="outline-container-panel-discussion" class="outline-2">
-<h2 id="panel-discussion"><span class="section-number-2">5</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-21 Thu&gt; </span></span> Panel Discussion</h2>
+<h2 id="panel-discussion"><span class="section-number-2">5.</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2021-10-21 Thu&gt; </span></span> Panel Discussion</h2>
 <div class="outline-text-2" id="text-panel-discussion">
 <p>
 11AM - 12PM Eastern<br />
@@ -1023,25 +836,25 @@ Núñez Ares, José, and Peter Goos. 2020. “Enumeration and Multicriteria Sele
 <b>Moderator</b>:
 </p>
 <ul class="org-ul">
-<li><a href="https://sites.google.com/view/singhrakhi">Rakhi Singh</a>, UNC Greensboro</li>
-</ul>
+<li><p>
+<a href="https://sites.google.com/view/singhrakhi">Rakhi Singh</a>, UNC Greensboro
+</p>
 
 <p>
 <b>Panelists</b>:
-</p>
-<ul class="org-ul">
+</p></li>
 <li><a href="https://xwdeng80.github.io/">Xinwei Deng</a>, Virginia Tech</li>
 <li><a href="https://www.stat.purdue.edu/~dkjlin/">Dennis Lin</a>, Purdue University</li>
 <li><a href="https://www4.stat.ncsu.edu/~jwstalli/">Jonathan W. Stallrich</a>, North Carolina State University</li>
-<li><a href="https://sites.google.com/uncg.edu/johnstufken">John Stufken</a>, University of North Carolina at Greensboro</li>
+<li><a href="https://sites.google.com/uncg.edu/johnstufken">John Stufken</a>, University of North Carolina at Greensboro
+<ul class="org-ul">
 <li><a href="https://ph.ucla.edu/faculty/wong">Weng Kee Wong</a>, University of California, Los Angeles</li>
+</ul></li>
 </ul>
 </div>
 </div>
-
-
 <div id="outline-container-individual-sponsors" class="outline-2">
-<h2 id="individual-sponsors"><span class="section-number-2">6</span> Individual Sponsors</h2>
+<h2 id="individual-sponsors"><span class="section-number-2">6.</span> Individual Sponsors</h2>
 <div class="outline-text-2" id="text-individual-sponsors">
 <ul class="org-ul">
 <li>Angela Dean, The Ohio State University</li>
@@ -1075,10 +888,8 @@ Núñez Ares, José, and Peter Goos. 2020. “Enumeration and Multicriteria Sele
 </ul>
 </div>
 </div>
-
-
 <div id="outline-container-participants" class="outline-2">
-<h2 id="participants"><span class="section-number-2">7</span> Participants</h2>
+<h2 id="participants"><span class="section-number-2">7.</span> Participants</h2>
 <div class="outline-text-2" id="text-participants">
 <ul class="org-ul">
 <li>ADETOLA ADEDAMOLA ADEDIRAN, UNIVERSITY OF SOUTHAMPTON</li>
