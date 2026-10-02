@@ -1,5 +1,4 @@
-# -*- org-confirm-babel-evaluate: nil -*-
-#+TITLE:        Wang, HaiYing
+#+TITLE:        ?
 #+AUTHOR:       Wang, HaiYing
 #+EMAIL:        haiying.wang@uconn.edu
 #+STARTUP:      content hideblocks
