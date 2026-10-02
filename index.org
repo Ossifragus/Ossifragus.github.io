@@ -2,11 +2,12 @@
 #+TITLE:        Wang, HaiYing
 #+AUTHOR:       Wang, HaiYing
 #+EMAIL:        haiying.wang@uconn.edu
-#+STARTUP: content hideblocks
-#+OPTIONS: timestamp:nil date:nil tex:t num:nil toc:nil author:nil creator:nil
-#+HTML_HEAD: <base target="_blank">
+#+STARTUP:      content hideblocks
+#+OPTIONS:      timestamp:nil date:nil tex:t num:nil toc:nil author:nil creator:nil
+#+HTML_HEAD:    <base target="_blank">
+#+HTML_HEAD:    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 #+BIBLIOGRAPHY: papers.bib
-#+CITE_EXPORT: csl APA-CV.csl
+#+CITE_EXPORT:  csl APA-CV.csl
 
 #+BEGIN_EXPORT html
 <script type="text/javascript">
@@ -42,7 +43,7 @@
 <div class="profile-card">
   <div class="profile-photo-col">
     <div class="photo-wrapper">
-      <img id="img" src="figures/why.jpg" alt="Wang, HaiYing" />
+      <img id="img" src="figures/why.jpg" alt="Wang, HaiYing" height="350" style="height: 350px; max-width: 100%; object-fit: contain;" />
     </div>
     <div class="photo-nav">
       <button type="button" onclick="displayPreviousImage()" aria-label="Previous image">&#9664; Prev</button>
