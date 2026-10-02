@@ -13,4 +13,4 @@ pandoc index.org \
   -s -o public/index.html
 
 sed -i 's/Wang, H\./<strong>Wang, H.<\/strong>/g' public/index.html
-sed -i 's/style\/myorg\.css/style\/myorg\.css?v=4/g' public/index.html
+sed -i 's/style\/myorg\.css/style\/myorg\.css?v=6/g' public/index.html
