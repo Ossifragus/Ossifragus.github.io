@@ -31,7 +31,7 @@ body {
   background-color: #ffffff;
   color: var(--text-color);
   line-height: 1.68;
-  max-width: 860px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 2.5rem 1.5rem 5rem 1.5rem;
   -webkit-font-smoothing: antialiased;
@@ -109,20 +109,24 @@ strong {
   align-items: center;
   gap: 2.5rem;
   margin: 1rem 0 2.5rem 0;
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   background-color: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: 12px;
 }
 
+/* Fixed photo column: stays 480px wide so right column NEVER moves */
 .profile-photo-col {
+  width: 480px;
+  flex: 0 0 480px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-shrink: 0;
 }
 
+/* Fixed 480x350 box where portrait and landscape images are centered */
 .photo-wrapper {
+  width: 480px;
   height: 350px;
   display: flex;
   align-items: center;
@@ -132,7 +136,7 @@ strong {
 .photo-wrapper img, #img {
   height: 350px !important;
   width: auto;
-  max-width: 100%;
+  max-width: 480px;
   object-fit: contain;
   border-radius: 8px;
   border: 1px solid var(--border-color);
@@ -165,20 +169,22 @@ strong {
 
 .profile-info-col {
   flex: 1;
+  min-width: 0;
 }
 
 .profile-name {
-  font-size: 1.85rem;
+  font-size: 1.65rem;
   font-weight: 700;
   margin: 0 0 0.85rem 0;
   padding-bottom: 0;
   border-bottom: none;
   color: var(--heading-color);
+  white-space: nowrap;
 }
 
 .chinese-name {
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--text-muted);
 }
 
@@ -251,7 +257,7 @@ ol li a[href*="doi.org"]:hover {
 }
 
 /* Responsive design */
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   body {
     padding: 1.5rem 1rem 3.5rem 1rem;
   }
@@ -263,7 +269,13 @@ ol li a[href*="doi.org"]:hover {
     padding: 1.5rem 1.25rem;
   }
 
+  .profile-photo-col {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
   .photo-wrapper {
+    width: 100%;
     height: auto;
   }
 
@@ -271,6 +283,11 @@ ol li a[href*="doi.org"]:hover {
     height: auto !important;
     max-height: 320px;
     max-width: 100%;
+  }
+
+  .profile-name {
+    white-space: normal;
+    font-size: 1.5rem;
   }
 
   .profile-details .email-box {
