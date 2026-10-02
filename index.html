@@ -1,297 +1,128 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>❓</title>
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
-</style>
-<base target="_blank">
-<link rel="stylesheet" type="text/css" href="./style/myorg.css"/>
-<link rel="stylesheet" type="text/css" href="./style/org.css"/>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Wang, HaiYing</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style/myorg.css" />
+  <base target="_blank">
 </head>
 <body>
-<div id="content" class="content">
-<h1 class="title">❓</h1>
-<script type = "text/javascript">
+<header id="title-block-header">
+<h1 class="title">Wang, HaiYing</h1>
+</header>
+<script type="text/javascript">
 /* <![CDATA[ */
+  var images = [
+    "figures/why.jpg",
+    "figures/why002.jpg",
+    "figures/why003.jpg",
+    "figures/why008.jpg",
+    "figures/why012.jpg",
+    "figures/why013.jpg",
+    "figures/why014.jpg"
+  ];
+  var x = 0;
   function displayImage(image) {
-  document.getElementById("img").src = image;
+    var el = document.getElementById("img");
+    if (el) el.src = image;
   }
   function displayNextImage() {
-  x = (x == images.length - 1) ? 0 : x + 1;
-  displayImage(images[x]);
+    x = (x >= images.length - 1) ? 0 : x + 1;
+    displayImage(images[x]);
   }
   function displayPreviousImage() {
-      x = (x <= 0) ? images.length - 1 : x - 1;
-      displayImage(images[x]);
+    x = (x <= 0) ? images.length - 1 : x - 1;
+    displayImage(images[x]);
   }
-  function startTimer() {
-  setInterval(displayNextImage, 5000);
-  }
-  var images = [], x = -1;
-    images[0]  = "figures/why.jpg";
-    <!-- images[1]  = "figures/why001.jpg"; -->
-    images[1]  = "figures/why002.jpg";
-    images[2]  = "figures/why003.jpg";
-    <!-- images[4]  = "figures/why004.jpg"; -->
-    <!-- images[5]  = "figures/why005.jpg"; -->
-    <!-- images[6]  = "figures/why006.jpg"; -->
-    <!-- images[7]  = "figures/why007.jpg"; -->
-    images[3]  = "figures/why008.jpg";
-    <!-- images[9]  = "figures/why009.jpg"; -->
-    <!-- images[10] = "figures/why010.jpg"; -->
-    <!-- images[11] = "figures/why011.jpg"; -->
-    images[4] = "figures/why012.jpg";
-    images[5] = "figures/why013.jpg";
-    images[6] = "figures/why014.jpg";
-  window.addEventListener('load', function() {
-  'use strict';
-  startTimer();
+  window.addEventListener("load", function() {
+    setInterval(displayNextImage, 5000);
   }, false);
 /* ]]> */
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
+<div class="profile-card">
+  <div class="profile-photo-col">
+    <div class="photo-wrapper">
+      <img id="img" src="figures/why.jpg" alt="Wang, HaiYing" />
+    </div>
+    <div class="photo-nav">
+      <button type="button" onclick="displayPreviousImage()" aria-label="Previous image">&#9664; Prev</button>
+      <button type="button" onclick="displayNextImage()" aria-label="Next image">Next &#9654;</button>
+    </div>
+  </div>
+  <div class="profile-info-col">
+    <h1 class="profile-name">Wang, HaiYing &nbsp; <span class="chinese-name">王海鹰</span></h1>
+    <div class="profile-details">
+      <p class="affiliation">
+        <a href="https://stat.uconn.edu/">Department of Statistics</a><br />
+        <a href="https://uconn.edu/">University of Connecticut</a>
+      </p>
+      <p class="address">
+        W319 Philip E. Austin Building<br />
+        215 Glenbrook Rd. U-4120<br />
+        Storrs, CT 06269-4120<br />
+        Phone: <a href="tel:18604866142">(860) 486-6142</a>
+      </p>
+      <div class="email-box">
+        Email: \(\textrm{W}\)@\(\textrm{H}\).\(\textrm{Y}\), <br />
+        &emsp; where
+        \(\begin{cases} \textrm{W} &= \textrm{haiying.wang}\\ \textrm{H} &= \textrm{uconn}\\ \textrm{Y} &= \textrm{edu} \end{cases}\)
+      </div>
+    </div>
+  </div>
+</div>
 
-<table style="width: 100%" border="0" cellpadding="0">
-	<colgroup>
-		<col span="1" style="width: 60%;">
-		<col span="1" style="width: 40;">
-	</colgroup>
-	<tr>
-		<td>
-			<img id="img" src="figures/why.jpg" alt="" height="350"/><br />
-			<button onclick="displayPreviousImage()">Previous</button>
-			<button onclick="displayNextImage()">Next</button>
-		</td>
-		<td>
-			<h2>Wang, HaiYing &nbsp; 王海鹰</h2>
-			<div>
-				<a href="http://www.stat.uconn.edu/">Department of Statistics </a><br />
-				<a href="http://www.uconn.edu/">University of Connecticut</a><br />
-				W319 Philip E. Austin Building<br />
-				215 Glenbrook Rd. U-4120<br />
-				Storrs, CT 06269-4120<br />
-				Phone: (860) 486-6142<br />
-				Email: \(\textrm{W}\)@\(\textrm{H}\).\(\textrm{Y}\), <br />
-				&emsp; where
-				\(\begin{cases} \textrm{W} &= \textrm{haiying.wang}\\ \textrm{H} &= \textrm{uconn}\\ \textrm{Y} &= \textrm{edu} \end{cases}\) <br />
-			</div>
-		</td>
-	</tr>
-</table>
-
-<div id="outline-container-about-me" class="outline-2">
-<h2 id="about-me">About Me</h2>
-<div class="outline-text-2" id="text-about-me">
-<ul class="org-ul">
-<li>I am a Professor, and was an Associate Professor, Assistant Professor in the
-<a href="http://stat.uconn.edu/">Department of Statistics</a>, at the <a href="http://uconn.edu/">University of Connecticut</a>.</li>
-<li>I was an Assistant Professor in the
-<a href="http://ceps.unh.edu/mathematics-statistics">Department of Mathematics &amp; Statistics</a>, at the <a href="http://www.unh.edu/">University of New Hampshire</a>.</li>
-<li>I obtained my PhD from the
-<a href="http://www.stat.missouri.edu/">Department of Statistics</a>, at the <a href="http://www.missouri.edu/">University of Missouri</a>, with adviser <a href="https://www.stat.missouri.edu/people/flournoy">Professor Nancy Flournoy</a>.</li>
-<li>I obtained my MS from the Division of Statistical Science, Institute of Systems Science,
-<a href="http://english.amss.cas.cn/">Academy of Mathematics and Systems Science</a>, <a href="http://english.cas.cn/">Chinese Academy of Sciences</a>, under the supervision of Professor Guohua Zou.</li>
+<h1 id="about-me">About Me</h1>
+<ul>
+<li>I am a Professor, and was an Associate Professor, Assistant
+Professor in the <a href="http://stat.uconn.edu/">Department of
+Statistics</a>, at the <a href="http://uconn.edu/">University of
+Connecticut</a>.</li>
+<li>I was an Assistant Professor in the <a
+href="http://ceps.unh.edu/mathematics-statistics">Department of
+Mathematics &amp; Statistics</a>, at the <a
+href="http://www.unh.edu/">University of New Hampshire</a>.</li>
+<li>I obtained my PhD from the <a
+href="http://www.stat.missouri.edu/">Department of Statistics</a>, at
+the <a href="http://www.missouri.edu/">University of Missouri</a>, with
+adviser <a
+href="https://www.stat.missouri.edu/people/flournoy">Professor Nancy
+Flournoy</a>.</li>
+<li>I obtained my MS from the Division of Statistical Science, Institute
+of Systems Science, <a href="http://english.amss.cas.cn/">Academy of
+Mathematics and Systems Science</a>, <a
+href="http://english.cas.cn/">Chinese Academy of Sciences</a>, under the
+supervision of Professor Guohua Zou.</li>
 <li>I worked as an engineer in the R &amp; D center of Midea Group.</li>
-<li>I obtained my BE from the School of Aeronautical Science and Engineering,
-<a href="http://ev.buaa.edu.cn/">Beijing University of Aeronautics and Astronautics</a>.</li>
-<li>Here is my <a href="https://www.dropbox.com/scl/fi/p8ygo7gay2zcwm5y23xc0/CV.pdf?rlkey=vdle9smnjjr0kt0nvxi68a4rj&amp;st=i2sk1h2z&amp;dl=0">CV</a>.</li>
+<li>I obtained my BE from the School of Aeronautical Science and
+Engineering, <a href="http://ev.buaa.edu.cn/">Beijing University of
+Aeronautics and Astronautics</a>.</li>
+<li>Here is my <a
+href="https://www.dropbox.com/scl/fi/p8ygo7gay2zcwm5y23xc0/CV.pdf?rlkey=vdle9smnjjr0kt0nvxi68a4rj&amp;st=i2sk1h2z&amp;dl=0">CV</a>.</li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-research-interests" class="outline-2">
-<h2 id="research-interests">Research Interests</h2>
-<div class="outline-text-2" id="text-research-interests">
-<ul class="org-ul">
+<h1 id="research-interests">Research Interests</h1>
+<ul>
 <li>Imbalanced and Rare Events data</li>
 <li>Incomplete data analysis</li>
 <li>Model selection and model averaging</li>
@@ -299,167 +130,549 @@
 <li>Optimum experimental design</li>
 <li>Sub-sample methods for big data</li>
 </ul>
-</div>
-</div>
-
-
-<div id="outline-container-publications" class="outline-2">
-<h2 id="publications">Publications</h2>
-<div class="outline-text-2" id="text-publications">
-<ol class="org-ol">
-<li>Shan, J., Wang, L., &#38; <strong>Wang, H.</strong> (2026). Optimal response-free cluster subsampling for longitudinal data under measurement constraints. <i>Statistica Sinica</i>. <a href="https://doi.org/10.5705/ss.202026.0022">https://doi.org/10.5705/ss.202026.0022</a></li>
-<li>Zhang, H., &#38; <strong>Wang, H.</strong> (2026). Distributed subsampling strategy for partially linear additive models with massive data. <i>Communications in Mathematics and Statistics</i>, accepted.</li>
-<li>Zhang, H., &#38; <strong>Wang, H.</strong> (2026). Refitted cross-validation estimation for high-dimensional subsamples from low-dimension full data. <i>Computational Statistics</i>, <i>41</i>(2), 38. <a href="https://doi.org/10.1007/s00180-025-01702-6">https://doi.org/10.1007/s00180-025-01702-6</a></li>
-<li>Shao, Y., Wang, L., Lian, H., &#38; <strong>Wang, H.</strong> (2025). Optimal subsampling for high-dimensional partially linear models via machine learning methods. <i>Journal of Machine Learning Research</i>, <i>26</i>(198), 1–70. <a href="http://jmlr.org/papers/v26/23-1475.html">http://jmlr.org/papers/v26/23-1475.html</a> <a href="https://www.dropbox.com/scl/fi/bd3926gqzfhcnmc16wydc/draft.pdf?rlkey=y7368aj61ycobtop875ssgqw9&amp;st=24w35di9&amp;dl=0">pdf</a></li>
-<li>McGowan, L. D., Tass, S., Tyner, S., <strong>Wang, H.</strong>, &#38; Yan, J. (2025). Data jamboree: A party of open-source software solving real-world data science problems. <i>The New England Journal of Statistics in Data Science</i>, 1–9. <a href="https://doi.org/10.51387/25-NEJSDS79">https://doi.org/10.51387/25-NEJSDS79</a> <a href="https://nejsds.nestat.org/journal/NEJSDS/article/90/file/pdf">pdf</a></li>
-<li>Gao, J., Wang, L., &#38; <strong>Wang, H.</strong> (2025). Power enhancing probability subsampling using side information. <i>Statistics and Computing</i>, <i>35</i>(2), 28. <a href="https://doi.org/10.1007/s11222-024-10556-9">https://doi.org/10.1007/s11222-024-10556-9</a> <a href="https://rdcu.be/d52LO">pdf</a></li>
-<li>Wang, J., <strong>Wang, H.</strong>, &#38; Zhang, H. H. (2024). Scale-invariant optimal sampling for rare-events data and sparse models. <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, <i>37</i>, 98384–98418. <a href="https://proceedings.neurips.cc/paper_files/paper/2024/file/b225f5c7cd13615e9558c3931fa4e66f-Paper-Conference.pdf">pdf</a></li>
-<li>Zhang, H., Li, Y., &#38; <strong>Wang, H.</strong> (2024). Dsubcox: A fast subsampling algorithm for cox model with distributed and massive survival data. <i>International Journal of Biostatistics</i>, Accepted. <a href="https://doi.org/10.1515/ijb-2024-0042">https://doi.org/10.1515/ijb-2024-0042</a> <a href="https://arxiv.org/pdf/2310.08208">pdf</a></li>
-<li>Yu, J., <strong>Wang, H.</strong>, &#38; Ai, M. (2025). A subsampling strategy for AIC-based model averaging with generalized linear models. <i>Technometrics</i>, <i>67</i>(1), 122–132. <a href="https://doi.org/10.1080/00401706.2024.2407310">https://doi.org/10.1080/00401706.2024.2407310</a> <a href="pdfs/OSMAC_FMA.pdf">pdf</a></li>
-<li>Yang, Z., <strong>Wang, H.</strong>, &#38; Yan, J. (2024). Optimal subsampling for semi-parametric accelerated failure time models with massive survival data using a rank-based approach. <i>Statistics in Medicine</i>, <i>43</i>(24), 4650–4666. <a href="https://doi.org/https://doi.org/10.1002/sim.10200">https://doi.org/https://doi.org/10.1002/sim.10200</a> <a href="pdfs/OSMAC_SemiParametricAFTrank.pdf">pdf</a></li>
-<li>Zhang, Y., Wang, L., Zhang, X., &#38; <strong>Wang, H.</strong> (2024). Independence-encouraging subsampling for nonparametric additive models. <i>Journal of Computational and Graphical Statistics</i>, <i>33</i>(4), 1424–1433. <a href="https://doi.org/10.1080/10618600.2024.2326136">https://doi.org/10.1080/10618600.2024.2326136</a> <a href="https://arxiv.org/pdf/2302.13441.pdf">pdf</a></li>
-<li>Yang, Z., <strong>Wang, H.</strong>, &#38; Yan, J. (2024). Subsampling approach for least squares fitting of semi-parametric accelerated failure time models to massive survival data. <i>Statistics and Computing</i>, <i>34</i>(2), 1–11. <a href="https://rdcu.be/dyFzJ">https://rdcu.be/dyFzJ</a> <a href="https://rdcu.be/dyFzJ">pdf</a></li>
-<li>Wang, J., <strong>Wang, H.</strong>, &#38; Chen, K. (2023). Discussion of ‘Statistical inference for streamed longitudinal data’. <i>Biometrika</i>, <i>110</i>(4), 863–866. <a href="https://doi.org/10.1093/biomet/asad035">https://doi.org/10.1093/biomet/asad035</a> <a href="pdfs/DiscussionOnInferenceStreamedData.pdf">pdf</a></li>
-<li>Zhang, H., Zuo, L., <strong>Wang, H.</strong>, &#38; Sun, L. (2024). Approximating partial likelihood estimators via optimal subsampling. <i>Journal of Computational and Graphical Statistics</i>, <i>33</i>(1), 276–288. <a href="https://doi.org/10.1080/10618600.2023.2216261">https://doi.org/10.1080/10618600.2023.2216261</a> <a href="https://arxiv.org/pdf/2210.04581.pdf">pdf</a></li>
-<li>Yu, J., Liu, J., &#38; <strong>Wang, H.</strong> (2023). Information-based optimal subdata selection for non-linear models. <i>Statistical Papers</i>, <i>64</i>(4), 1069–1093. <a href="https://doi.org/10.1007/s00362-023-01430-3">https://doi.org/10.1007/s00362-023-01430-3</a> <a href="pdfs/IBOSS_GLM.pdf">pdf</a></li>
-<li>Wang, Z., <strong>Wang, H.</strong>, &#38; Ravishanker, N. (2023). Subsampling in longitudinal models. <i>Methodology and Computing in Applied Probability</i>, <i>25</i>(1), 35. <a href="https://doi.org/10.1007/s11009-023-10015-4">https://doi.org/10.1007/s11009-023-10015-4</a> <a href="pdfs/OSMAC_MCAP.pdf">pdf</a></li>
-<li>Kim, J. K., &#38; <strong>Wang, H.</strong> (2023). A note on weight smoothing in survey sampling. <i>Survey Methodology</i>, <i>49</i>(1), 31–38. <a href="pdfs/noteWeightSmoothing.pdf">pdf</a></li>
-<li>Yao, Y., Zou, J., &#38; <strong>Wang, H.</strong> (2023). Model constraints independent optimal subsampling probabilities for softmax regression. <i>Journal of Statistical Planning and Inference</i>, <i>225</i>, 188–201. <a href="https://doi.org/10.1016/j.jspi.2022.12.004">https://doi.org/10.1016/j.jspi.2022.12.004</a> <a href="pdfs/OSMAC_softmax_Constraints.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong> (2022). A note on centering in subsample selection for linear regression. <i>Stat</i>, <i>11</i>(1), e525. <a href="https://doi.org/10.1002/sta4.525">https://doi.org/10.1002/sta4.525</a> <a href="https://arxiv.org/pdf/2210.00111.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, &#38; Kim, J. K. (2022). Maximum sampled conditional likelihood for informative subsampling. <i>Journal of Machine Learning Research</i>, <i>23</i>(332), 1–50. <a href="http://jmlr.org/papers/v23/21-0506.html">http://jmlr.org/papers/v23/21-0506.html</a> <a href="https://arxiv.org/abs/2011.05988">pdf</a></li>
-<li>Yang, Z., <strong>Wang, H.</strong>, &#38; Yan, J. (2022). Optimal subsampling for parametric accelerated failure time models with massive survival data. <i>Statistics in Medicine</i>, <i>41</i>(27), 5421–5431. <a href="https://doi.org/10.1002/sim.9576">https://doi.org/10.1002/sim.9576</a> <a href="pdfs/OSMAC_ParametricAFT.pdf">pdf</a></li>
-<li>Zhu, R., <strong>Wang, H.</strong>, Zhang, X., &#38; Liang, H. (2023). A scalable frequentist model averaging method. <i>Journal of Business &#38; Economic Statistics</i>, <i>41</i>(4), 1228–1237. <a href="https://doi.org/10.1080/07350015.2022.2116442">https://doi.org/10.1080/07350015.2022.2116442</a> <a href="pdfs/FMA_Scalable.pdf">pdf</a></li>
-<li>Wang, J., <strong>Wang, H.</strong>, &#38; Xiong, S. (2024). Unweighted estimation based on optimal sample under measurement constraints. <i>Canadian Journal of Statistics</i>, <i>52</i>(1), 291–309. <a href="https://doi.org/https://doi.org/10.1002/cjs.11753">https://doi.org/https://doi.org/10.1002/cjs.11753</a> <a href="https://arxiv.org/pdf/2210.04079.pdf">pdf</a></li>
-<li>Lee, J., Schifano, E., &#38; <strong>Wang, H.</strong> (2023). Sampling-based gaussian mixture regression for big data. <i>Journal of Data Science</i>, <i>21</i>(1), 158–172. <a href="https://doi.org/10.6339/22-JDS1057">https://doi.org/10.6339/22-JDS1057</a> <a href="pdfs/OSMAC_NormalMixture.pdf">pdf</a></li>
-<li>Wang, F., <strong>Wang, H.</strong>, &#38; Yan, J. (2023). Diagnostic tests for the necessity of weight in regression with survey data. <i>International Statistical Review</i>, <i>91</i>(1), 55–71. <a href="https://doi.org/10.1111/insr.12509">https://doi.org/10.1111/insr.12509</a> <a href="pdfs/weightstests.pdf">pdf</a></li>
-<li>Wang, J., Zou, J., &#38; <strong>Wang, H.</strong> (2022). Sampling with replacement vs poisson sampling: A comparative study in optimal subsampling. <i>Ieee Transactions on Information Theory</i>, <i>68</i>(10), 6605–6630. <a href="https://doi.org/10.1109/TIT.2022.3176955">https://doi.org/10.1109/TIT.2022.3176955</a> <a href="https://arxiv.org/pdf/2205.08588.pdf">pdf</a> <a href="https://github.com/Ossifragus/Ossifragus.github.io/tree/main/codes/OSMAC_PoissonVsSWR">code</a></li>
-<li>Yu, J., &#38; <strong>Wang, H.</strong> (2022). Subdata selection algorithm for linear model discrimination. <i>Statistical Papers</i>, <i>63</i>(6), 1883–1906. <a href="https://doi.org/10.1007/s00362-022-01299-8">https://doi.org/10.1007/s00362-022-01299-8</a> <a href="./pdfs/LinearDiscrimination.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Zhang, A., &#38; Wang, C. (2021). Nonuniform negative sampling and log odds correction with rare events data. In M. Ranzato, A. Beygelzimer, Y. Dauphin, P. Liang, &#38; J. W. Vaughan (Eds.), <i>Advances in neural information processing systems</i> (Vol. 34, pp. 19847–19859). Curran Associates, Inc. <a href="https://proceedings.neurips.cc/paper_files/paper/2021/file/a51c896c9cb81ecb5a199d51ac9fc3c5-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2021/file/a51c896c9cb81ecb5a199d51ac9fc3c5-Paper.pdf</a> <a href="https://arxiv.org/pdf/2110.13048.pdf">pdf</a> <a href="https://github.com/Ossifragus/Ossifragus.github.io/tree/main/codes/NIPS_logistic">code</a></li>
-<li>Yao, Y., Zou, J., &#38; <strong>Wang, H.</strong> (2023). Optimal poisson subsampling for softmax regression. <i>Journal of Systems Science and Complexity</i>, <i>36</i>(4), 1609–1625. <a href="./pdfs/OSMAC_Softmax_Poi.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Zhang, D., Liang, H., &#38; Ruppert, D. (2021). Iterative likelihood: A unified inference tool. <i>Journal of Computational and Graphical Statistics</i>, <i>30</i>(4), 920–933. <a href="https://doi.org/10.1080/10618600.2021.1904961">https://doi.org/10.1080/10618600.2021.1904961</a> <a href="./pdfs/IterativeLikelihood.pdf">pdf</a></li>
-<li>Lee, J., Schifano, E., &#38; <strong>Wang, H.</strong> (2024). Fast optimal subsampling probability approximation for generalized linear models. <i>Econometrics and Statistics</i>, <i>29</i>, 224–237. <a href="https://doi.org/https://doi.org/10.1016/j.ecosta.2021.02.007">https://doi.org/https://doi.org/10.1016/j.ecosta.2021.02.007</a> <a href="./pdfs/OSMAC_FASA.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, &#38; Zou, J. (2021). A comparative study on sampling with replacement vs poisson sampling in optimal subsampling. In A. Banerjee &#38; K. Fukumizu (Eds.), <i>Proceedings of the 24th international conference on artificial intelligence and statistics</i> (Vol. 130, pp. 289–297). PMLR. <a href="http://proceedings.mlr.press/v130/wang21a.html">http://proceedings.mlr.press/v130/wang21a.html</a> <a href="http://proceedings.mlr.press/v130/wang21a/wang21a.pdf">pdf</a></li>
-<li>Zuo, L., Zhang, H., <strong>Wang, H.</strong>, &#38; Sun, L. (2021). Optimal subsample selection for massive logistic regression with distributed data. <i>Computational Statistics</i>, <i>36</i>(4), 2535–2562. <a href="https://doi.org/10.1007/s00180-021-01089-0">https://doi.org/10.1007/s00180-021-01089-0</a> <a href="pdfs/OSMAC_DistributedLogistic.pdf">pdf</a></li>
-<li>Bar, H., &#38; <strong>Wang, H.</strong> (2021). Reproducible science with LaTeX. <i>Journal of Data Science.</i>, <i>19</i>(1), 111–125. <a href="./pdfs/latexnb-jds.pdf">pdf</a>; <a href="https://github.com/Ossifragus/runcode">code</a></li>
-<li>Yao, Y., &#38; <strong>Wang, H.</strong> (2021). A review on optimal subsampling methods for massive datasets. <i>Journal of Data Science</i>, <i>19</i>(1), 151–172. <a href="./pdfs/OSMAC_JDS.pdf">pdf</a></li>
-<li>Zuo, L., Zhang, H., <strong>Wang, H.</strong>, &#38; Liu, L. (2021). Sampling-based estimation for massive survival data with additive hazards model. <i>Statistics in Medicine</i>, <i>40</i>(2), 441–450. <a href="./pdfs/OSMAC_AdditiveHazard.pdf">pdf</a></li>
-<li>Zhang, H., &#38; <strong>Wang, H.</strong> (2021). Distributed subdata selection for big data via sampling-based approach. <i>Computational Statistics &#38; Data Analysis</i>, <i>153</i>, 107072. <a href="https://doi.org/10.1016/j.csda.2020.107072">https://doi.org/10.1016/j.csda.2020.107072</a> <a href="./pdfs/OSMAC_DistLinear.pdf">pdf</a></li>
-<li>Pronzato, L., &#38; <strong>Wang, H.</strong> (2021). Sequential online subsampling for thinning experimental designs. <i>Journal of Statistical Planning and Inference</i>, <i>212</i>, 169–193. <a href="https://doi.org/10.1016/j.jspi.2020.08.001">https://doi.org/10.1016/j.jspi.2020.08.001</a> <a href="https://arxiv.org/pdf/2004.00792.pdf">pdf</a></li>
-<li>Yao, Y., &#38; <strong>Wang, H.</strong> (2021). A selective review on statistical techniques for big data. In Y. Zhao &#38; (. D.-G. Chen (Eds.), <i>Modern statistical methods for health research</i> (pp. 223–245). Springer International Publishing. <a href="https://doi.org/10.1007/978-3-030-72437-5_11">https://doi.org/10.1007/978-3-030-72437-5_11</a> <a href="./pdfs/SelectiveBig.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong> (2020). Logistic regression for massive data with rare events. <i>Proceedings of the 37th International Conference on Machine Learning (ICML)</i>, <i>119</i>, 9829–9836. <a href="http://proceedings.mlr.press/v119/wang20a.html">http://proceedings.mlr.press/v119/wang20a.html</a> <a href="https://arxiv.org/pdf/2006.00683.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/RareICML2020/">code</a></li>
-<li>Yu, J., <strong>Wang, H.</strong>, Ai, M., &#38; Zhang, H. (2022). Optimal distributed subsampling for maximum quasi-likelihood estimators with massive data. <i>Journal of the American Statistical Association</i>, <i>117</i>(537), 265–276. <a href="https://doi.org/10.1080/01621459.2020.1773832">https://doi.org/10.1080/01621459.2020.1773832</a> <a href="https://arxiv.org/pdf/2005.10435.pdf">pdf</a></li>
-<li>Cheng, Q., <strong>Wang, H.</strong>, &#38; Yang, M. (2020). Information-based optimal subdata selection for big data logistic regression. <i>Journal of Statistical Planning and Inference</i>, <i>209</i>, 112–122. <a href="https://doi.org/10.1016/j.jspi.2020.03.004">https://doi.org/10.1016/j.jspi.2020.03.004</a> <a href="./pdfs/IBOSS_Logistic.pdf">pdf</a></li>
-<li>Lee, J., <strong>Wang, H.</strong>, &#38; Schifano, E. D. (2020). Online updating method to correct for measurement error in big data streams. <i>Computational Statistics &#38; Data Analysis</i>, <i>149</i>, 106976. <a href="./pdfs/online_MeasurementError.pdf">pdf</a></li>
-<li>Hu, G., &#38; <strong>Wang, H.</strong> (2021). Most likely optimal subsampled markov chain monte carlo. <i>Journal of Systems Science and Complexity</i>, <i>34</i>(3), 1121–1134. <a href="https://arxiv.org/pdf/2005.11461.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, &#38; Ma, Y. (2021). Optimal subsampling for quantile regression in big data. <i>Biometrika</i>, <i>108</i>(1), 99–112. <a href="https://doi.org/10.1093/biomet/asaa043">https://doi.org/10.1093/biomet/asaa043</a> <a href="https://arxiv.org/pdf/2001.10168.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_quantile/">code</a></li>
-<li><strong>Wang, H.</strong> (2019). More efficient estimation for logistic regression with optimal subsamples. <i>Journal of Machine Learning Research</i>, <i>20</i>(132), 1–59. <a href="https://arxiv.org/pdf/1802.02698.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/More_Efficient_Logistic/">code</a></li>
-<li>Xue, Y., <strong>Wang, H.</strong>, Yan, J., &#38; Schifano, E. D. (2020). An online updating approach for testing the proportional hazards assumption with streams of survival data. <i>Biometrics</i>, <i>76</i>(1), 171–182. <a href="https://doi.org/10.1111/biom.13137">https://doi.org/10.1111/biom.13137</a> <a href="https://arxiv.org/pdf/1809.01291.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong> (2019). Divide-and-conquer information-based optimal subdata selection algorithm. <i>Journal of Statistical Theory and Practice</i>, <i>13</i>(3), 46. <a href="https://doi.org/10.1007/s42519-019-0048-5">https://doi.org/10.1007/s42519-019-0048-5</a> <a href="https://arxiv.org/pdf/1905.09948.pdf">pdf</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS-DC-Linear/">code</a></li>
-<li>Ai, M., Yu, J., Zhang, H., &#38; <strong>Wang, H.</strong> (2021). Optimal subsampling algorithms for big data regressions. <i>Statistica Sinica</i>, <i>31</i>(2), 749–772. <a href="https://doi.org/10.5705/ss.202018.0439">https://doi.org/10.5705/ss.202018.0439</a> <a href="https://arxiv.org/pdf/1806.06761.pdf">pdf</a></li>
-<li>Yao, Y., &#38; <strong>Wang, H.</strong> (2019). Optimal subsampling for softmax regression. <i>Statistical Papers</i>, <i>60</i>(2), 235–249. <a href="./pdfs/SoftmaxSP.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Yang, M., &#38; Stufken, J. (2019). Information-based optimal subdata selection for big data linear regression. <i>Journal of the American Statistical Association</i>, <i>114</i>(525), 393–405. <a href="./pdfs/IBOSS_Linear.pdf">pdf</a>; <a href="https://github.com/Ossifragus/IBOSS">R Package</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS/">R code</a></li>
-<li><strong>Wang, H.</strong>, Zhu, R., &#38; Ma, P. (2018). Optimal subsampling for large sample logistic regression. <i>Journal of the American Statistical Association</i>, <i>113</i>(522), 829–844. <a href="./pdfs/OSMAC_Logistic.pdf">pdf</a>; <a href="https://github.com/Ossifragus/OSMAC">R Package</a>; <a href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_logistic/">R code</a></li>
-<li>Zhang, X., <strong>Wang, H.</strong>, Ma, Y., &#38; Carroll, R. J. (2017). Linear model selection when covariates contain errors. <i>Journal of the American Statistical Association</i>, <i>112</i>(520), 1553–1561. <a href="./pdfs/LinearErrorJASA.pdf">pdf</a>; <a href="./pdfs/LinearErrorJASASupplementary.pdf">Supplementary</a></li>
-<li>Li, Y., He, X., <strong>Wang, H.</strong>, &#38; Sun, J. (2016). Joint analysis of longitudinal data and informative observation times with time-dependent random effects. In <i>New developments in statistical modeling, inference and application</i> (pp. 37–51). Springer. <a href="./pdfs/2016JoingAnalysis.pdf">pdf</a></li>
-<li>Lane, A., <strong>Wang, H.</strong>, &#38; Flournoy, N. (2016). Conditional inference in two-stage adaptive experiments via the bootstrap. In <i>mODa 11-advances in model-oriented design and analysis</i> (pp. 173–181). Springer. <a href="./pdfs/moda11.pdf">pdf</a></li>
-<li>Li, Y., He, X., <strong>Wang, H.</strong>, &#38; Sun, J. (2016). Regression analysis of longitudinal data with correlated censoring and observation times. <i>Lifetime Data Analysis</i>, <i>22</i>(3), 343–362. <a href="./pdfs/CorrCenObs.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Chen, X., &#38; Flournoy, N. (2016). The focused information criterion for varying-coefficient partially linear measurement error models. <i>Statistical Papers</i>, <i>57</i>(1), 99–113. <a href="./pdfs/fmaBothError.pdf">pdf</a></li>
-<li>Li, Y., He, X., <strong>Wang, H.</strong>, Zhang, B., &#38; Sun, J. (2015). Semiparametric regression of multivariate panel count data with informative observation times. <i>Journal of Multivariate Analysis</i>, <i>140</i>, 209–219. <a href="./pdfs/MultiPC.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Schaeben, H., &#38; Keidel, F. (2015). Optimized subsampling for logistic regression with imbalanced large datasets. <i>Proceeding of the 17th Annual Conference of the International Association for Mathematical Geosciences</i>, 1113–1119.</li>
-<li><strong>Wang, H.</strong>, &#38; Flournoy, N. (2015). On the consistency of the maximum likelihood estimator for the three parameter lognormal distribution. <i>Statistics &#38; Probability Letters</i>, <i>105</i>, 57–64. <a href="./pdfs/lognormal.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Li, Y., &#38; Sun, J. (2015). Focused and model average estimation for regression analysis of panel count data. <i>Scandinavian Journal of Statistics</i>, <i>42</i>(3), 732–745. <a href="./pdfs/FMAPC.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Flournoy, N., &#38; Kpamegan, E. (2014). A new bounded log-linear regression model. <i>Metrika</i>, <i>77</i>(5), 695–720. <a href="./pdfs/BoundedLog-linear.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, &#38; Zhou, S. Z. (2013). Interval estimation by frequentist model averaging. <i>Communications in Statistics-Theory and Methods</i>, <i>42</i>(23), 4342–4356. <a href="./pdfs/CI.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Zou, G., &#38; Wan, A. T. (2013). Adaptive lasso for varying-coefficient partially linear measurement error models. <i>Journal of Statistical Planning and Inference</i>, <i>143</i>(1), 40–54. <a href="./pdfs/Alasso.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Pepelyshev, A., &#38; Flournoy, N. (2013). Optimal design for the bounded log-linear regression model. In <i>mODa 10–advances in model-oriented design and analysis</i> (pp. 237–245). Springer. <a href="./pdfs/moda10.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Zou, G., Wan, A. T., &#38; others. (2012). Model averaging for varying-coefficient partially linear measurement error models. <i>Electronic Journal of Statistics</i>, <i>6</i>, 1017–1039. <a href="./pdfs/FMA_VCPLEM.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, &#38; Sun, D. (2012). Objective bayesian analysis for a truncated model. <i>Statistics &#38; Probability Letters</i>, <i>82</i>(12), 2125–2135. <a href="./pdfs/RefNonReg.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, &#38; Zou, G. (2012). Frequentist model averaging estimation for linear errors-in-variables models (in chinese). <i>Journal of Systems Science and Mathematical Science</i>, <i>32</i>(2), 1–14. <a href="./pdfs/LinearFMA.pdf">pdf</a></li>
-<li>Kozak, M., &#38; <strong>Wang, H.</strong> (2010). On stochastic optimization in sample allocation among strata. <i>Metron</i>, <i>68</i>(1), 95–103. <a href="./pdfs/Allocation.pdf">pdf</a></li>
-<li><strong>Wang, H.</strong>, Zhang, X., &#38; Zou, G. (2009). Frequentist model averaging estimation: a review. <i>Journal of Systems Science and Complexity</i>, <i>22</i>(4), 732–748. <a href="./pdfs/FrequentistReview.pdf">pdf</a></li>
+<h1 id="publications">Publications</h1>
+<ol>
+<li><span class="citation" data-cites="ShanWangWang2026Optimal">Shan,
+J., Wang, L., &amp; <strong>Wang, H.</strong> (2026). Optimal response-free cluster
+subsampling for longitudinal data under measurement constraints.
+<em>Statistica Sinica</em>. <a
+href="https://doi.org/10.5705/ss.202026.0022">https://doi.org/10.5705/ss.202026.0022</a></span></li>
+<li><span class="citation"
+data-cites="ZhangWang2026distributedPLAM">Zhang, H., &amp; <strong>Wang, H.</strong>
+(2026). Distributed subsampling strategy for partially linear additive
+models with massive data. <em>Communications in Mathematics and
+Statistics</em>, accepted.</span></li>
+<li><span class="citation" data-cites="ZhangWang2026refitted">Zhang, H.,
+&amp; <strong>Wang, H.</strong> (2026). Refitted cross-validation estimation for
+high-dimensional subsamples from low-dimension full data.
+<em>Computational Statistics</em>, <em>41</em>(2), 38. <a
+href="https://doi.org/10.1007/s00180-025-01702-6">https://doi.org/10.1007/s00180-025-01702-6</a></span></li>
+<li><span class="citation" data-cites="ShaoWangLiangWang2025">Shao, Y.,
+Wang, L., Lian, H., &amp; <strong>Wang, H.</strong> (2025). Optimal subsampling for
+high-dimensional partially linear models via machine learning methods.
+<em>Journal of Machine Learning Research</em>, <em>26</em>(198), 1–70.
+<a
+href="http://jmlr.org/papers/v26/23-1475.html">http://jmlr.org/papers/v26/23-1475.html</a></span>
+<a
+href="https://www.dropbox.com/scl/fi/bd3926gqzfhcnmc16wydc/draft.pdf?rlkey=y7368aj61ycobtop875ssgqw9&amp;st=24w35di9&amp;dl=0">pdf</a></li>
+<li><span class="citation" data-cites="DataJamboree2025">McGowan, L. D.,
+Tass, S., Tyner, S., <strong>Wang, H.</strong>, &amp; Yan, J. (2025). Data jamboree: A
+party of open-source software solving real-world data science problems.
+<em>The New England Journal of Statistics in Data Science</em>, 1–9. <a
+href="https://doi.org/10.51387/25-NEJSDS79">https://doi.org/10.51387/25-NEJSDS79</a></span>
+<a
+href="https://nejsds.nestat.org/journal/NEJSDS/article/90/file/pdf">pdf</a></li>
+<li><span class="citation" data-cites="GaoWangWang2025">Gao, J., Wang,
+L., &amp; <strong>Wang, H.</strong> (2025). Power enhancing probability subsampling using
+side information. <em>Statistics and Computing</em>, <em>35</em>(2), 28.
+<a
+href="https://doi.org/10.1007/s11222-024-10556-9">https://doi.org/10.1007/s11222-024-10556-9</a></span>
+<a href="https://rdcu.be/d52LO">pdf</a></li>
+<li><span class="citation" data-cites="NEURIPS2024_b225f5c7">Wang, J.,
+<strong>Wang, H.</strong>, &amp; Zhang, H. H. (2024). Scale-invariant optimal sampling
+for rare-events data and sparse models. <em>Advances in Neural
+Information Processing Systems (<span>NeurIPS</span>)</em>, <em>37</em>,
+98384–98418.</span> <a
+href="https://proceedings.neurips.cc/paper_files/paper/2024/file/b225f5c7cd13615e9558c3931fa4e66f-Paper-Conference.pdf">pdf</a></li>
+<li><span class="citation" data-cites="ZhangLiWang2024">Zhang, H., Li,
+Y., &amp; <strong>Wang, H.</strong> (2024). DsubCox: A fast subsampling algorithm for cox
+model with distributed and massive survival data. <em>International
+Journal of Biostatistics</em>, Accepted. <a
+href="https://doi.org/10.1515/ijb-2024-0042">https://doi.org/10.1515/ijb-2024-0042</a></span>
+<a href="https://arxiv.org/pdf/2310.08208">pdf</a></li>
+<li><span class="citation" data-cites="YuWangAi2024">Yu, J., <strong>Wang, H.</strong>,
+&amp; Ai, M. (2025). A subsampling strategy for <span>AIC</span>-based
+model averaging with generalized linear models. <em>Technometrics</em>,
+<em>67</em>(1), 122–132. <a
+href="https://doi.org/10.1080/00401706.2024.2407310">https://doi.org/10.1080/00401706.2024.2407310</a></span>
+<a href="pdfs/OSMAC_FMA.pdf">pdf</a></li>
+<li><span class="citation" data-cites="YangWangYan2024">Yang, Z., Wang,
+H., &amp; Yan, J. (2024). Optimal subsampling for semi-parametric
+accelerated failure time models with massive survival data using a
+rank-based approach. <em>Statistics in Medicine</em>, <em>43</em>(24),
+4650–4666. https://doi.org/<a
+href="https://doi.org/10.1002/sim.10200">https://doi.org/10.1002/sim.10200</a></span>
+<a href="pdfs/OSMAC_SemiParametricAFTrank.pdf">pdf</a></li>
+<li><span class="citation" data-cites="ZhangWangZhangWang2024">Zhang,
+Y., Wang, L., Zhang, X., &amp; <strong>Wang, H.</strong> (2024). Independence-encouraging
+subsampling for nonparametric additive models. <em>Journal of
+Computational and Graphical Statistics</em>, <em>33</em>(4), 1424–1433.
+<a
+href="https://doi.org/10.1080/10618600.2024.2326136">https://doi.org/10.1080/10618600.2024.2326136</a></span>
+<a href="https://arxiv.org/pdf/2302.13441.pdf">pdf</a></li>
+<li><span class="citation" data-cites="yang2024subsampling">Yang, Z.,
+<strong>Wang, H.</strong>, &amp; Yan, J. (2024). Subsampling approach for least squares
+fitting of semi-parametric accelerated failure time models to massive
+survival data. <em>Statistics and Computing</em>, <em>34</em>(2), 1–11.
+<a href="https://rdcu.be/dyFzJ">https://rdcu.be/dyFzJ</a></span> <a
+href="https://rdcu.be/dyFzJ">pdf</a></li>
+<li><span class="citation" data-cites="WangWangChen2023">Wang, J., Wang,
+H., &amp; Chen, K. (2023). <span class="nocase">Discussion of
+<span>“Statistical inference for streamed longitudinal
+data”</span></span>. <em>Biometrika</em>, <em>110</em>(4), 863–866. <a
+href="https://doi.org/10.1093/biomet/asad035">https://doi.org/10.1093/biomet/asad035</a></span>
+<a href="pdfs/DiscussionOnInferenceStreamedData.pdf">pdf</a></li>
+<li><span class="citation" data-cites="ZhangZuoWangSun2023">Zhang, H.,
+Zuo, L., <strong>Wang, H.</strong>, &amp; Sun, L. (2024). Approximating partial
+likelihood estimators via optimal subsampling. <em>Journal of
+Computational and Graphical Statistics</em>, <em>33</em>(1), 276–288. <a
+href="https://doi.org/10.1080/10618600.2023.2216261">https://doi.org/10.1080/10618600.2023.2216261</a></span>
+<a href="https://arxiv.org/pdf/2210.04581.pdf">pdf</a></li>
+<li><span class="citation" data-cites="YuLiuWang2023">Yu, J., Liu, J.,
+&amp; <strong>Wang, H.</strong> (2023). Information-based optimal subdata selection for
+non-linear models. <em>Statistical Papers</em>, <em>64</em>(4),
+1069–1093. <a
+href="https://doi.org/10.1007/s00362-023-01430-3">https://doi.org/10.1007/s00362-023-01430-3</a></span>
+<a href="pdfs/IBOSS_GLM.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangWangNRRavishanker2023">Wang,
+Z., <strong>Wang, H.</strong>, &amp; Ravishanker, N. (2023). Subsampling in longitudinal
+models. <em>Methodology and Computing in Applied Probability</em>,
+<em>25</em>(1), 35. <a
+href="https://doi.org/10.1007/s11009-023-10015-4">https://doi.org/10.1007/s11009-023-10015-4</a></span>
+<a href="pdfs/OSMAC_MCAP.pdf">pdf</a></li>
+<li><span class="citation" data-cites="KimWang2023">Kim, J. K., &amp;
+<strong>Wang, H.</strong> (2023). A note on weight smoothing in survey sampling.
+<em>Survey Methodology</em>, <em>49</em>(1), 31–38.</span> <a
+href="pdfs/noteWeightSmoothing.pdf">pdf</a></li>
+<li><span class="citation" data-cites="YaoZouWang2022">Yao, Y., Zou, J.,
+&amp; <strong>Wang, H.</strong> (2023). Model constraints independent optimal subsampling
+probabilities for softmax regression. <em>Journal of Statistical
+Planning and Inference</em>, <em>225</em>, 188–201. <a
+href="https://doi.org/10.1016/j.jspi.2022.12.004">https://doi.org/10.1016/j.jspi.2022.12.004</a></span>
+<a href="pdfs/OSMAC_softmax_Constraints.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangStat2022"><strong>Wang, H.</strong> (2022). A
+note on centering in subsample selection for linear regression.
+<em>Stat</em>, <em>11</em>(1), e525. <a
+href="https://doi.org/10.1002/sta4.525">https://doi.org/10.1002/sta4.525</a></span>
+<a href="https://arxiv.org/pdf/2210.00111.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangKim2020"><strong>Wang, H.</strong>, &amp; Kim,
+J. K. (2022). Maximum sampled conditional likelihood for informative
+subsampling. <em>Journal of Machine Learning Research</em>,
+<em>23</em>(332), 1–50. <a
+href="http://jmlr.org/papers/v23/21-0506.html">http://jmlr.org/papers/v23/21-0506.html</a></span>
+<a href="https://arxiv.org/abs/2011.05988">pdf</a></li>
+<li><span class="citation" data-cites="YangWangYan2022">Yang, Z., Wang,
+H., &amp; Yan, J. (2022). Optimal subsampling for parametric accelerated
+failure time models with massive survival data. <em>Statistics in
+Medicine</em>, <em>41</em>(27), 5421–5431. <a
+href="https://doi.org/10.1002/sim.9576">https://doi.org/10.1002/sim.9576</a></span>
+<a href="pdfs/OSMAC_ParametricAFT.pdf">pdf</a></li>
+<li><span class="citation" data-cites="ZhuWangZhangLiang2022">Zhu, R.,
+<strong>Wang, H.</strong>, Zhang, X., &amp; Liang, H. (2023). A scalable frequentist
+model averaging method. <em>Journal of Business &amp; Economic
+Statistics</em>, <em>41</em>(4), 1228–1237. <a
+href="https://doi.org/10.1080/07350015.2022.2116442">https://doi.org/10.1080/07350015.2022.2116442</a></span>
+<a href="pdfs/FMA_Scalable.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangWangXiong2020">Wang, J.,
+<strong>Wang, H.</strong>, &amp; Xiong, S. (2024). Unweighted estimation based on optimal
+sample under measurement constraints. <em>Canadian Journal of
+Statistics</em>, <em>52</em>(1), 291–309. https://doi.org/<a
+href="https://doi.org/10.1002/cjs.11753">https://doi.org/10.1002/cjs.11753</a></span>
+<a href="https://arxiv.org/pdf/2210.04079.pdf">pdf</a></li>
+<li><span class="citation" data-cites="LeeSchifanoWang2021mix">Lee, J.,
+Schifano, E., &amp; <strong>Wang, H.</strong> (2023). Sampling-based gaussian mixture
+regression for big data. <em>Journal of Data Science</em>,
+<em>21</em>(1), 158–172. <a
+href="https://doi.org/10.6339/22-JDS1057">https://doi.org/10.6339/22-JDS1057</a></span>
+<a href="pdfs/OSMAC_NormalMixture.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangWangYan2022">Wang, F., Wang,
+H., &amp; Yan, J. (2023). Diagnostic tests for the necessity of weight
+in regression with survey data. <em>International Statistical
+Review</em>, <em>91</em>(1), 55–71. <a
+href="https://doi.org/10.1111/insr.12509">https://doi.org/10.1111/insr.12509</a></span>
+<a href="pdfs/weightstests.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangZouWang2022">Wang, J., Zou,
+J., &amp; <strong>Wang, H.</strong> (2022). Sampling with replacement vs poisson
+sampling: A comparative study in optimal subsampling. <em>IEEE
+Transactions on Information Theory</em>, <em>68</em>(10), 6605–6630. <a
+href="https://doi.org/10.1109/TIT.2022.3176955">https://doi.org/10.1109/TIT.2022.3176955</a></span>
+<a href="https://arxiv.org/pdf/2205.08588.pdf">pdf</a> <a
+href="https://github.com/Ossifragus/Ossifragus.github.io/tree/main/codes/OSMAC_PoissonVsSWR">code</a></li>
+<li><span class="citation" data-cites="YuWang2021">Yu, J., &amp; Wang,
+H. (2022). Subdata selection algorithm for linear model discrimination.
+<em>Statistical Papers</em>, <em>63</em>(6), 1883–1906. <a
+href="https://doi.org/10.1007/s00362-022-01299-8">https://doi.org/10.1007/s00362-022-01299-8</a></span>
+<a href="./pdfs/LinearDiscrimination.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangZhangWang2021"><strong>Wang, H.</strong>,
+Zhang, A., &amp; Wang, C. (2021). Nonuniform negative sampling and log
+odds correction with rare events data. In M. Ranzato, A. Beygelzimer, Y.
+Dauphin, P. S. Liang, &amp; J. W. Vaughan (Eds.), <em>Advances in neural
+information processing systems</em> (Vol. 34, pp. 19847–19859). Curran
+Associates, Inc. <a
+href="https://proceedings.neurips.cc/paper_files/paper/2021/file/a51c896c9cb81ecb5a199d51ac9fc3c5-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2021/file/a51c896c9cb81ecb5a199d51ac9fc3c5-Paper.pdf</a></span>
+<a href="https://arxiv.org/pdf/2110.13048.pdf">pdf</a> <a
+href="https://github.com/Ossifragus/Ossifragus.github.io/tree/main/codes/NIPS_logistic">code</a></li>
+<li><span class="citation" data-cites="YaoZouWang2021">Yao, Y., Zou, J.,
+&amp; <strong>Wang, H.</strong> (2023). Optimal poisson subsampling for softmax
+regression. <em>Journal of Systems Science and Complexity</em>,
+<em>36</em>(4), 1609–1625.</span> <a
+href="./pdfs/OSMAC_Softmax_Poi.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangZhangLiangRuppert2021">Wang,
+H., Zhang, D., Liang, H., &amp; Ruppert, D. (2021). Iterative
+likelihood: A unified inference tool. <em>Journal of Computational and
+Graphical Statistics</em>, <em>30</em>(4), 920–933. <a
+href="https://doi.org/10.1080/10618600.2021.1904961">https://doi.org/10.1080/10618600.2021.1904961</a></span>
+<a href="./pdfs/IterativeLikelihood.pdf">pdf</a></li>
+<li><span class="citation" data-cites="LeeSchifanoWang2021">Lee, J.,
+Schifano, E., &amp; <strong>Wang, H.</strong> (2024). Fast optimal subsampling
+probability approximation for generalized linear models.
+<em>Econometrics and Statistics</em>, <em>29</em>, 224–237.
+https://doi.org/<a
+href="https://doi.org/10.1016/j.ecosta.2021.02.007">https://doi.org/10.1016/j.ecosta.2021.02.007</a></span>
+<a href="./pdfs/OSMAC_FASA.pdf">pdf</a></li>
+<li><span class="citation" data-cites="pmlr-v130-wang21a"><strong>Wang, H.</strong>,
+&amp; Zou, J. (2021). A comparative study on sampling with replacement
+vs poisson sampling in optimal subsampling. In A. Banerjee &amp; K.
+Fukumizu (Eds.), <em>Proceedings of the 24th international conference on
+artificial intelligence and statistics</em> (Vol. 130, pp. 289–297).
+PMLR. <a
+href="http://proceedings.mlr.press/v130/wang21a.html">http://proceedings.mlr.press/v130/wang21a.html</a></span>
+<a
+href="http://proceedings.mlr.press/v130/wang21a/wang21a.pdf">pdf</a></li>
+<li><span class="citation" data-cites="ZuoZhangWangSun2020">Zuo, L.,
+Zhang, H., <strong>Wang, H.</strong>, &amp; Sun, L. (2021). Optimal subsample selection
+for massive logistic regression with distributed data. <em>Computational
+Statistics</em>, <em>36</em>(4), 2535–2562. <a
+href="https://doi.org/10.1007/s00180-021-01089-0">https://doi.org/10.1007/s00180-021-01089-0</a></span>
+<a href="pdfs/OSMAC_DistributedLogistic.pdf">pdf</a></li>
+<li><span class="citation" data-cites="HaimWang2021">Bar, H., &amp;
+<strong>Wang, H.</strong> (2021). Reproducible science with <span>LaTeX</span>.
+<em>Journal of Data Science.</em>, <em>19</em>(1), 111–125.</span> <a
+href="./pdfs/latexnb-jds.pdf">pdf</a> <a
+href="https://github.com/Ossifragus/runcode">code</a></li>
+<li><span class="citation" data-cites="YaoWang2021JDS">Yao, Y., &amp;
+<strong>Wang, H.</strong> (2021). A review on optimal subsampling methods for massive
+datasets. <em>Journal of Data Science</em>, <em>19</em>(1),
+151–172.</span> <a href="./pdfs/OSMAC_JDS.pdf">pdf</a></li>
+<li><span class="citation" data-cites="zuo2021sampling">Zuo, L., Zhang,
+H., <strong>Wang, H.</strong>, &amp; Liu, L. (2021). Sampling-based estimation for
+massive survival data with additive hazards model. <em>Statistics in
+Medicine</em>, <em>40</em>(2), 441–450.</span> <a
+href="./pdfs/OSMAC_AdditiveHazard.pdf">pdf</a></li>
+<li><span class="citation" data-cites="ZHANG2021107072">Zhang, H., &amp;
+<strong>Wang, H.</strong> (2021). Distributed subdata selection for big data via
+sampling-based approach. <em>Computational Statistics &amp; Data
+Analysis</em>, <em>153</em>, 107072. <a
+href="https://doi.org/10.1016/j.csda.2020.107072">https://doi.org/10.1016/j.csda.2020.107072</a></span>
+<a href="./pdfs/OSMAC_DistLinear.pdf">pdf</a></li>
+<li><span class="citation" data-cites="PronzatoWang2020">Pronzato, L.,
+&amp; <strong>Wang, H.</strong> (2021). Sequential online subsampling for thinning
+experimental designs. <em>Journal of Statistical Planning and
+Inference</em>, <em>212</em>, 169–193. <a
+href="https://doi.org/10.1016/j.jspi.2020.08.001">https://doi.org/10.1016/j.jspi.2020.08.001</a></span>
+<a href="https://arxiv.org/pdf/2004.00792.pdf">pdf</a></li>
+<li><span class="citation" data-cites="YaoWang2021">Yao, Y., &amp; Wang,
+H. (2021). A selective review on statistical techniques for big data. In
+Y. Zhao &amp; (Din). D.-G. Chen (Eds.), <em>Modern statistical methods
+for health research</em> (pp. 223–245). Springer International
+Publishing. <a
+href="https://doi.org/10.1007/978-3-030-72437-5_11">https://doi.org/10.1007/978-3-030-72437-5_11</a></span>
+<a href="./pdfs/SelectiveBig.pdf">pdf</a></li>
+<li><span class="citation" data-cites="Wang2020RareICML"><strong>Wang, H.</strong>
+(2020). Logistic regression for massive data with rare events.
+<em>Proceedings of the 37th International Conference on Machine Learning
+(<span>ICML</span>)</em>, <em>119</em>, 9829–9836. <a
+href="http://proceedings.mlr.press/v119/wang20a.html">http://proceedings.mlr.press/v119/wang20a.html</a></span>
+<a href="https://arxiv.org/pdf/2006.00683.pdf">pdf</a> <a
+href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/RareICML2020/">code</a></li>
+<li><span class="citation" data-cites="yu2020quasi">Yu, J., <strong>Wang, H.</strong>,
+Ai, M., &amp; Zhang, H. (2022). Optimal distributed subsampling for
+maximum quasi-likelihood estimators with massive data. <em>Journal of
+the American Statistical Association</em>, <em>117</em>(537), 265–276.
+<a
+href="https://doi.org/10.1080/01621459.2020.1773832">https://doi.org/10.1080/01621459.2020.1773832</a></span>
+<a href="https://arxiv.org/pdf/2005.10435.pdf">pdf</a></li>
+<li><span class="citation" data-cites="ChengWangYang2020">Cheng, Q.,
+<strong>Wang, H.</strong>, &amp; Yang, M. (2020). Information-based optimal subdata
+selection for big data logistic regression. <em>Journal of Statistical
+Planning and Inference</em>, <em>209</em>, 112–122. <a
+href="https://doi.org/10.1016/j.jspi.2020.03.004">https://doi.org/10.1016/j.jspi.2020.03.004</a></span>
+<a href="./pdfs/IBOSS_Logistic.pdf">pdf</a></li>
+<li><span class="citation" data-cites="lee2020online">Lee, J., <strong>Wang, H.</strong>,
+&amp; Schifano, E. D. (2020). Online updating method to correct for
+measurement error in big data streams. <em>Computational Statistics
+&amp; Data Analysis</em>, <em>149</em>, 106976.</span> <a
+href="./pdfs/online_MeasurementError.pdf">pdf</a></li>
+<li><span class="citation" data-cites="hu2021most">Hu, G., &amp; Wang,
+H. (2021). Most likely optimal subsampled markov chain monte carlo.
+<em>Journal of Systems Science and Complexity</em>, <em>34</em>(3),
+1121–1134.</span> <a
+href="https://arxiv.org/pdf/2005.11461.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2020optimal"><strong>Wang, H.</strong>, &amp;
+Ma, Y. (2021). <span class="nocase">Optimal subsampling for quantile
+regression in big data</span>. <em>Biometrika</em>, <em>108</em>(1),
+99–112. <a
+href="https://doi.org/10.1093/biomet/asaa043">https://doi.org/10.1093/biomet/asaa043</a></span>
+<a href="https://arxiv.org/pdf/2001.10168.pdf">pdf</a> <a
+href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_quantile/">code</a></li>
+<li><span class="citation" data-cites="wang2019more"><strong>Wang, H.</strong> (2019).
+More efficient estimation for logistic regression with optimal
+subsamples. <em>Journal of Machine Learning Research</em>,
+<em>20</em>(132), 1–59.</span> <a
+href="https://arxiv.org/pdf/1802.02698.pdf">pdf</a> <a
+href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/More_Efficient_Logistic/">code</a></li>
+<li><span class="citation" data-cites="xue2020online">Xue, Y., <strong>Wang, H.</strong>,
+Yan, J., &amp; Schifano, E. D. (2020). An online updating approach for
+testing the proportional hazards assumption with streams of survival
+data. <em>Biometrics</em>, <em>76</em>(1), 171–182. <a
+href="https://doi.org/10.1111/biom.13137">https://doi.org/10.1111/biom.13137</a></span>
+<a href="https://arxiv.org/pdf/1809.01291.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2019divide"><strong>Wang, H.</strong> (2019).
+Divide-and-conquer information-based optimal subdata selection
+algorithm. <em>Journal of Statistical Theory and Practice</em>,
+<em>13</em>(3), 46. <a
+href="https://doi.org/10.1007/s42519-019-0048-5">https://doi.org/10.1007/s42519-019-0048-5</a></span>
+<a href="https://arxiv.org/pdf/1905.09948.pdf">pdf</a> <a
+href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS-DC-Linear/">code</a></li>
+<li><span class="citation" data-cites="ai2018optimal">Ai, M., Yu, J.,
+Zhang, H., &amp; <strong>Wang, H.</strong> (2021). Optimal subsampling algorithms for big
+data regressions. <em>Statistica Sinica</em>, <em>31</em>(2), 749–772.
+<a
+href="https://doi.org/10.5705/ss.202018.0439">https://doi.org/10.5705/ss.202018.0439</a></span>
+<a href="https://arxiv.org/pdf/1806.06761.pdf">pdf</a></li>
+<li><span class="citation" data-cites="yao2019optimal">Yao, Y., &amp;
+<strong>Wang, H.</strong> (2019). Optimal subsampling for softmax regression.
+<em>Statistical Papers</em>, <em>60</em>(2), 235–249.</span> <a
+href="./pdfs/SoftmaxSP.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangYangStufken2019"><strong>Wang, H.</strong>,
+Yang, M., &amp; Stufken, J. (2019). Information-based optimal subdata
+selection for big data linear regression. <em>Journal of the American
+Statistical Association</em>, <em>114</em>(525), 393–405.</span> <a
+href="./pdfs/IBOSS_Linear.pdf">pdf</a> <a
+href="https://github.com/Ossifragus/IBOSS">R Package</a> <a
+href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/IBOSS/">R
+code</a></li>
+<li><span class="citation" data-cites="WangZhuMa2018"><strong>Wang, H.</strong>, Zhu, R.,
+&amp; Ma, P. (2018). Optimal subsampling for large sample logistic
+regression. <em>Journal of the American Statistical Association</em>,
+<em>113</em>(522), 829–844.</span> <a
+href="./pdfs/OSMAC_Logistic.pdf">pdf</a> <a
+href="https://github.com/Ossifragus/OSMAC">R Package</a> <a
+href="https://filedn.com/l3ajGDP3gyLyPFvbUFtvg48/code/OSMAC_logistic/">R
+code</a></li>
+<li><span class="citation" data-cites="zhang2017linear">Zhang, X., Wang,
+H., Ma, Y., &amp; Carroll, R. J. (2017). Linear model selection when
+covariates contain errors. <em>Journal of the American Statistical
+Association</em>, <em>112</em>(520), 1553–1561.</span> <a
+href="./pdfs/LinearErrorJASA.pdf">pdf</a> <a
+href="./pdfs/LinearErrorJASASupplementary.pdf">Supplementary</a></li>
+<li><span class="citation" data-cites="li2016joint">Li, Y., He, X.,
+<strong>Wang, H.</strong>, &amp; Sun, J. (2016). Joint analysis of longitudinal data and
+informative observation times with time-dependent random effects. In
+<em>New developments in statistical modeling, inference and
+application</em> (pp. 37–51). Springer.</span> <a
+href="./pdfs/2016JoingAnalysis.pdf">pdf</a></li>
+<li><span class="citation" data-cites="lane2016conditional">Lane, A.,
+<strong>Wang, H.</strong>, &amp; Flournoy, N. (2016). Conditional inference in two-stage
+adaptive experiments via the bootstrap. In <em><span
+class="nocase">mODa</span> 11-advances in model-oriented design and
+analysis</em> (pp. 173–181). Springer.</span> <a
+href="./pdfs/moda11.pdf">pdf</a></li>
+<li><span class="citation" data-cites="li2016regression">Li, Y., He, X.,
+<strong>Wang, H.</strong>, &amp; Sun, J. (2016). Regression analysis of longitudinal data
+with correlated censoring and observation times. <em>Lifetime Data
+Analysis</em>, <em>22</em>(3), 343–362.</span> <a
+href="./pdfs/CorrCenObs.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2016focused"><strong>Wang, H.</strong>, Chen,
+X., &amp; Flournoy, N. (2016). The focused information criterion for
+varying-coefficient partially linear measurement error models.
+<em>Statistical Papers</em>, <em>57</em>(1), 99–113.</span> <a
+href="./pdfs/fmaBothError.pdf">pdf</a></li>
+<li><span class="citation" data-cites="li2015semiparametric">Li, Y., He,
+X., <strong>Wang, H.</strong>, Zhang, B., &amp; Sun, J. (2015). Semiparametric regression
+of multivariate panel count data with informative observation times.
+<em>Journal of Multivariate Analysis</em>, <em>140</em>, 209–219.</span>
+<a href="./pdfs/MultiPC.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangSchaebenKeidel2015"><strong>Wang, H.</strong>,
+Schaeben, H., &amp; Keidel, F. (2015). Optimized subsampling for
+logistic regression with imbalanced large datasets. <em>Proceeding of
+the 17th Annual Conference of the International Association for
+Mathematical Geosciences</em>, 1113–1119.</span></li>
+<li><span class="citation" data-cites="wang2015consistency"><strong>Wang, H.</strong>,
+&amp; Flournoy, N. (2015). On the consistency of the maximum likelihood
+estimator for the three parameter lognormal distribution. <em>Statistics
+&amp; Probability Letters</em>, <em>105</em>, 57–64.</span> <a
+href="./pdfs/lognormal.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2015focused"><strong>Wang, H.</strong>, Li,
+Y., &amp; Sun, J. (2015). Focused and model average estimation for
+regression analysis of panel count data. <em>Scandinavian Journal of
+Statistics</em>, <em>42</em>(3), 732–745.</span> <a
+href="./pdfs/FMAPC.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2014new"><strong>Wang, H.</strong>, Flournoy,
+N., &amp; Kpamegan, E. (2014). A new bounded log-linear regression
+model. <em>Metrika</em>, <em>77</em>(5), 695–720.</span> <a
+href="./pdfs/BoundedLog-linear.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2013interval"><strong>Wang, H.</strong>, &amp;
+Zhou, S. Z. (2013). Interval estimation by frequentist model averaging.
+<em>Communications in Statistics-Theory and Methods</em>,
+<em>42</em>(23), 4342–4356.</span> <a href="./pdfs/CI.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2013adaptive"><strong>Wang, H.</strong>, Zou,
+G., &amp; Wan, A. T. (2013). Adaptive LASSO for varying-coefficient
+partially linear measurement error models. <em>Journal of Statistical
+Planning and Inference</em>, <em>143</em>(1), 40–54.</span> <a
+href="./pdfs/Alasso.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2013optimal"><strong>Wang, H.</strong>,
+Pepelyshev, A., &amp; Flournoy, N. (2013). Optimal design for the
+bounded log-linear regression model. In <em><span
+class="nocase">mODa</span> 10–advances in model-oriented design and
+analysis</em> (pp. 237–245). Springer.</span> <a
+href="./pdfs/moda10.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2012model"><span
+class="nocase"><strong>Wang, H.</strong>, Zou, G., Wan, A. T., et al.</span> (2012).
+Model averaging for varying-coefficient partially linear measurement
+error models. <em>Electronic Journal of Statistics</em>, <em>6</em>,
+1017–1039.</span> <a href="./pdfs/FMA_VCPLEM.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2012objective"><strong>Wang, H.</strong>,
+&amp; Sun, D. (2012). Objective bayesian analysis for a truncated model.
+<em>Statistics &amp; Probability Letters</em>, <em>82</em>(12),
+2125–2135.</span> <a href="./pdfs/RefNonReg.pdf">pdf</a></li>
+<li><span class="citation" data-cites="WangZou2012"><strong>Wang, H.</strong>, &amp; Zou,
+G. (2012). Frequentist model averaging estimation for linear
+errors-in-variables models (in chinese). <em>Journal of Systems Science
+and Mathematical Science</em>, <em>32</em>(2), 1–14.</span> <a
+href="./pdfs/LinearFMA.pdf">pdf</a></li>
+<li><span class="citation" data-cites="kozak2010stochastic">Kozak, M.,
+&amp; <strong>Wang, H.</strong> (2010). On stochastic optimization in sample allocation
+among strata. <em>Metron</em>, <em>68</em>(1), 95–103.</span> <a
+href="./pdfs/Allocation.pdf">pdf</a></li>
+<li><span class="citation" data-cites="wang2009frequentist"><strong>Wang, H.</strong>,
+Zhang, X., &amp; Zou, G. (2009). Frequentist model averaging estimation:
+A review. <em>Journal of Systems Science and Complexity</em>,
+<em>22</em>(4), 732–748.</span> <a
+href="./pdfs/FrequentistReview.pdf">pdf</a></li>
 </ol>
-</div>
-
-<div id="outline-container-other_publications" class="outline-3">
-<h3 id="other_publications">Collaborative and Other Publications</h3>
-<div class="outline-text-3" id="text-other_publications">
-<ol class="org-ol">
-<li>Asadifakhr, K., Huang, J., Perkins, P., Lucey, K., <strong>Wang, H.</strong>, Han, F., &#38; Mo, W. (2026). Bridging priorities: Stakeholder preferences, networks, and barriers in road-stream crossing management. <i>Plos One</i>, <i>21</i>(1), 1–16. <a href="https://doi.org/10.1371/journal.pone.0339740">https://doi.org/10.1371/journal.pone.0339740</a></li>
-<li><strong>Wang, H.</strong>, Deng, X., Lin, D., Chen, M.-H., Xie, M.-g., &#38; Wu, J. (2023). Editorial. design and analysis of experiments for data science. <i>The New England Journal of Statistics in Data Science</i>, <i>1</i>(3), 297–298. <a href="https://doi.org/10.51387/23-NEJSDS13EDI">https://doi.org/10.51387/23-NEJSDS13EDI</a> <a href="https://nejsds.nestat.org/journal/NEJSDS/article/58/file/pdf">pdf</a></li>
-<li>Dey, D. K., Chen, M.-H., Xie, M.-g., <strong>Wang, H.</strong>, &#38; Wu, J. (2023). Editorial. modern bayesian methods with applications in data science. <i>The New England Journal of Statistics in Data Science</i>, <i>1</i>(2), 123–125. <a href="https://doi.org/10.51387/23-NEJSDS12EDI">https://doi.org/10.51387/23-NEJSDS12EDI</a> <a href="https://nejsds.nestat.org/journal/NEJSDS/article/55/file/pdf">pdf</a></li>
-<li>Wu, C. O., Chen, M.-H., Xie, M.-g., <strong>Wang, H.</strong>, &#38; Wu, J. (2023). Inaugural editorial. can we achieve our mission: Fast, accessible, cutting-edge, and top-quality? <i>The New England Journal of Statistics in Data Science</i>, <i>1</i>(1), 1–3. <a href="https://doi.org/10.51387/23-NEJSDS11EDI">https://doi.org/10.51387/23-NEJSDS11EDI</a> <a href="https://nejsds.nestat.org/journal/NEJSDS/article/29/file/pdf">pdf</a></li>
-<li>Jakositz, S., Ghasemi, R., McGreavy, B., <strong>Wang, H.</strong>, Greenwood, S., &#38; Mo, W. (2022). Tap water lead monitoring through citizen science: The influence of socioeconomics and participation on environmental literacy, behavior, and communication. <i>Journal of Environmental Engineering</i>, <i>148</i>(10), 04022060. <a href="https://doi.org/10.1061/(ASCE)EE.1943-7870.0002055">https://doi.org/10.1061/(ASCE)EE.1943-7870.0002055</a></li>
-<li>Zhou, Y., Qiu, L., <strong>Wang, H.</strong>, &#38; Chen, X. (2020). Induction of activity synchronization among primed hippocampal neurons out of random dynamics is key for trace memory formation and retrieval. <i>The Faseb Journal</i>, <i>34</i>(3), 3658–3676. <a href="https://doi.org/10.1096/fj.201902274R">https://doi.org/10.1096/fj.201902274R</a></li>
-<li>Zhou, Y., Qiu, L., Sterpka, A., <strong>Wang, H.</strong>, Chu, F., &#38; Chen, X. (2019). Comparative phosphoproteomic profiling of type III adenylyl cyclase knockout and control, male, and female mice. <i>Frontiers in Cellular Neuroscience</i>, <i>13</i>, 34.</li>
-<li>Stang, S., <strong>Wang, H.</strong>, Gardner, K. H., &#38; Mo, W. (2018). Influences of water quality and climate on the water-energy nexus: A spatial comparison of two water systems. <i>Journal of Environmental Management</i>, <i>218</i>, 613–621.</li>
-<li>Mo, W., <strong>Wang, H.</strong>, &#38; Jacobs, J. M. (2016). Understanding the influence of climate change on the embodied energy of water supply. <i>Water Research</i>, <i>95</i>, 220–229.</li>
-<li>Feng, S., Ding, W., <strong>Wang, H.</strong>, Yu, Z., Chen, Y., Zhang, Y., &#38; Xiao, H. (2008). Sampling procedures for inspection by attributes-part 3: Skip-lot sampling procedures (in chinese). <i>Chinese National Standard, Gb/T2828.3-2008.</i></li>
+<h2 id="other_publications">Collaborative and Other Publications</h2>
+<ol>
+<li><span class="citation" data-cites="journal.pone.0339740">Asadifakhr,
+J. A. P., Koorosh AND Huang. (2026). Bridging priorities: Stakeholder
+preferences, networks, and barriers in road-stream crossing management.
+<em>PLOS ONE</em>, <em>21</em>(1), 1–16. <a
+href="https://doi.org/10.1371/journal.pone.0339740">https://doi.org/10.1371/journal.pone.0339740</a></span></li>
+<li><span class="citation"
+data-cites="wang_deng_lin_chen_xie_wu_2023"><strong>Wang, H.</strong>, Deng, X., Lin, D.,
+Chen, M.-H., Xie, M., &amp; Wu, J. (2023). Editorial. Design and
+analysis of experiments for data science. <em>The New England Journal of
+Statistics in Data Science</em>, <em>1</em>(3), 297–298. <a
+href="https://doi.org/10.51387/23-NEJSDS13EDI">https://doi.org/10.51387/23-NEJSDS13EDI</a></span>
+<a
+href="https://nejsds.nestat.org/journal/NEJSDS/article/58/file/pdf">pdf</a></li>
+<li><span class="citation" data-cites="dey_chen_xie_wang_wu_2023">Dey,
+D. K., Chen, M.-H., Xie, M., <strong>Wang, H.</strong>, &amp; Wu, J. (2023). Editorial.
+Modern bayesian methods with applications in data science. <em>The New
+England Journal of Statistics in Data Science</em>, <em>1</em>(2),
+123–125. <a
+href="https://doi.org/10.51387/23-NEJSDS12EDI">https://doi.org/10.51387/23-NEJSDS12EDI</a></span>
+<a
+href="https://nejsds.nestat.org/journal/NEJSDS/article/55/file/pdf">pdf</a></li>
+<li><span class="citation" data-cites="wu_chen_xie_wang_wu_2023">Wu, C.
+O., Chen, M.-H., Xie, M., <strong>Wang, H.</strong>, &amp; Wu, J. (2023). Inaugural
+editorial. Can we achieve our mission: Fast, accessible, cutting-edge,
+and top-quality? <em>The New England Journal of Statistics in Data
+Science</em>, <em>1</em>(1), 1–3. <a
+href="https://doi.org/10.51387/23-NEJSDS11EDI">https://doi.org/10.51387/23-NEJSDS11EDI</a></span>
+<a
+href="https://nejsds.nestat.org/journal/NEJSDS/article/29/file/pdf">pdf</a></li>
+<li><span class="citation" data-cites="EEENG6839">Jakositz, S., Ghasemi,
+R., McGreavy, B., <strong>Wang, H.</strong>, Greenwood, S., &amp; Mo, W. (2022). Tap
+water lead monitoring through citizen science: The influence of
+socioeconomics and participation on environmental literacy, behavior,
+and communication. <em>Journal of Environmental Engineering</em>,
+<em>148</em>(10), 04022060. <a
+href="https://doi.org/10.1061/(ASCE)EE.1943-7870.0002055">https://doi.org/10.1061/(ASCE)EE.1943-7870.0002055</a></span></li>
+<li><span class="citation" data-cites="zhou2020induction">Zhou, Y., Qiu,
+L., <strong>Wang, H.</strong>, &amp; Chen, X. (2020). Induction of activity
+synchronization among primed hippocampal neurons out of random dynamics
+is key for trace memory formation and retrieval. <em>The FASEB
+Journal</em>, <em>34</em>(3), 3658–3676. <a
+href="https://doi.org/10.1096/fj.201902274R">https://doi.org/10.1096/fj.201902274R</a></span></li>
+<li><span class="citation" data-cites="zhou2019comparative">Zhou, Y.,
+Qiu, L., Sterpka, A., <strong>Wang, H.</strong>, Chu, F., &amp; Chen, X. (2019).
+Comparative phosphoproteomic profiling of type <span>III</span> adenylyl
+cyclase knockout and control, male, and female mice. <em>Frontiers in
+Cellular Neuroscience</em>, <em>13</em>, 34.</span></li>
+<li><span class="citation" data-cites="stang2018influences">Stang, S.,
+<strong>Wang, H.</strong>, Gardner, K. H., &amp; Mo, W. (2018). Influences of water
+quality and climate on the water-energy nexus: A spatial comparison of
+two water systems. <em>Journal of Environmental Management</em>,
+<em>218</em>, 613–621.</span></li>
+<li><span class="citation" data-cites="mo2016understanding">Mo, W.,
+<strong>Wang, H.</strong>, &amp; Jacobs, J. M. (2016). Understanding the influence of
+climate change on the embodied energy of water supply. <em>Water
+Research</em>, <em>95</em>, 220–229.</span></li>
+<li><span class="citation" data-cites="FengWang2008">Feng, S., Ding, W.,
+<strong>Wang, H.</strong>, Yu, Z., Chen, Y., Zhang, Y., &amp; Xiao, H. (2008). Sampling
+procedures for inspection by attributes-part 3: Skip-lot sampling
+procedures (in chinese). <em>Chinese National Standard,
+GB/T2828.3-2008.</em></span></li>
 </ol>
-</div>
-</div>
-</div>
-
-<div id="outline-container-teaching" class="outline-2">
-<h2 id="teaching">Teaching</h2>
-<div class="outline-text-2" id="text-teaching">
-<ul class="org-ul">
-<li><b>At the University of Missouri</b>
-
-<ul class="org-ul">
-<li>Statistics 1200 - Introductory Statistical Reasoning (3cr.), Fall 2010, Spring 2011, Fall 2011</li>
-<li>Statistics 2500 - Introductory to probability and statistics I (3cr.), Spring 2012</li>
-<li>Statistics 3500 - Introductory to probability and statistics II (3cr.), Fall 2012, Spring 2013</li>
+<h1 id="teaching">Teaching</h1>
+<ul>
+<li><p><strong>At the University of Missouri</strong></p>
+<ul>
+<li>Statistics 1200 - Introductory Statistical Reasoning (3cr.), Fall
+2010, Spring 2011, Fall 2011</li>
+<li>Statistics 2500 - Introductory to probability and statistics I
+(3cr.), Spring 2012</li>
+<li>Statistics 3500 - Introductory to probability and statistics II
+(3cr.), Fall 2012, Spring 2013</li>
 </ul></li>
-
-<li><b>At the University of New Hampshire</b>
-
-<ul class="org-ul">
-<li>Math 539 - Introduction to Statistical Analysis (4cr.), Fall 2014</li>
-<li>Math 644 - Statistics for Engineers and Scientists (4cr.), Fall 2013, Spring 2014, Fall 2014</li>
-<li>Math 736/836 - Advanced Statistical Methods for Research (4cr.), Spring 2014, Spring 2015, Spring 2016</li>
+<li><p><strong>At the University of New Hampshire</strong></p>
+<ul>
+<li>Math 539 - Introduction to Statistical Analysis (4cr.), Fall
+2014</li>
+<li>Math 644 - Statistics for Engineers and Scientists (4cr.), Fall
+2013, Spring 2014, Fall 2014</li>
+<li>Math 736/836 - Advanced Statistical Methods for Research (4cr.),
+Spring 2014, Spring 2015, Spring 2016</li>
 <li>Math 739/839 - Applied Regression Analysis (4cr.), Fall 2016</li>
-<li>Math 755/855 - Probability with Applications (4cr.), Fall 2015, Fall 2016</li>
-<li>Math 756/856 - Principles of Statistical Inference (4cr.), Spring 2016, Spring 2017</li>
-<li>Math 969 - Topics in Probability and Statistics (3cr.), Spring 2017</li>
+<li>Math 755/855 - Probability with Applications (4cr.), Fall 2015, Fall
+2016</li>
+<li>Math 756/856 - Principles of Statistical Inference (4cr.), Spring
+2016, Spring 2017</li>
+<li>Math 969 - Topics in Probability and Statistics (3cr.), Spring
+2017</li>
 </ul></li>
-
-<li><b>At the University of Connecticut</b>
-
-<ul class="org-ul">
+<li><p><strong>At the University of Connecticut</strong></p>
+<ul>
 <li>STAT 3115Q - Analysis of Experiments (3cr.), Spring, 2018</li>
-<li>STAT 5125 - Computing for Statistical Data Science (3cr. in <a href="https://julialang.org/">julia</a>), Fall 2021, Spring 2022</li>
-<li>BIST/STAT 5535: Nonparametric Methods (3cr. using <a href="https://julialang.org/">julia</a>) Fall 2018, 2020, 2021</li>
-<li>BIST/STAT 5505 - Applied Statistics I (3cr.), Fall 2017, 2018, 2019</li>
-<li>BIST/STAT 5605 - Applied Statistics II (3cr.), Spring 2019, 2020</li>
-<li>BIST/STAT 6494: Statistical Inference for Big Data (3cr.) Spring 2018</li>
+<li>STAT 5125 - Computing for Statistical Data Science (3cr. in <a
+href="https://julialang.org/">julia</a>), Fall 2021, Spring 2022</li>
+<li>BIST/STAT 5535: Nonparametric Methods (3cr. using <a
+href="https://julialang.org/">julia</a>) Fall 2018, 2020, 2021</li>
+<li>BIST/STAT 5505 - Applied Statistics I (3cr.), Fall 2017, 2018,
+2019</li>
+<li>BIST/STAT 5605 - Applied Statistics II (3cr.), Spring 2019,
+2020</li>
+<li>BIST/STAT 6494: Statistical Inference for Big Data (3cr.) Spring
+2018</li>
 </ul></li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-professional_service" class="outline-2">
-<h2 id="professional_service">Professional Service</h2>
-<div class="outline-text-2" id="text-professional_service">
-<ul class="org-ul">
-<li>Associate Editor, 2023 - present, <a href="https://www3.stat.sinica.edu.tw/statistica/">Statistica Sinica</a></li>
-<li>Associate Editor, 2022 - present, <a href="https://www.springer.com/journal/13571">Sankhya B</a></li>
-<li>Associate Editor, 2022 - present, <a href="https://www.intlpress.com/site/pub/pages/journals/items/sii/_home/_main/index.php">Statistics and Its Interface</a></li>
-<li>Managing Editor, 2021 - present,  <a href="https://journal.nestat.org/">New England Journal of Statistics in Data Science</a></li>
+<h1 id="professional_service">Professional Service</h1>
+<ul>
+<li>Associate Editor, 2023 - present, <a
+href="https://www3.stat.sinica.edu.tw/statistica/">Statistica
+Sinica</a></li>
+<li>Associate Editor, 2022 - present, <a
+href="https://www.springer.com/journal/13571">Sankhya B</a></li>
+<li>Associate Editor, 2022 - present, <a
+href="https://www.intlpress.com/site/pub/pages/journals/items/sii/_home/_main/index.php">Statistics
+and Its Interface</a></li>
+<li>Managing Editor, 2021 - present, <a
+href="https://journal.nestat.org/">New England Journal of Statistics in
+Data Science</a></li>
 </ul>
-</div>
-</div>
-<div id="outline-container-membership" class="outline-2">
-<h2 id="membership">Membership</h2>
-<div class="outline-text-2" id="text-membership">
-<ul class="org-ul">
-<li><a href="http://www.amstat.org/">American Statistical Association</a></li>
-<li><a href="http://www.imstat.org/">Institute of Mathematical Statistics</a></li>
-<li><a href="http://www.icsa.org/">International Chinese Statistical Association</a></li>
-<li><a href="http://www.isi-web.org/">International Statistical Institute</a></li>
-<li><a href="https://nestat.org">New England Statistical Society</a></li>
+<h1 id="membership">Membership</h1>
+<ul>
+<li><a href="http://www.amstat.org/">American Statistical
+Association</a></li>
+<li><a href="http://www.imstat.org/">Institute of Mathematical
+Statistics</a></li>
+<li><a href="http://www.icsa.org/">International Chinese Statistical
+Association</a></li>
+<li><a href="http://www.isi-web.org/">International Statistical
+Institute</a></li>
+<li><a href="https://nestat.org">New England Statistical
+Society</a></li>
 </ul>
-</div>
-</div>
-</div>
 </body>
 </html>

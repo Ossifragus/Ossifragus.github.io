@@ -1,4 +1,302 @@
-li{
-  /* margin: 10px 0; */
-	margin-bottom: 9px;
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --bg-color: #ffffff;
+  --text-color: #24292f;
+  --text-muted: #57606a;
+  --heading-color: #1f2328;
+  --link-color: #0969da;
+  --link-hover: #1a7f37;
+  --card-bg: #ffffff;
+  --border-color: #d0d7de;
+  --badge-bg: #f6f8fa;
+  --badge-border: #d0d7de;
+  --badge-text: #0969da;
+  --badge-hover-bg: #24292f;
+  --badge-hover-text: #ffffff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  background-color: #ffffff;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #ffffff;
+  color: var(--text-color);
+  line-height: 1.68;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem 1.5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide default Pandoc title block header */
+#title-block-header, .title {
+  display: none;
+}
+
+/* Links */
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  color: var(--heading-color);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-top: 2.75rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1.5px solid var(--border-color);
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.65rem;
+}
+
+p {
+  margin: 0.85rem 0;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 1.6rem;
+  margin: 0.85rem 0;
+}
+
+li {
+  margin-bottom: 0.65rem;
+}
+
+strong {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+/* Profile Section */
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 1rem 0 2.5rem 0;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.profile-photo-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.photo-wrapper {
+  width: 270px;
+  height: 330px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.photo-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.photo-nav {
+  margin-top: 0.85rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.photo-nav button {
+  background-color: #ffffff;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 5px 15px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.15s ease-in-out;
+}
+
+.photo-nav button:hover {
+  background-color: #f6f8fa;
+  border-color: #8c959f;
+}
+
+.profile-info-col {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin: 0 0 0.85rem 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  color: var(--heading-color);
+}
+
+.chinese-name {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+}
+
+.profile-details {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.profile-details p {
+  margin: 0.4rem 0;
+}
+
+.profile-details .email-box {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+/* Publications list & badges */
+ol {
+  list-style-type: decimal;
+}
+
+ol li {
+  margin-bottom: 0.95rem;
+  line-height: 1.65;
+}
+
+ol li p {
+  margin: 0;
+  display: inline;
+}
+
+/* Badge styling for publication links ([pdf], [code], [R Package], etc.) */
+ol li a[href$=".pdf"],
+ol li a[href*="arxiv.org"],
+ol li a[href*="github.com"],
+ol li a[href*="filedn.com"],
+ol li a[href*="rdcu.be"],
+ol li a[href*="proceedings.neurips.cc"],
+ol li a[href*="proceedings.mlr.press"],
+ol li a[href*="doi.org"] {
+  display: inline-block;
+  padding: 0.12em 0.55em;
+  font-size: 0.82em;
+  font-weight: 500;
+  line-height: 1.3;
+  border-radius: 4px;
+  background-color: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  color: var(--badge-text);
+  text-decoration: none;
+  margin: 0 0.2em;
+  vertical-align: baseline;
+  transition: all 0.15s ease;
+}
+
+ol li a[href$=".pdf"]:hover,
+ol li a[href*="arxiv.org"]:hover,
+ol li a[href*="github.com"]:hover,
+ol li a[href*="filedn.com"]:hover,
+ol li a[href*="rdcu.be"]:hover,
+ol li a[href*="proceedings.neurips.cc"]:hover,
+ol li a[href*="proceedings.mlr.press"]:hover,
+ol li a[href*="doi.org"]:hover {
+  background-color: var(--badge-hover-bg);
+  color: var(--badge-hover-text);
+  border-color: var(--badge-hover-bg);
+  text-decoration: none;
+}
+
+/* Responsive design */
+@media (max-width: 720px) {
+  body {
+    padding: 1.5rem 1rem 3.5rem 1rem;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .photo-wrapper {
+    width: 240px;
+    height: 300px;
+  }
+
+  .profile-details .email-box {
+    text-align: left;
+    display: inline-block;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    max-width: 100%;
+    padding: 0;
+    color: #000000;
+    background: #ffffff;
+  }
+
+  .profile-card {
+    border: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .photo-nav {
+    display: none;
+  }
+
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
 }
