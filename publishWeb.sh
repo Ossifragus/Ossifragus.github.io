@@ -12,5 +12,5 @@ pandoc index.org \
   --css=style/myorg.css \
   -s -o public/index.html
 
-sed -i 's/Wang, H\./<strong>Wang, H.<\/strong>/g' public/index.html
+perl -0777 -i -pe 's/(?<!<strong>)Wang,(\s+)H\.(?!<\/strong>)/<strong>Wang,$1H.<\/strong>/g' public/index.html
 sed -i 's/style\/myorg\.css/style\/myorg\.css?v=6/g' public/index.html
