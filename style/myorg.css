@@ -123,21 +123,19 @@ strong {
 }
 
 .photo-wrapper {
-  width: 270px;
-  height: 330px;
+  height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  overflow: hidden;
 }
 
-.photo-wrapper img {
+.photo-wrapper img, #img {
+  height: 350px !important;
+  width: auto;
   max-width: 100%;
-  max-height: 100%;
   object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
   display: block;
 }
 
@@ -266,8 +264,13 @@ ol li a[href*="doi.org"]:hover {
   }
 
   .photo-wrapper {
-    width: 240px;
-    height: 300px;
+    height: auto;
+  }
+
+  .photo-wrapper img, #img {
+    height: auto !important;
+    max-height: 320px;
+    max-width: 100%;
   }
 
   .profile-details .email-box {
