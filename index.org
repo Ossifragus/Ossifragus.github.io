@@ -8,6 +8,7 @@
 #+BIBLIOGRAPHY: papers.bib
 #+CITE_EXPORT:  csl APA-CV.csl
 
+:PROFILE:
 #+BEGIN_EXPORT html
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -71,6 +72,7 @@
   </div>
 </div>
 #+END_EXPORT
+:END:
 
 * About Me
 :PROPERTIES:
