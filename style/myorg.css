@@ -33,7 +33,7 @@ body {
   line-height: 1.68;
   max-width: 960px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 5rem 1.5rem;
+  padding: 2rem 1.5rem 5rem 1.5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -63,24 +63,24 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 1.6rem;
-  margin-top: 2.75rem;
-  margin-bottom: 1.1rem;
-  padding-bottom: 0.45rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
   border-bottom: 1.5px solid var(--border-color);
 }
 
 h2 {
   font-size: 1.3rem;
-  margin-top: 2.2rem;
-  margin-bottom: 0.85rem;
-  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid var(--border-color);
 }
 
 h3 {
   font-size: 1.1rem;
-  margin-top: 1.75rem;
-  margin-bottom: 0.65rem;
+  margin-top: 1.6rem;
+  margin-bottom: 0.6rem;
 }
 
 p {
@@ -102,17 +102,16 @@ strong {
   color: var(--heading-color);
 }
 
-/* Profile Section */
+/* Profile Section: Clean, borderless, seamless on the page */
 .profile-card {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 2.5rem;
-  margin: 1rem 0 2.5rem 0;
-  padding: 1.5rem 2rem;
-  background-color: #ffffff;
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+  align-items: flex-start;
+  gap: 1.75rem;
+  margin: 0.5rem 0 2rem 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
 }
 
 /* Fixed photo column: stays 480px wide so right column NEVER moves */
@@ -121,16 +120,16 @@ strong {
   flex: 0 0 480px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
-/* Fixed 480x350 box where portrait and landscape images are centered */
+/* 480x350 region: photo starts flush at left edge without container box */
 .photo-wrapper {
   width: 480px;
   height: 350px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .photo-wrapper img, #img {
@@ -138,15 +137,14 @@ strong {
   width: auto;
   max-width: 480px;
   object-fit: contain;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+  border: none;
   display: block;
 }
 
 .photo-nav {
-  margin-top: 0.85rem;
+  margin-top: 0.5rem;
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .photo-nav button {
@@ -154,7 +152,7 @@ strong {
   color: var(--text-color);
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  padding: 5px 15px;
+  padding: 4px 14px;
   font-size: 0.85rem;
   cursor: pointer;
   font-family: inherit;
@@ -167,15 +165,17 @@ strong {
   border-color: #8c959f;
 }
 
+/* Profile Info Column */
 .profile-info-col {
   flex: 1;
   min-width: 0;
+  padding-top: 0.2rem;
 }
 
 .profile-name {
   font-size: 1.65rem;
   font-weight: 700;
-  margin: 0 0 0.85rem 0;
+  margin: 0 0 0.5rem 0;
   padding-bottom: 0;
   border-bottom: none;
   color: var(--heading-color);
@@ -190,17 +190,16 @@ strong {
 
 .profile-details {
   font-size: 0.98rem;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .profile-details p {
-  margin: 0.4rem 0;
+  margin: 0.25rem 0;
 }
 
 .profile-details .email-box {
-  margin-top: 0.85rem;
-  padding-top: 0.85rem;
-  border-top: 1px dashed var(--border-color);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 /* Publications list & badges */
@@ -265,18 +264,19 @@ ol li a[href*="doi.org"]:hover {
   .profile-card {
     flex-direction: column;
     text-align: center;
-    gap: 1.5rem;
-    padding: 1.5rem 1.25rem;
+    gap: 1.25rem;
   }
 
   .profile-photo-col {
     width: 100%;
     flex: 0 0 auto;
+    align-items: center;
   }
 
   .photo-wrapper {
     width: 100%;
     height: auto;
+    justify-content: center;
   }
 
   .photo-wrapper img, #img {
